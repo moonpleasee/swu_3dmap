@@ -1,0 +1,422 @@
+[
+  {
+    "title": "雨僧楼（第1教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2395.htm",
+    "locatedFeature": "368605820"
+  },
+  {
+    "title": "兰华楼（第2教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2394.htm",
+    "locatedFeature": "843465224"
+  },
+  {
+    "title": "绩镛楼（第3教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2393.htm",
+    "locatedFeature": "843465275"
+  },
+  {
+    "title": "咏修楼A栋（第4教学楼A栋）",
+    "url": "https://www.swu.edu.cn/info/1153/2392.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "咏修楼B栋（第4教学楼B栋）",
+    "url": "https://www.swu.edu.cn/info/1153/16911.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "弘礼楼（第5教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2376.htm",
+    "locatedFeature": "843465314"
+  },
+  {
+    "title": "师元楼（第6教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2333.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "修业楼（第7教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2345.htm",
+    "locatedFeature": "843421764"
+  },
+  {
+    "title": "敬德楼（第8教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2368.htm",
+    "locatedFeature": "843421763"
+  },
+  {
+    "title": "荟文楼A栋（第9教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2349.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "荟文楼B栋（第10教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/16887.htm",
+    "locatedFeature": "843465255"
+  },
+  {
+    "title": "田家炳教育书院（第11教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2334.htm",
+    "locatedFeature": "368605817"
+  },
+  {
+    "title": "弘学楼（第12教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2353.htm",
+    "locatedFeature": "843465225"
+  },
+  {
+    "title": "立惠楼（第13教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2391.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "白南楼（第14教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2390.htm",
+    "locatedFeature": "843421766"
+  },
+  {
+    "title": "至美楼（第15教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/16901.htm",
+    "locatedFeature": "843421773"
+  },
+  {
+    "title": "求实楼（第16教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2354.htm",
+    "locatedFeature": "843421823"
+  },
+  {
+    "title": "漱溟楼（第17教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2389.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "弘行楼（第18教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2352.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "厚乐楼A栋（第19教学楼A栋）",
+    "url": "https://www.swu.edu.cn/info/1153/16902.htm",
+    "locatedFeature": "843421759"
+  },
+  {
+    "title": "厚乐楼B栋（第19教学楼B栋）",
+    "url": "https://www.swu.edu.cn/info/1153/16903.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "行健楼（第20教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/16904.htm",
+    "locatedFeature": "842765846"
+  },
+  {
+    "title": "弘智楼（第21教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2356.htm",
+    "locatedFeature": "r13814006"
+  },
+  {
+    "title": "实德楼A栋（第22教学楼A栋）",
+    "url": "https://www.swu.edu.cn/info/1153/2367.htm",
+    "locatedFeature": "843421731"
+  },
+  {
+    "title": "实德楼B栋（第22教学楼B栋）",
+    "url": "https://www.swu.edu.cn/info/1153/16886.htm",
+    "locatedFeature": "842765837"
+  },
+  {
+    "title": "润心楼（第23教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2360.htm",
+    "locatedFeature": "843465313"
+  },
+  {
+    "title": "启智楼（第24教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2361.htm",
+    "locatedFeature": "350242130"
+  },
+  {
+    "title": "明德楼（第25教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2366.htm",
+    "locatedFeature": "843465238"
+  },
+  {
+    "title": "弘诚楼（第26教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2374.htm",
+    "locatedFeature": "210254156"
+  },
+  {
+    "title": "弘信楼（第27教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2373.htm",
+    "locatedFeature": "210254155"
+  },
+  {
+    "title": "弘义楼（第28教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2375.htm",
+    "locatedFeature": "210254157"
+  },
+  {
+    "title": "伴月楼（第29教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2332.htm",
+    "locatedFeature": "843465226"
+  },
+  {
+    "title": "阳初楼（第30教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2388.htm",
+    "locatedFeature": "r11548065"
+  },
+  {
+    "title": "兆畦楼（第31教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2387.htm",
+    "locatedFeature": "r11546904"
+  },
+  {
+    "title": "弘勤楼（第32教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2372.htm",
+    "locatedFeature": "925243974"
+  },
+  {
+    "title": "同庆楼（第33教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2386.htm",
+    "locatedFeature": "305935504"
+  },
+  {
+    "title": "书楠楼（第34教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2385.htm",
+    "locatedFeature": "305935503"
+  },
+  {
+    "title": "逸夫楼（第35教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2331.htm",
+    "locatedFeature": "304932135"
+  },
+  {
+    "title": "含弘楼（第36教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2351.htm",
+    "locatedFeature": "371876810"
+  },
+  {
+    "title": "弘朴楼（第37教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2371.htm",
+    "locatedFeature": "304932137"
+  },
+  {
+    "title": "明辨楼（第38教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2341.htm",
+    "locatedFeature": "840894874"
+  },
+  {
+    "title": "弘忠楼（第39教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2370.htm",
+    "locatedFeature": "305935506"
+  },
+  {
+    "title": "弘实楼（第40教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2369.htm",
+    "locatedFeature": "840969992"
+  },
+  {
+    "title": "世俊楼（第41教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2384.htm",
+    "locatedFeature": "840894884"
+  },
+  {
+    "title": "博学楼（第42教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2343.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "隆平楼（第43教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2383.htm",
+    "locatedFeature": "r12528369"
+  },
+  {
+    "title": "蚕学宫（第44教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/16894.htm",
+    "locatedFeature": "368578309"
+  },
+  {
+    "title": "天予楼（第45教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2382.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "荟贤楼（第46教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2347.htm",
+    "locatedFeature": "925243968"
+  },
+  {
+    "title": "棉研楼（第47教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/16895.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "弘新楼（第48教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2357.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "勤学楼（第49教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2359.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "笃行楼（第50教学楼）",
+    "url": "https://www.swu.edu.cn/info/1153/2358.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "行署楼A栋",
+    "url": "https://www.swu.edu.cn/info/1153/2336.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "行署楼B栋",
+    "url": "https://www.swu.edu.cn/info/1153/2335.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "同心楼",
+    "url": "https://www.swu.edu.cn/info/1153/16905.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "文俊楼",
+    "url": "https://www.swu.edu.cn/info/1153/2381.htm",
+    "locatedFeature": "r5477110"
+  },
+  {
+    "title": "八一楼",
+    "url": "https://www.swu.edu.cn/info/1153/16899.htm",
+    "locatedFeature": "368589379"
+  },
+  {
+    "title": "厚生楼",
+    "url": "https://www.swu.edu.cn/info/1153/16913.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "文华楼A栋",
+    "url": "https://www.swu.edu.cn/info/1153/2340.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "文华楼B栋",
+    "url": "https://www.swu.edu.cn/info/1153/16888.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "紫藤苑",
+    "url": "https://www.swu.edu.cn/info/1153/2313.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "紫云楼",
+    "url": "https://www.swu.edu.cn/info/1153/16910.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "中心图书馆",
+    "url": "https://www.swu.edu.cn/info/1153/16912.htm",
+    "locatedFeature": "350242168"
+  },
+  {
+    "title": "弘文楼A栋",
+    "url": "https://www.swu.edu.cn/info/1153/16889.htm",
+    "locatedFeature": "843421780"
+  },
+  {
+    "title": "弘文楼B栋",
+    "url": "https://www.swu.edu.cn/info/1153/16890.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "崇实图书馆",
+    "url": "https://www.swu.edu.cn/info/1153/16891.htm",
+    "locatedFeature": "r11564781"
+  },
+  {
+    "title": "光大礼堂",
+    "url": "https://www.swu.edu.cn/info/1153/2350.htm",
+    "locatedFeature": "368589378"
+  },
+  {
+    "title": "鉴知楼",
+    "url": "https://www.swu.edu.cn/info/1153/2344.htm",
+    "locatedFeature": "842727309"
+  },
+  {
+    "title": "光炯楼",
+    "url": "https://www.swu.edu.cn/info/1153/2379.htm",
+    "locatedFeature": "840894871"
+  },
+  {
+    "title": "君展楼",
+    "url": "https://www.swu.edu.cn/info/1153/2380.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "作孚楼",
+    "url": "https://www.swu.edu.cn/info/1153/2378.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "说乎斋",
+    "url": "https://www.swu.edu.cn/info/1153/16900.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "永青楼",
+    "url": "https://www.swu.edu.cn/info/1153/2377.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "润德楼",
+    "url": "https://www.swu.edu.cn/info/1153/2365.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "厚德楼",
+    "url": "https://www.swu.edu.cn/info/1153/2364.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "恒德楼",
+    "url": "https://www.swu.edu.cn/info/1153/2363.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "懿德楼",
+    "url": "https://www.swu.edu.cn/info/1153/2362.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "干训楼",
+    "url": "https://www.swu.edu.cn/info/1153/16906.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "出版大楼",
+    "url": "https://www.swu.edu.cn/info/1153/16907.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "博雅苑",
+    "url": "https://www.swu.edu.cn/info/1153/16914.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "禾丰楼",
+    "url": "https://www.swu.edu.cn/info/1153/16916.htm",
+    "locatedFeature": "843421800"
+  },
+  {
+    "title": "金桂楼",
+    "url": "https://www.swu.edu.cn/info/1153/16908.htm",
+    "locatedFeature": null
+  },
+  {
+    "title": "丹桂楼",
+    "url": "https://www.swu.edu.cn/info/1153/16909.htm",
+    "locatedFeature": null
+  }
+]

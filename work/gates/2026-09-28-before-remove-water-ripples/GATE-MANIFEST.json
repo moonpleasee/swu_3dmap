@@ -1,0 +1,5 @@
+{
+  "created": "2026-09-28",
+  "purpose": "rollback before removing water ripple overlays",
+  "restore": "copy checkpoint files to matching project paths, then npm.cmd run build"
+}

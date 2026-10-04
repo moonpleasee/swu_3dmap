@@ -1,0 +1,10 @@
+{
+  "gate": "2026-09-30-before-road-crossfall-fix-1015",
+  "restore": [
+    "src/scene.js",
+    "HANDOFF.md",
+    "VALIDATION.md",
+    "README.md"
+  ],
+  "note": "Restore these files to undo the road cross-section leveling while keeping prior asphalt color and rounded junction geometry."
+}

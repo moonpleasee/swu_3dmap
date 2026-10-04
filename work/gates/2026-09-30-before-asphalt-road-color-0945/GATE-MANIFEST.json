@@ -1,0 +1,10 @@
+{
+  "gate": "2026-09-30-before-asphalt-road-color-0945",
+  "restore": [
+    "src/scene.js",
+    "HANDOFF.md",
+    "VALIDATION.md",
+    "README.md"
+  ],
+  "note": "Restore these files to undo only the asphalt color change; rounded road geometry remains in this checkpoint."
+}

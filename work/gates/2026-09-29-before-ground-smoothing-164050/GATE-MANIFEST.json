@@ -1,0 +1,6 @@
+{
+  "restore": [
+    "src/terrain.js"
+  ],
+  "then": "npm.cmd run build"
+}

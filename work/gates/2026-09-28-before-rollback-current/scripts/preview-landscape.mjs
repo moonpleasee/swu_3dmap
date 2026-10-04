@@ -1,0 +1,10 @@
+import {chromium} from 'playwright';
+import {mkdirSync} from 'node:fs';
+const root=new URL('..',import.meta.url).pathname.replace(/^\//,'').replaceAll('/','\\');
+mkdirSync(root+'work\\landscape-details',{recursive:true});
+const b=await chromium.launch({channel:'msedge',headless:true});const p=await b.newPage({viewport:{width:1440,height:960}});const errors=[];p.on('pageerror',e=>errors.push(String(e)));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+await p.goto('http://127.0.0.1:4311/',{waitUntil:'networkidle'});await p.waitForTimeout(1600);
+const debug=await p.evaluate(()=>({ready:!!window.__campusDebug,drawCalls:window.__campusDebug?.drawCalls,buildings:window.__campusDebug?.buildingCount}));
+await p.screenshot({path:root+'work\\landscape-details\\campus-landscape.png'});
+await p.goto('http://127.0.0.1:4311/#place=r5522696',{waitUntil:'networkidle'});await p.waitForTimeout(900);const lake=await p.evaluate(()=>({title:document.querySelector('#detail h2')?.textContent,community:!!document.querySelector('.community-panel')}));
+console.log(JSON.stringify({debug,lake,errors}));await b.close();
