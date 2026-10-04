@@ -1,0 +1,7 @@
+{
+  "restore": [
+    "src/road-details.js",
+    "src/water-garden-details.js"
+  ],
+  "instructions": "Restore the two source files to their original paths, then npm.cmd run build. Documentation snapshots kept for reference."
+}

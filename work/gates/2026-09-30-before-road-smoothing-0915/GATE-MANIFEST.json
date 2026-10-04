@@ -1,0 +1,11 @@
+{
+  "gate": "2026-09-30-before-road-smoothing-0915",
+  "source": "C:\\Users\\moonpleasee\\Documents\\Codex\\2026-09-21\\https-wcqqq1214-github-io-gxu-campus\\outputs\\swu-campus-3d.zip",
+  "restore": [
+    "src/scene.js",
+    "HANDOFF.md",
+    "VALIDATION.md",
+    "README.md"
+  ],
+  "note": "Restore these files to return to the pre-road-junction geometry; campus data and terrain are unchanged."
+}

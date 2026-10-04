@@ -1,0 +1,1325 @@
+{
+  "368605820": {
+    "displayName": "雨僧楼 · 1教",
+    "aliases": [
+      "雨僧楼（第1教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "雨僧楼（第1教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2395.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e9e1d0",
+      "roof": "hip",
+      "facade": "regular",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 3,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 3 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843465224": {
+    "displayName": "兰华楼 · 2教",
+    "aliases": [
+      "兰华楼（第2教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "兰华楼（第2教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2394.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e3ddcc",
+      "roof": "hip",
+      "facade": "regular",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 3,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 3 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843465275": {
+    "displayName": "绩镛楼 · 3教",
+    "aliases": [
+      "绩镛楼（第3教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "绩镛楼（第3教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2393.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e7e1cf",
+      "roof": "hip",
+      "facade": "regular",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 4,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 4 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843465314": {
+    "displayName": "弘礼楼 · 5教",
+    "aliases": [
+      "弘礼楼（第5教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘礼楼（第5教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2376.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e9e4d4",
+      "roof": "flat",
+      "facade": "balcony",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 7,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 7 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843421764": {
+    "displayName": "修业楼 · 7教",
+    "aliases": [
+      "修业楼（第7教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "修业楼（第7教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2345.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e4dbc0",
+      "roof": "flat",
+      "facade": "balcony",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 3,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 3 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843421763": {
+    "displayName": "敬德楼 · 8教",
+    "aliases": [
+      "敬德楼（第8教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "敬德楼（第8教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2368.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e4ddca",
+      "roof": "flat",
+      "facade": "regular",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "843465255": {
+    "displayName": "荟文楼B栋 · 10教",
+    "aliases": [
+      "荟文楼B栋（第10教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "荟文楼B栋（第10教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16887.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e1e2d8",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "368605817": {
+    "displayName": "田家炳教育书院 · 11教",
+    "aliases": [
+      "田家炳教育书院（第11教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "田家炳教育书院（第11教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2334.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e7dfcd",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 9,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 9 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843465225": {
+    "displayName": "弘学楼 · 12教",
+    "aliases": [
+      "弘学楼（第12教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘学楼（第12教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2353.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#dddccf",
+      "roof": "flat",
+      "facade": "regular",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 10,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 10 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843421766": {
+    "displayName": "白南楼 · 14教",
+    "aliases": [
+      "白南楼（第14教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "白南楼（第14教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2390.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#dbddda",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 6,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 6 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843421773": {
+    "displayName": "至美楼 · 15教",
+    "aliases": [
+      "至美楼（第15教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "至美楼（第15教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16901.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#ad6753",
+      "roof": "flat",
+      "facade": "frame",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "843421823": {
+    "displayName": "求实楼 · 16教",
+    "aliases": [
+      "求实楼（第16教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "求实楼（第16教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2354.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#ddd8c6",
+      "roof": "flat",
+      "facade": "frame",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "843421759": {
+    "displayName": "厚乐楼A栋 · 19教学楼A栋",
+    "aliases": [
+      "厚乐楼A栋（第19教学楼A栋）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "厚乐楼A栋（第19教学楼A栋） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16902.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e2dfd0",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 7,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 7 层：从公开照片估读，未取得测绘层高。"
+  },
+  "842765846": {
+    "displayName": "行健楼 · 20教",
+    "aliases": [
+      "行健楼（第20教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "行健楼（第20教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16904.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e4e1d3",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "r13814006": {
+    "displayName": "弘智楼 · 21教",
+    "aliases": [
+      "弘智楼（第21教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘智楼（第21教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2356.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#deded5",
+      "roof": "flat",
+      "facade": "frame",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 13,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 13 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843421731": {
+    "displayName": "实德楼A栋 · 22教学楼A栋",
+    "aliases": [
+      "实德楼A栋（第22教学楼A栋）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "实德楼A栋（第22教学楼A栋） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2367.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e1ce98",
+      "roof": "hip",
+      "facade": "regular",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 2,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 2 层：从公开照片估读，未取得测绘层高。"
+  },
+  "842765837": {
+    "displayName": "实德楼B栋 · 22教学楼B栋",
+    "aliases": [
+      "实德楼B栋（第22教学楼B栋）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "实德楼B栋（第22教学楼B栋） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16886.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#ded2b0",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 5,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 5 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843465313": {
+    "displayName": "润心楼 · 23教",
+    "aliases": [
+      "润心楼（第23教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "润心楼（第23教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2360.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e2d8cb",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 6,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 6 层：从公开照片估读，未取得测绘层高。"
+  },
+  "350242130": {
+    "displayName": "启智楼 · 24教",
+    "aliases": [
+      "启智楼（第24教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "启智楼（第24教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2361.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#dfddd0",
+      "roof": "flat",
+      "facade": "frame",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "843465238": {
+    "displayName": "明德楼 · 25教",
+    "aliases": [
+      "明德楼（第25教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "明德楼（第25教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2366.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e0cfa8",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "model": "tower-podium",
+    "heightNote": "地图记录 19 层；低层翼楼按照片简化为 5 层，分区位置为估计。"
+  },
+  "210254156": {
+    "displayName": "弘诚楼 · 26教",
+    "aliases": [
+      "弘诚楼（第26教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘诚楼（第26教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2374.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d5dcda",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "210254155": {
+    "displayName": "弘信楼 · 27教",
+    "aliases": [
+      "弘信楼（第27教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘信楼（第27教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2373.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d9dcd0",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "210254157": {
+    "displayName": "弘义楼 · 28教",
+    "aliases": [
+      "弘义楼（第28教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘义楼（第28教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2375.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d2d8d4",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "843465226": {
+    "displayName": "伴月楼 · 29教",
+    "aliases": [
+      "伴月楼（第29教学楼）",
+      "29",
+      "二十九教",
+      "二十九教学楼",
+      "伴月楼"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "伴月楼（第29教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2332.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d7b563",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "黄色与浅灰色弧形楼体，保留地图所示的开放庭院。学校楼宇目录现名为伴月楼；旧版校区插图所写作孚楼存在冲突，以现行楼宇目录为准。"
+  },
+  "r11548065": {
+    "displayName": "阳初楼 · 30教",
+    "aliases": [
+      "阳初楼（第30教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "阳初楼（第30教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2388.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e3cfaa",
+      "roof": "flat",
+      "facade": "classical",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "r11546904": {
+    "displayName": "兆畦楼 · 31教",
+    "aliases": [
+      "兆畦楼（第31教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "兆畦楼（第31教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2387.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e1e0d0",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "925243974": {
+    "displayName": "弘勤楼 · 32教",
+    "aliases": [
+      "弘勤楼（第32教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘勤楼（第32教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2372.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d9dccc",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 6,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 6 层：从公开照片估读，未取得测绘层高。"
+  },
+  "305935504": {
+    "displayName": "同庆楼 · 33教",
+    "aliases": [
+      "同庆楼（第33教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "同庆楼（第33教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2386.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#ddc7a4",
+      "roof": "flat",
+      "facade": "classical",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "305935503": {
+    "displayName": "书楠楼 · 34教",
+    "aliases": [
+      "书楠楼（第34教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "书楠楼（第34教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2385.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#929a96",
+      "roof": "hip",
+      "facade": "regular",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 4,
+    "height": 1.32,
+    "heightBasis": "photo-estimate",
+    "heightNote": "官方正面照片估读中央约4层、两翼约3层，按3.3米/层示意；不是实测高度。"
+  },
+  "304932135": {
+    "displayName": "逸夫楼 · 35教",
+    "aliases": [
+      "逸夫楼（第35教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "逸夫楼（第35教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2331.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#dfcdae",
+      "roof": "flat",
+      "facade": "classical",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "371876810": {
+    "displayName": "含弘楼 · 36教",
+    "aliases": [
+      "含弘楼（第36教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "含弘楼（第36教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2351.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e6d5b9",
+      "roof": "flat",
+      "facade": "classical",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "304932137": {
+    "displayName": "弘朴楼 · 37教",
+    "aliases": [
+      "弘朴楼（第37教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘朴楼（第37教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2371.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e5d6b1",
+      "roof": "flat",
+      "facade": "balcony",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "840894874": {
+    "displayName": "明辨楼 · 38教",
+    "aliases": [
+      "明辨楼（第38教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "明辨楼（第38教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2341.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e0cba7",
+      "roof": "flat",
+      "facade": "classical",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "305935506": {
+    "displayName": "弘忠楼 · 39教",
+    "aliases": [
+      "弘忠楼（第39教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘忠楼（第39教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2370.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#dcca9d",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "840969992": {
+    "displayName": "弘实楼 · 40教",
+    "aliases": [
+      "弘实楼（第40教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘实楼（第40教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2369.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d7d4c3",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "840894884": {
+    "displayName": "世俊楼 · 41教",
+    "aliases": [
+      "世俊楼（第41教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "世俊楼（第41教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2384.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d7cfaa",
+      "roof": "flat",
+      "facade": "regular",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "r12528369": {
+    "displayName": "隆平楼 · 43教",
+    "aliases": [
+      "隆平楼（第43教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "隆平楼（第43教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2383.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#ded1ae",
+      "roof": "flat",
+      "facade": "regular",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "368578309": {
+    "displayName": "蚕学宫 · 44教",
+    "aliases": [
+      "蚕学宫（第44教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "蚕学宫（第44教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16894.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#bfc9b9",
+      "roof": "flat",
+      "facade": "classical",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 6,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 6 层：从公开照片估读，未取得测绘层高。"
+  },
+  "925243968": {
+    "displayName": "荟贤楼 · 46教",
+    "aliases": [
+      "荟贤楼（第46教学楼）"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "荟贤楼（第46教学楼） · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2347.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#dfc1a8",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 8,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 8 层：从公开照片估读，未取得测绘层高。"
+  },
+  "r5477110": {
+    "displayName": "文俊楼",
+    "aliases": [
+      "文俊楼"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "文俊楼 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2381.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e9e3d3",
+      "roof": "flat",
+      "facade": "regular",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 6,
+    "heightBasis": "map-levels",
+    "heightNote": "地图标注主楼6层；原图显示平屋顶退台及较低侧翼，侧翼约3层为照片估读。",
+    "model": "historic-wings"
+  },
+  "368589379": {
+    "displayName": "八一楼",
+    "aliases": [
+      "八一楼"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "八一楼 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16899.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e5d5ae",
+      "roof": "hip",
+      "facade": "classical",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 2,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 2 层：从公开照片估读，未取得测绘层高。"
+  },
+  "350242168": {
+    "displayName": "中心图书馆",
+    "aliases": [
+      "中心图书馆"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "中心图书馆 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16912.htm"
+      },
+      {
+        "title": "学校设施 · 主楼和裙楼层数",
+        "url": "https://gjc.swu.edu.cn/info/1064/1523.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d8dfdb",
+      "roof": "flat",
+      "facade": "glass",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 15,
+    "heightBasis": "official-levels",
+    "heightNote": "官方明确地上 15 层、地下 1 层；裙楼 1—5 层。模型按每层 3.6 米估高，塔楼分区与位置为照片推定。",
+    "model": "library"
+  },
+  "843421780": {
+    "displayName": "弘文楼A栋",
+    "aliases": [
+      "弘文楼A栋"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "弘文楼A栋 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16889.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#e1dcb9",
+      "roof": "flat",
+      "facade": "frame",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 3,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 3 层：从公开照片估读，未取得测绘层高。"
+  },
+  "r11564781": {
+    "displayName": "崇实图书馆",
+    "aliases": [
+      "崇实图书馆"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "崇实图书馆 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16891.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#c6caca",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 6,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 6 层：从公开照片估读，未取得测绘层高。"
+  },
+  "368589378": {
+    "displayName": "光大礼堂",
+    "aliases": [
+      "光大礼堂"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "光大礼堂 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2350.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#c27e66",
+      "roof": "hip",
+      "facade": "classical",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 2,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 2 层：从公开照片估读，未取得测绘层高。"
+  },
+  "842727309": {
+    "displayName": "鉴知楼",
+    "aliases": [
+      "鉴知楼"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "鉴知楼 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2344.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d5d8d1",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "840894871": {
+    "displayName": "光炯楼",
+    "aliases": [
+      "光炯楼"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "光炯楼 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/2379.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#ded9c7",
+      "roof": "hip",
+      "facade": "regular",
+      "roofColor": "#737d79"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。"
+  },
+  "843421800": {
+    "displayName": "禾丰楼",
+    "aliases": [
+      "禾丰楼"
+    ],
+    "nameStatus": "official",
+    "nameNote": "楼名参照学校楼宇目录；位置匹配地图楼号、学院名称及官方校区示意图。",
+    "sources": [
+      {
+        "title": "禾丰楼 · 学校楼宇目录",
+        "url": "https://www.swu.edu.cn/info/1153/16916.htm"
+      }
+    ],
+    "appearance": {
+      "wall": "#d49d78",
+      "roof": "flat",
+      "facade": "bands",
+      "roofColor": "#bfc7bd"
+    },
+    "appearanceNote": "墙色、屋顶和窗带参考学校公开照片；立面细部为简化重建。",
+    "levels": 4,
+    "heightBasis": "photo-estimate",
+    "heightNote": "约 4 层：从公开照片估读，未取得测绘层高。"
+  },
+  "843421814": {
+    "displayName": "圆顶",
+    "aliases": [
+      "圆顶楼"
+    ],
+    "nameStatus": "map",
+    "nameNote": "地图原有俗称“圆顶”；未确认对应正式楼名。",
+    "appearance": {
+      "wall": "#e2d2b8",
+      "roof": "flat",
+      "facade": "bands"
+    },
+    "model": "round-roof"
+  },
+  "368577143": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 2017-05-06发布",
+        "url": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+      }
+    ],
+    "category": "运动",
+    "levels": 2,
+    "heightBasis": "photo-estimate",
+    "heightNote": "按参考照片可见立面约2层处理；非完整测绘，体育馆净高和遮挡楼层仍有不确定性。"
+  },
+  "304932138": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 2017-05-06发布",
+        "url": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+      }
+    ],
+    "category": "运动"
+  },
+  "368589387": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 2017-05-06发布",
+        "url": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+      }
+    ],
+    "levels": 3,
+    "heightBasis": "photo-estimate",
+    "heightNote": "按参考照片可见立面约3层处理；非完整测绘，体育馆净高和遮挡楼层仍有不确定性。"
+  },
+  "368578312": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 2017-05-06发布",
+        "url": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+      }
+    ]
+  },
+  "843421757": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 2017-05-06发布",
+        "url": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+      }
+    ]
+  },
+  "843465284": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 2017-05-06发布",
+        "url": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+      }
+    ],
+    "levels": 3,
+    "heightBasis": "photo-estimate",
+    "heightNote": "按参考照片可见立面约3层处理；非完整测绘，体育馆净高和遮挡楼层仍有不确定性。"
+  },
+  "843421755": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 2017-05-06发布",
+        "url": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+      }
+    ]
+  },
+  "840970010": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 页面未注明照片年份",
+        "url": "https://zcgs.swu.edu.cn/cjrh/dwyy.htm"
+      }
+    ],
+    "aliases": [
+      "教学动物医院",
+      "重庆立欧动物医院"
+    ],
+    "nameNote": "资产公司页面确认西南大学教学动物医院位于8号门内；沿用地图动物医院轮廓，入口方向未实测。"
+  },
+  "371876808": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 页面未注明照片年份",
+        "url": "https://law.swu.edu.cn/rcpy/jxjy2/gbpx/hqbz/zshj.htm"
+      }
+    ]
+  },
+  "842765847": {
+    "sources": [
+      {
+        "title": "逐栋外观参考 · 2022年航拍",
+        "url": "https://dwxcbwlgzb.swu.edu.cn/info/1028/1910.htm"
+      }
+    ],
+    "heightNote": "地图标注1层，大跨场馆总高暂沿用20米示意；不是按普通层高换算，屋盖厚度与各分段高度未实测。",
+    "category": "运动"
+  },
+  "843421765": {
+    "displayName": "咏修楼A栋 · 4教",
+    "nameStatus": "official",
+    "nameNote": "名称来自学校楼宇目录；原地图已标新闻传媒学院；照片长条两翼、中央凸部、东端后凸部与该轮廓相符，校园图4教位置及学院地址佐证。",
+    "levels": 3,
+    "heightBasis": "photo-estimate",
+    "heightNote": "照片可见约3层；按每层3.3米估高，坡地露出层、层高及屋顶未实测。",
+    "category": "教学",
+    "aliases": [
+      "咏修楼A栋",
+      "第4教学楼A栋",
+      "新闻传媒学院"
+    ],
+    "sources": [
+      {
+        "title": "学校楼宇目录 · 咏修楼A栋",
+        "url": "https://www.swu.edu.cn/info/1153/2392.htm"
+      }
+    ]
+  },
+  "843465310": {
+    "displayName": "咏修楼B栋 · 4教",
+    "nameStatus": "official",
+    "nameNote": "名称来自学校楼宇目录；学校B栋照片显示旧出版社弧形端部及长条后翼；在A栋西北侧对应轮廓中，本对象具有相同弧端与斜向长翼。位置为轮廓和相邻关系匹配，非坐标测绘。",
+    "levels": 5,
+    "heightBasis": "photo-estimate",
+    "heightNote": "照片可见约5层；按每层3.3米估高，坡地露出层、层高及屋顶未实测。",
+    "category": "教学",
+    "aliases": [
+      "咏修楼B栋",
+      "第4教学楼B栋",
+      "新闻传媒学院",
+      "旧出版社",
+      "阅见书店"
+    ],
+    "sources": [
+      {
+        "title": "学校楼宇目录 · 咏修楼B栋",
+        "url": "https://www.swu.edu.cn/info/1153/16911.htm"
+      },
+      {
+        "title": "2021年阅见书店改造消息",
+        "url": "https://www.swu.edu.cn/info/1197/7774.htm"
+      }
+    ],
+    "name": "咏修楼B栋"
+  },
+  "843421808": {
+    "displayName": "丹桂楼 · 桂园宾馆",
+    "nameStatus": "official",
+    "nameNote": "学校楼宇目录确认2016年丹桂楼现为桂园宾馆；个人实拍标题也明确写出西南大学桂园宾馆，建筑轮廓沿用开放地图。",
+    "aliases": [
+      "丹桂楼",
+      "桂园宾馆",
+      "桂园酒店"
+    ],
+    "levels": 11,
+    "heightBasis": "photo-estimate",
+    "heightNote": "个人实拍可见约11层窗带；按每层约3.3米估高，底部遮挡、层高和屋顶设备未实测。",
+    "category": "生活",
+    "sources": [
+      {
+        "title": "图虫 · 西南大学桂园宾馆（个人实拍）",
+        "url": "https://tuchong.com/30762006/140468613/"
+      },
+      {
+        "title": "西南大学楼宇目录 · 丹桂楼",
+        "url": "https://www.swu.edu.cn/info/1153/16909.htm"
+      },
+      {
+        "title": "OpenStreetMap · 原始轮廓与标注",
+        "url": "https://www.openstreetmap.org/way/843421808"
+      }
+    ]
+  },
+  "843421784": {
+    "displayName": "西南大学医院",
+    "nameStatus": "official",
+    "nameNote": "医院官网与入口照片确认西南大学医院一院；建筑轮廓沿用开放地图。",
+    "aliases": [
+      "西南大学医院",
+      "社区卫生服务中心"
+    ],
+    "levels": 6,
+    "heightBasis": "map-levels",
+    "heightNote": "沿用地图六层标注；报道照片只覆盖入口低层，未据此推断整栋高度。",
+    "category": "生活",
+    "sources": [
+      {
+        "title": "西南大学医院官网首页 · 一院入口照片",
+        "url": "https://xndxyy.swu.edu.cn/"
+      },
+      {
+        "title": "OpenStreetMap · 原始轮廓与标注",
+        "url": "https://www.openstreetmap.org/way/843421784"
+      }
+    ]
+  },
+  "843465223": {
+    "displayName": "梅园学生食堂",
+    "nameStatus": "official",
+    "nameNote": "西南大学后勤集团2026年改造报道标题明确使用“梅园学生食堂”；建筑轮廓沿用开放地图。",
+    "aliases": [
+      "梅园食堂",
+      "梅园学生食堂"
+    ],
+    "category": "生活",
+    "sources": [
+      {
+        "title": "西南大学后勤集团 · 梅园学生食堂升级焕新（2026）",
+        "url": "https://xdhqjt.swu.edu.cn/info/1059/4361.htm"
+      },
+      {
+        "title": "OpenStreetMap · 原始轮廓与标注",
+        "url": "https://www.openstreetmap.org/way/843465223"
+      }
+    ]
+  }
+}

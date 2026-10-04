@@ -1,0 +1,5 @@
+{
+  "created": "2026-09-28",
+  "purpose": "rollback before road cross-slope flattening",
+  "restore": "copy checkpoint files to matching project paths and run npm.cmd run build"
+}

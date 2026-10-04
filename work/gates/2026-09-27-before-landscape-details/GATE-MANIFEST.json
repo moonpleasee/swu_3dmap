@@ -1,0 +1,5 @@
+{
+  "created": "2026-09-27",
+  "purpose": "rollback before road water garden details",
+  "restore": "copy checkpoint paths over matching project paths then build"
+}

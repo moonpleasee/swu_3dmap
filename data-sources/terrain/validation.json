@@ -1,0 +1,75 @@
+{
+  "checkedBuildings": 300,
+  "platforms": 295,
+  "sourceGrid": [
+    161,
+    157
+  ],
+  "campusRawElevationRangeMeters": [
+    197.1,
+    289.9
+  ],
+  "verticalExaggeration": 1,
+  "landmarks": [
+    {
+      "id": "350242168",
+      "name": "中心图书馆",
+      "estimatedPlatformMeters": 253.6
+    },
+    {
+      "id": "843465226",
+      "name": "伴月楼 · 29教",
+      "estimatedPlatformMeters": 253.1
+    },
+    {
+      "id": "843465238",
+      "name": "明德楼 · 25教",
+      "estimatedPlatformMeters": 254.1
+    },
+    {
+      "id": "368589378",
+      "name": "光大礼堂",
+      "estimatedPlatformMeters": 244
+    },
+    {
+      "id": "842765847",
+      "name": "体育中心",
+      "estimatedPlatformMeters": 247.9
+    },
+    {
+      "id": "r5522696",
+      "name": "崇德湖",
+      "estimatedPlatformMeters": 244.8
+    },
+    {
+      "id": "843421780",
+      "name": "弘文楼A栋",
+      "estimatedPlatformMeters": 258.6
+    },
+    {
+      "id": "843421763",
+      "name": "敬德楼 · 8教",
+      "estimatedPlatformMeters": 253.3
+    },
+    {
+      "id": "r11564781",
+      "name": "崇实图书馆",
+      "estimatedPlatformMeters": 260.8
+    },
+    {
+      "id": "368578307",
+      "name": "共青团花园",
+      "estimatedPlatformMeters": 250.3
+    },
+    {
+      "id": "368605818",
+      "name": "第二运动场",
+      "estimatedPlatformMeters": 245.4
+    },
+    {
+      "id": "r5477110",
+      "name": "文俊楼",
+      "estimatedPlatformMeters": 256.3
+    }
+  ]
+}

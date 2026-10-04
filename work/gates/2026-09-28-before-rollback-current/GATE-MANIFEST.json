@@ -1,0 +1,5 @@
+{
+  "created": "2026-09-28",
+  "purpose": "snapshot of current landscape-detail version before requested rollback",
+  "restore": "copy checkpoint paths back to project"
+}

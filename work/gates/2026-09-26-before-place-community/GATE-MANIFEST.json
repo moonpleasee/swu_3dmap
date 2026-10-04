@@ -1,0 +1,5 @@
+{
+  "created": "2026-09-26",
+  "purpose": "rollback before place community feature",
+  "restore": "copy this checkpoint back over the corresponding project paths; reinstall/build if needed"
+}

@@ -1,0 +1,2748 @@
+{
+  "368605820": {
+    "basis": "single-photo",
+    "wall": "#dfddd0",
+    "trim": "#ddd9c9",
+    "glass": "#354a49",
+    "accent": "#777b78",
+    "base": "#898e86",
+    "roofColor": "#6d6a61",
+    "roofStyle": "hip",
+    "facade": "historic",
+    "bay": 0.45,
+    "windowWidth": 0.49,
+    "windowHeight": 0.83,
+    "frameWidth": 0.012,
+    "wallFinish": "tile",
+    "roofRise": 0.72,
+    "entry": "yuseng-portal",
+    "entryWidth": 1.02,
+    "entryFloors": 1.12,
+    "front": [
+      1,
+      1
+    ],
+    "observations": [
+      "灰褐色坡屋顶和挑檐",
+      "米白墙面、灰色竖向窗间墙",
+      "红褐色细窗框、窄高窗",
+      "中央入口门廊"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2395.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "frame": "#693e36",
+    "roofPlan": {
+      "rects": [
+        [
+          0,
+          5.96,
+          -1.54,
+          0.01,
+          0.48
+        ],
+        [
+          1.37,
+          4.9,
+          -1.55,
+          0.4,
+          0.72
+        ],
+        [
+          0.61,
+          1.9,
+          -3.03,
+          -0.5,
+          0.47
+        ],
+        [
+          4.18,
+          5.41,
+          -3.06,
+          -0.5,
+          0.47
+        ]
+      ]
+    },
+    "entryPoint": [
+      60.65,
+      -55.4
+    ],
+    "porchDepth": 0.22,
+    "entrySteps": 5,
+    "doorFrame": "#623d34",
+    "entryNote": "官方楼宇照片及2019年学院行合影可见台阶、内凹入口和阶梯形石门套；旧照仅辅助判断结构，装饰与门扇尺寸估计。",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2395.htm",
+      "https://pgs.swu.edu.cn/info/1078/4512.htm"
+    ],
+    "entryBasis": "photo-reference"
+  },
+  "843465224": {
+    "basis": "single-photo",
+    "wall": "#e0dfd6",
+    "trim": "#d0caba",
+    "glass": "#384c50",
+    "accent": "#7e827d",
+    "base": "#898e86",
+    "roofColor": "#696a61",
+    "roofStyle": "hip",
+    "facade": "historic",
+    "bay": 0.45,
+    "windowWidth": 0.6,
+    "windowHeight": 0.79,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.65,
+    "entry": "lanhua-porch",
+    "entryWidth": 1.05,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "连续的主脊与各翼楼坡屋面",
+      "院内浅色方柱、分片雨棚和玻璃门厅",
+      "灰色竖向墙柱与米白窗下墙"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2394.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "frame": "#62433c",
+    "roofPlan": {
+      "rects": [
+        [
+          -2.54,
+          -1.03,
+          -0.66,
+          6.47,
+          0.62
+        ],
+        [
+          -5.31,
+          -0.53,
+          -0.66,
+          0.6,
+          0.52
+        ],
+        [
+          -5.31,
+          -4.64,
+          -0.66,
+          1.32,
+          0.28
+        ],
+        [
+          -1.71,
+          0.01,
+          -0.66,
+          1.63,
+          0.6
+        ],
+        [
+          -4.64,
+          -1.03,
+          2.1,
+          3.72,
+          0.59
+        ],
+        [
+          -4.23,
+          -1.68,
+          5.02,
+          6.47,
+          0.53
+        ],
+        [
+          -1.71,
+          0.22,
+          4.08,
+          6.47,
+          0.64
+        ]
+      ]
+    },
+    "entryPoint": [
+      15.885,
+      -39.38
+    ],
+    "porchDepth": 0.28,
+    "entrySteps": 3,
+    "doorLeaves": 4,
+    "entryNote": "官方航拍显示院内连续门厅、浅色方柱与分片雨棚；按院落轮廓定位，门扇数量及尺寸估计。",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1230/16871.htm",
+      "https://westa.swu.edu.cn/info/1142/1210.htm"
+    ],
+    "entryBasis": "photo-reference"
+  },
+  "843465275": {
+    "basis": "single-photo",
+    "wall": "#e6d8bc",
+    "trim": "#e4e2d8",
+    "glass": "#526775",
+    "accent": "#bcac8b",
+    "base": "#898e86",
+    "roofColor": "#6c665a",
+    "roofStyle": "hip",
+    "facade": "historic",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.56,
+    "entry": "portal",
+    "entryWidth": 1.2,
+    "entryFloors": 1.05,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色墙面、褐灰坡屋顶",
+      "长条楼体与规律窗列"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2393.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "frame": "#625343",
+    "roofPlan": {
+      "rects": [
+        [
+          -2.91,
+          6.51,
+          3.05,
+          4.64,
+          0.57
+        ],
+        [
+          -2.91,
+          -1.54,
+          2.75,
+          4.97,
+          0.52
+        ],
+        [
+          5.2,
+          6.51,
+          2.82,
+          5.04,
+          0.52
+        ],
+        [
+          0,
+          5.34,
+          -0.01,
+          1.4,
+          0.49
+        ],
+        [
+          1.04,
+          2.71,
+          1.2,
+          3.6,
+          0.53
+        ]
+      ]
+    },
+    "entryPoint": [
+      52.292,
+      -65.044
+    ],
+    "porchDepth": 0.32,
+    "entrySteps": 5,
+    "entryRailings": true,
+    "entryNote": "官方照片显示中部门廊、平顶雨棚和两侧支撑，门内细节被阴影遮挡。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2393.htm"
+    ]
+  },
+  "843465314": {
+    "basis": "single-photo",
+    "wall": "#e7dfca",
+    "trim": "#eee8da",
+    "glass": "#4b5e65",
+    "accent": "#c4baa3",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "balcony",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色弧形墙面",
+      "水平开敞走廊与阳台栏杆"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2376.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "balcony": "continuous"
+  },
+  "843421764": {
+    "basis": "single-photo",
+    "wall": "#dcd6bf",
+    "trim": "#e4e2d8",
+    "glass": "#415052",
+    "accent": "#a7a38f",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "balcony",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "米黄色低层楼体",
+      "横向走廊与栏杆"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2345.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "balcony": "continuous"
+  },
+  "843421763": {
+    "basis": "single-photo",
+    "wall": "#cfcbbc",
+    "trim": "#e7e5d7",
+    "glass": "#516568",
+    "accent": "#90978c",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "regular",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色墙面和规则窗列；树木遮挡较多，背面仍待核实"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2368.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "843465255": {
+    "basis": "single-photo",
+    "wall": "#dadbd0",
+    "trim": "#e8e5da",
+    "glass": "#4c6770",
+    "accent": "#a7b2ac",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.83,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色立面和连续窗带",
+      "内院开敞走廊"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16887.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "368605817": {
+    "basis": "single-photo",
+    "wall": "#d6d7c8",
+    "trim": "#e2e0cd",
+    "glass": "#42615d",
+    "accent": "#467c78",
+    "base": "#898e86",
+    "roofColor": "#39706c",
+    "roofStyle": "flat",
+    "facade": "sunhood",
+    "bay": 0.45,
+    "windowWidth": 0.57,
+    "windowHeight": 0.53,
+    "frameWidth": 0.012,
+    "wallFinish": "tile",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 2.1,
+    "entryFloors": 3,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "灰白小面砖墙面",
+      "每窗外凸遮阳框",
+      "青绿色檐口与竖向装饰翼片",
+      "高门廊与顶部开敞冠部"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2334.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4,
+    "crown": true,
+    "columnColor": "#9b6f60",
+    "porchDepth": 0.4,
+    "entrySteps": 4,
+    "doorLeaves": 4,
+    "entryNote": "官方正面照片显示通高暖红立柱、内凹门厅和绿色竖片；门扇细部按玻璃门简化。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2334.htm"
+    ]
+  },
+  "843465225": {
+    "basis": "single-photo",
+    "wall": "#c9cbbf",
+    "trim": "#d6d7cc",
+    "glass": "#384b4d",
+    "accent": "#888c7c",
+    "base": "#aaa68d",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "balcony",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.45,
+    "entryFloors": 1.3,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅灰竖向框架",
+      "层层退入的阳台与金属栏杆",
+      "下部米黄石材和深色入口雨棚"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2353.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "balcony": "continuous",
+    "porchDepth": 0.45,
+    "entrySteps": 6,
+    "doorLeaves": 4,
+    "entryRailings": true,
+    "entryNote": "参照官方照片的宽入口雨棚、玻璃门厅和浅色台阶。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2353.htm"
+    ]
+  },
+  "843421766": {
+    "basis": "single-photo",
+    "wall": "#c5c9c1",
+    "trim": "#e1e3d9",
+    "glass": "#536974",
+    "accent": "#a2a7a2",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.85,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "灰白横向窗带",
+      "平屋顶、层间压边"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2390.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "843421773": {
+    "basis": "single-photo",
+    "wall": "#a44d39",
+    "trim": "#b06148",
+    "glass": "#6a9299",
+    "accent": "#7e382d",
+    "base": "#6d7264",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "art",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "brick",
+    "roofRise": 0.48,
+    "entry": "art-frame",
+    "entryWidth": 1.8,
+    "entryFloors": 1.6,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "红砖实墙和巨大门形框架",
+      "弧面/斜面玻璃入口",
+      "石材勒脚与金属入口雨棚"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16901.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "porchDepth": 0.4,
+    "entrySteps": 7,
+    "doorLeaves": 4,
+    "entryNote": "官方近照可见红砖门形框架、曲面玻璃、灰色雨棚与台阶；曲率和构件尺寸为估计。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/16901.htm"
+    ]
+  },
+  "843421823": {
+    "basis": "single-photo",
+    "wall": "#d3ceba",
+    "trim": "#e2ddd0",
+    "glass": "#485e63",
+    "accent": "#8b8d7d",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "frame",
+    "bay": 0.45,
+    "windowWidth": 0.77,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.5,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色高层体量",
+      "明显的竖横网格框架",
+      "顶部设备体量"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2354.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "843421759": {
+    "basis": "single-photo",
+    "wall": "#ddd9cd",
+    "trim": "#e9e7db",
+    "glass": "#4f6a70",
+    "accent": "#9b8c71",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.82,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "portal",
+    "entryWidth": 1.0,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色弧形窗带",
+      "棕色入口框及平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16902.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "842765846": {
+    "basis": "single-photo",
+    "wall": "#dddccc",
+    "trim": "#d0d8d0",
+    "glass": "#577b81",
+    "accent": "#a4ada8",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 0.8,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色低层建筑",
+      "玻璃转角与横向窗带"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16904.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "r13814006": {
+    "basis": "single-photo",
+    "wall": "#d4d5cd",
+    "trim": "#e6e5da",
+    "glass": "#3d5b65",
+    "accent": "#a1a598",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "frame",
+    "bay": 0.45,
+    "windowWidth": 0.81,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.4,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅灰高层外立面",
+      "连续网格与深色玻璃",
+      "资料正文建设状态与照片存在时差"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2356.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "843421731": {
+    "basis": "single-photo",
+    "wall": "#d7c490",
+    "trim": "#e3d9ba",
+    "glass": "#4c534e",
+    "accent": "#a48f68",
+    "base": "#898e86",
+    "roofColor": "#686b61",
+    "roofStyle": "hip",
+    "facade": "historic",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.5,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "两层米黄色墙面",
+      "灰色坡屋顶、细分格窗"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2367.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "842765837": {
+    "basis": "single-photo",
+    "wall": "#d7cc9e",
+    "trim": "#d8d9cb",
+    "glass": "#526772",
+    "accent": "#abaf9e",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "黄色窗间墙",
+      "灰白水平楼层线和平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16886.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "843465313": {
+    "basis": "single-photo",
+    "wall": "#dcdace",
+    "trim": "#e4e1d4",
+    "glass": "#526f77",
+    "accent": "#a4917d",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.84,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "弧形浅色楼体",
+      "褐色水平腰线"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2360.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "350242130": {
+    "basis": "single-photo",
+    "wall": "#d8d7ca",
+    "trim": "#e1dfd0",
+    "glass": "#516d78",
+    "accent": "#9aa298",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "frame",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色柱网与层间梁",
+      "顶部格栅构架"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2361.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "roofPergola": true
+  },
+  "843465238": {
+    "basis": "single-photo",
+    "wall": "#dad6c5",
+    "trim": "#dddacb",
+    "glass": "#326e8a",
+    "accent": "#ae824b",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "louver",
+    "bay": 0.45,
+    "windowWidth": 0.65,
+    "windowHeight": 0.8,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 2.15,
+    "entryFloors": 2.7,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "银灰窗框与蓝色竖向玻璃带",
+      "金棕色百叶间隔",
+      "架空门廊、圆柱和宽台阶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2366.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4,
+    "glassSpine": true,
+    "porchDepth": 0.65,
+    "columnRadius": 0.065,
+    "entrySteps": 9,
+    "doorLeaves": 4,
+    "entryRailings": true,
+    "entryNote": "官方近照显示通高圆柱、深门廊、玻璃门厅及宽台阶；柱距与门扇尺寸估计。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2366.htm"
+    ]
+  },
+  "210254156": {
+    "basis": "single-photo",
+    "wall": "#dddcd1",
+    "trim": "#e5e4da",
+    "glass": "#3c7995",
+    "accent": "#a2aea9",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.82,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "portal",
+    "entryWidth": 0.4,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅灰色弧形楼身和白框横向窗带",
+      "入口侧蓝色玻璃楼梯间，端部以实墙为主",
+      "门前窄台阶；入口位置仍待现场核对"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2374.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "glassSpine": false,
+    "roofPergola": false,
+    "entryPoint": [
+      -1.5285,
+      -22.564
+    ],
+    "entrySteps": 7,
+    "porchDepth": 0.16,
+    "doorLeaves": 2,
+    "entryBasis": "photo-reference",
+    "entryNote": "官方照片可见楼梯间下方窄门洞及浅色台阶；按轮廓凹口推定入口位置，尚无平面图确认。",
+    "facadeZones": [
+      {
+        "point": [
+          0.5805,
+          -23.0305
+        ],
+        "kind": "blank"
+      },
+      {
+        "point": [
+          -0.399,
+          -23.14
+        ],
+        "kind": "curtain"
+      },
+      {
+        "point": [
+          -1.092,
+          -22.57
+        ],
+        "kind": "curtain"
+      }
+    ],
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2374.htm"
+    ]
+  },
+  "210254155": {
+    "basis": "single-photo",
+    "wall": "#d6d5c9",
+    "trim": "#dfdfd4",
+    "glass": "#326f98",
+    "accent": "#aa6954",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "arcade",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 0.85,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "沿弧形轮廓分段的开敞走廊和栏杆",
+      "红砖竖向墙片，顶部开敞横梁与格栅",
+      "端部蓝色玻璃楼梯间和玻璃门入口"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2373.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "balcony": "continuous",
+    "glassSpine": false,
+    "roofPergola": false,
+    "entryPoint": [
+      3.405,
+      -26.4175
+    ],
+    "porchDepth": 0.22,
+    "entrySteps": 2,
+    "doorLeaves": 4,
+    "entryBasis": "photo-reference",
+    "entryNote": "官方照片显示玻璃楼梯间底部玻璃门和薄玻璃雨棚；按弧形楼体端部推定位置，非实测。",
+    "facadeZones": [
+      {
+        "point": [
+          3.405,
+          -26.4175
+        ],
+        "kind": "curtain"
+      },
+      {
+        "point": [
+          -2.933,
+          -29.581
+        ],
+        "kind": "open-gallery"
+      },
+      {
+        "point": [
+          -2.564,
+          -28.708
+        ],
+        "kind": "open-gallery"
+      },
+      {
+        "point": [
+          -2.004,
+          -27.9365
+        ],
+        "kind": "open-gallery"
+      },
+      {
+        "point": [
+          -1.3655,
+          -27.265
+        ],
+        "kind": "open-gallery"
+      },
+      {
+        "point": [
+          -0.6955,
+          -26.7355
+        ],
+        "kind": "open-gallery"
+      },
+      {
+        "point": [
+          0.078,
+          -26.3155
+        ],
+        "kind": "open-gallery"
+      },
+      {
+        "point": [
+          0.961,
+          -25.9155
+        ],
+        "kind": "open-gallery"
+      },
+      {
+        "point": [
+          1.9765,
+          -25.6475
+        ],
+        "kind": "open-gallery"
+      },
+      {
+        "point": [
+          3.0975,
+          -25.6855
+        ],
+        "kind": "open-gallery"
+      }
+    ],
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2373.htm"
+    ]
+  },
+  "210254157": {
+    "basis": "single-photo",
+    "wall": "#dddcd2",
+    "trim": "#e0e1d7",
+    "glass": "#27698b",
+    "accent": "#a0aaa7",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.83,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "端部连续蓝色玻璃幕墙，白色竖横分格",
+      "浅灰白弧形窗带；局部外置空调",
+      "实墙侧仅设少量小窗；入口照片尚不清晰"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2375.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "glassSpine": false,
+    "ac": true,
+    "facadeZones": [
+      {
+        "point": [
+          5.091,
+          -32.543
+        ],
+        "kind": "curtain"
+      },
+      {
+        "point": [
+          6.155,
+          -31.7175
+        ],
+        "kind": "curtain"
+      },
+      {
+        "point": [
+          4.365,
+          -32.2575
+        ],
+        "kind": "blank"
+      }
+    ]
+  },
+  "843465226": {
+    "basis": "single-photo",
+    "wall": "#d2d0c0",
+    "trim": "#dddccc",
+    "glass": "#537984",
+    "accent": "#b47b42",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "banyue",
+    "bay": 0.45,
+    "windowWidth": 0.79,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "bridge-portal",
+    "entryWidth": 1.7,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "米灰色与赭黄色块分区",
+      "弧形阳台和水平遮阳板",
+      "中央玻璃入口与大台阶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2332.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "balcony": "continuous",
+    "entrySteps": 15,
+    "porchDepth": 0.5,
+    "doorLeaves": 4,
+    "entryRailings": true,
+    "entryNote": "官方正面照片显示长台阶、架空方柱门洞和上部玻璃连廊；位置沿当前轮廓推定，未取得入口平面图。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2332.htm"
+    ]
+  },
+  "r11548065": {
+    "basis": "single-photo",
+    "wall": "#d9c6a5",
+    "trim": "#ede3cd",
+    "glass": "#4b6570",
+    "accent": "#b79b71",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "classical",
+    "bay": 0.45,
+    "windowWidth": 0.65,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 1.3,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色石材/抹灰立面",
+      "入口柱廊和多层檐线",
+      "规则窗列与平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2388.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4
+  },
+  "r11546904": {
+    "basis": "single-photo",
+    "wall": "#d8ddcf",
+    "trim": "#e4ddcb",
+    "glass": "#597984",
+    "accent": "#aab1a0",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "按单体照片调整浅色墙面及腰线色",
+      "规则窗列、层间线脚和平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2387.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "925243974": {
+    "basis": "single-photo",
+    "wall": "#dadfd2",
+    "trim": "#e4ddcb",
+    "glass": "#597c83",
+    "accent": "#acb6a7",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "按单体照片调整浅色墙面及腰线色",
+      "规则窗列、层间线脚和平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2372.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "305935504": {
+    "basis": "single-photo",
+    "wall": "#d5c2a1",
+    "trim": "#ede3cd",
+    "glass": "#4b6570",
+    "accent": "#b59a72",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "classical",
+    "bay": 0.45,
+    "windowWidth": 0.65,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 1.3,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色石材/抹灰立面",
+      "入口柱廊和多层檐线",
+      "规则窗列与平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2386.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4
+  },
+  "305935503": {
+    "basis": "single-photo",
+    "wall": "#899b98",
+    "trim": "#d6d2c2",
+    "glass": "#364c53",
+    "accent": "#b27254",
+    "base": "#898e86",
+    "roofColor": "#756d58",
+    "roofStyle": "hip",
+    "facade": "historic",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "brick",
+    "roofRise": 0.38,
+    "entry": "colonnade",
+    "entryWidth": 1.4,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "灰青砖墙、红褐色细分格窗和浅色腰线",
+      "中央约四层、两翼约三层，按照片比例分段",
+      "四柱石材门廊，上方大拱窗及横向装饰板",
+      "褐色瓦面与暖橘色檐边；屋顶山花仍待精细还原"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2385.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "frame": "#a85d4b",
+    "entryPoint": [
+      -44.3445,
+      94.147
+    ],
+    "entrySteps": 4,
+    "doorLeaves": 4,
+    "columns": 4,
+    "columnRadius": 0.041,
+    "columnColor": "#bea78d",
+    "porchDepth": 0.3,
+    "entryArch": true,
+    "entryReserveFloors": 4,
+    "entryReserveWidth": 1.55,
+    "entryBasis": "photo-reference",
+    "entryNote": "官方正面照片显示四根石柱、平顶门廊和中央跨层大拱窗；门扇、雕花简化，尺寸为照片比例估计。",
+    "massCenter": {
+      "point": [
+        -44.3445,
+        94.147
+      ],
+      "halfWidth": 1.75,
+      "centerFloors": 4,
+      "wingFloors": 3
+    },
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2385.htm"
+    ]
+  },
+  "304932135": {
+    "basis": "single-photo",
+    "wall": "#ded0b0",
+    "trim": "#ede3cd",
+    "glass": "#4b6570",
+    "accent": "#b4a284",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "classical",
+    "bay": 0.45,
+    "windowWidth": 0.65,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 1.3,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色石材/抹灰立面",
+      "入口柱廊和多层檐线",
+      "规则窗列与平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2331.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4
+  },
+  "371876810": {
+    "basis": "single-photo",
+    "wall": "#e0d4bc",
+    "trim": "#ede3cd",
+    "glass": "#4b6570",
+    "accent": "#b69a8c",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "classical",
+    "bay": 0.45,
+    "windowWidth": 0.65,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 1.3,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色石材/抹灰立面",
+      "入口柱廊和多层檐线",
+      "规则窗列与平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2351.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4
+  },
+  "304932137": {
+    "basis": "single-photo",
+    "wall": "#ded1a9",
+    "trim": "#dedacb",
+    "glass": "#52635e",
+    "accent": "#bfb89b",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "balcony",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "淡黄色长条楼体",
+      "开敞走廊及横向栏杆"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2371.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "balcony": "continuous"
+  },
+  "840894874": {
+    "basis": "single-photo",
+    "wall": "#d8c29e",
+    "trim": "#ede3cd",
+    "glass": "#4b6570",
+    "accent": "#9d6854",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "classical",
+    "bay": 0.45,
+    "windowWidth": 0.65,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 1.3,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色石材/抹灰立面",
+      "入口柱廊和多层檐线",
+      "规则窗列与平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2341.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4
+  },
+  "305935506": {
+    "basis": "single-photo",
+    "wall": "#d7c899",
+    "trim": "#e4ddcb",
+    "glass": "#59747b",
+    "accent": "#b7a56d",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "按单体照片调整浅色墙面及腰线色",
+      "规则窗列、层间线脚和平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2370.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "840969992": {
+    "basis": "single-photo",
+    "wall": "#d5d2bc",
+    "trim": "#e4ddcb",
+    "glass": "#4d6570",
+    "accent": "#a8ae9e",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "按单体照片调整浅色墙面及腰线色",
+      "规则窗列、层间线脚和平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2369.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "840894884": {
+    "basis": "single-photo",
+    "wall": "#d4cba7",
+    "trim": "#e4ddcb",
+    "glass": "#4a6670",
+    "accent": "#b1a371",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "按单体照片调整浅色墙面及腰线色",
+      "规则窗列、层间线脚和平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2384.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "r12528369": {
+    "basis": "single-photo",
+    "wall": "#d8c8a5",
+    "trim": "#e4ddcb",
+    "glass": "#4d6872",
+    "accent": "#b6a077",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "按单体照片调整浅色墙面及腰线色",
+      "规则窗列、层间线脚和平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2383.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "368578309": {
+    "basis": "single-photo",
+    "wall": "#bac6b7",
+    "trim": "#ede3cd",
+    "glass": "#4b6570",
+    "accent": "#8b9b8c",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "classical",
+    "bay": 0.45,
+    "windowWidth": 0.65,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 1.3,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色石材/抹灰立面",
+      "入口柱廊和多层檐线",
+      "规则窗列与平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16894.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4
+  },
+  "925243968": {
+    "basis": "single-photo",
+    "wall": "#dac6ab",
+    "trim": "#e4ddcb",
+    "glass": "#4f6e78",
+    "accent": "#bd907a",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "按单体照片调整浅色墙面及腰线色",
+      "规则窗列、层间线脚和平屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2347.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "r5477110": {
+    "basis": "single-photo",
+    "wall": "#e3e1d8",
+    "trim": "#d4d2c5",
+    "glass": "#465658",
+    "accent": "#b1b2a7",
+    "base": "#898e86",
+    "roofColor": "#777f76",
+    "roofStyle": "flat",
+    "facade": "historic",
+    "bay": 0.45,
+    "windowWidth": 0.51,
+    "windowHeight": 0.76,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "colonnade",
+    "entryWidth": 1.65,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "白色中央高楼与低翼",
+      "平屋顶退台及屋面栏杆",
+      "六柱门廊和细分格窗",
+      "照片可见窗外空调机"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2381.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 6,
+    "ac": true,
+    "entryPoint": [
+      -48.151,
+      67.729
+    ],
+    "porchDepth": 0.48,
+    "entrySteps": 7,
+    "columnRadius": 0.045,
+    "doorLeaves": 4,
+    "entryRailings": true,
+    "entryNote": "官方航拍显示六根浅色圆柱、上部露台栏杆、红色台阶和内凹大门；按楼体长轴修正中央高楼及入口。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2381.htm"
+    ],
+    "entryStepColor": "#a96551"
+  },
+  "368589379": {
+    "basis": "single-photo",
+    "wall": "#e1d4b2",
+    "trim": "#e9e3cb",
+    "glass": "#4a625f",
+    "accent": "#b6ac8e",
+    "base": "#898e86",
+    "roofColor": "#686d62",
+    "roofStyle": "hip",
+    "facade": "classical",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.5,
+    "entry": "pediment",
+    "entryWidth": 1.5,
+    "entryFloors": 1.7,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅黄色古典立面",
+      "三角山花、四柱入口",
+      "灰色坡屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16899.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 4,
+    "entrySteps": 5,
+    "porchDepth": 0.36,
+    "doorLeaves": 4,
+    "entryRailings": true,
+    "entryNote": "依据官方照片重建入口柱廊、山花和玻璃门，尺寸为简化估计。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/16899.htm"
+    ]
+  },
+  "350242168": {
+    "basis": "single-photo",
+    "wall": "#cbd0c9",
+    "trim": "#b3bdba",
+    "glass": "#285e6c",
+    "accent": "#8eaaa7",
+    "base": "#898e86",
+    "roofColor": "#9ea9a5",
+    "roofStyle": "flat",
+    "facade": "library",
+    "bay": 0.45,
+    "windowWidth": 0.96,
+    "windowHeight": 0.93,
+    "frameWidth": 0.012,
+    "wallFinish": "tile",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.4,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅灰实墙端面与蓝绿色玻璃幕墙",
+      "塔楼逐层水平遮阳边",
+      "弧形低层裙楼与顶部开敞构架"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16912.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "roofCrown": true
+  },
+  "843421780": {
+    "basis": "single-photo",
+    "wall": "#d4caa0",
+    "trim": "#e6e3d4",
+    "glass": "#485e66",
+    "accent": "#c3b784",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "frame",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "portal",
+    "entryWidth": 1.5,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅黄色窗下墙和白色大框架",
+      "低层长楼体"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16889.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "r11564781": {
+    "basis": "single-photo",
+    "wall": "#bdc3be",
+    "trim": "#d6d8cd",
+    "glass": "#3c5d68",
+    "accent": "#a0aaa2",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.86,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "灰白层间窗带",
+      "深色玻璃与内院"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16891.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "368589378": {
+    "basis": "single-photo",
+    "wall": "#c0917c",
+    "trim": "#e6ddc6",
+    "glass": "#4d777f",
+    "accent": "#b88873",
+    "base": "#898e86",
+    "roofColor": "#6c716a",
+    "roofStyle": "hip",
+    "facade": "auditorium",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.55,
+    "entry": "colonnade",
+    "entryWidth": 2.06,
+    "entryFloors": 1.65,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "粉橘色小面砖墙面",
+      "前立面六根高大浅色圆柱",
+      "高窗与深色屋顶"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2350.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "columns": 6,
+    "entryPoint": [
+      -3.2345,
+      18.2125
+    ],
+    "porchDepth": 0.45,
+    "entrySteps": 10,
+    "columnRadius": 0.07,
+    "doorLeaves": 6,
+    "entrySign": "西南大学大礼堂",
+    "entryNote": "官方立面照片可见六根高圆柱、门上高窗、浅色横梁和宽台阶；门扇数量与总高为估计。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2350.htm"
+    ]
+  },
+  "842727309": {
+    "basis": "single-photo",
+    "wall": "#cdd1c9",
+    "trim": "#dddcd1",
+    "glass": "#3e535a",
+    "accent": "#9ca7a2",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "museum",
+    "bay": 0.45,
+    "windowWidth": 0.48,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "museum-stair",
+    "entryWidth": 1.9,
+    "entryFloors": 2,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "浅色方整体量",
+      "局部窄窗与大面积实墙"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2344.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "porchDepth": 0.35,
+    "entrySteps": 20,
+    "doorLeaves": 6,
+    "entryRailings": true,
+    "entryNote": "官方航拍显示宽长台阶、上端并列玻璃门及大型横向百叶幕墙；台阶数量和入口位置估计。",
+    "entryBasis": "photo-reference",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2344.htm"
+    ]
+  },
+  "840894871": {
+    "basis": "single-photo",
+    "wall": "#d3cdbb",
+    "trim": "#dfd8c5",
+    "glass": "#485b5a",
+    "accent": "#a39e8e",
+    "base": "#898e86",
+    "roofColor": "#6f7168",
+    "roofStyle": "hip",
+    "facade": "historic",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.42,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "低层浅灰墙体",
+      "传统屋面与细分格窗"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/2379.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。",
+    "frame": "#68523e"
+  },
+  "843421800": {
+    "basis": "single-photo",
+    "wall": "#c69773",
+    "trim": "#e0d1b7",
+    "glass": "#526c72",
+    "accent": "#a78368",
+    "base": "#898e86",
+    "roofColor": "#bfc7bd",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "橘棕色楼体",
+      "浅色水平腰线及圆角"
+    ],
+    "source": "https://www.swu.edu.cn/info/1153/16916.htm",
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "843421814": {
+    "basis": "map-only",
+    "wall": "#e2d2b8",
+    "trim": "#e4e2d8",
+    "glass": "#526775",
+    "accent": "#a7aba0",
+    "base": "#898e86",
+    "roofColor": "#858b83",
+    "roofStyle": "flat",
+    "facade": "bands",
+    "bay": 0.45,
+    "windowWidth": 0.64,
+    "windowHeight": 0.64,
+    "frameWidth": 0.012,
+    "wallFinish": "plaster",
+    "roofRise": 0.48,
+    "entry": "canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1,
+    "front": [
+      0.7,
+      0.7
+    ],
+    "observations": [
+      "圆顶造型仍为原地图俗称的示意解释，未获得可靠立面照片。"
+    ],
+    "source": null,
+    "dimensionsNote": "窗宽、构件厚度、未展示立面和入口朝向为估计；照片色彩受光线影响。"
+  },
+  "368577143": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+    "referenceDate": "2017-05-06发布",
+    "roofStyle": "flat",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "2017-05-06发布。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#e1e1d8",
+    "trim": "#e5e5dc",
+    "glass": "#293a69",
+    "accent": "#5f7970",
+    "roofColor": "#bdc3bd",
+    "photoFacade": "badminton",
+    "entry": "colonnade",
+    "columns": 2,
+    "columnColor": "#506d5d",
+    "columnRadius": 0.045,
+    "entryWidth": 2.5,
+    "entryFloors": 1,
+    "entryPoint": [
+      -6.15,
+      60.89
+    ],
+    "entrySteps": 4,
+    "entryStepColor": "#985744",
+    "entrySign": "羽毛球馆",
+    "signColor": "#a68b44",
+    "signBackground": "#e3e1d8",
+    "porchDepth": 0.42,
+    "observations": [
+      "白色小砖立面、宽厚平顶檐口",
+      "上部成组深蓝窗、下部入口两根绿纹柱",
+      "宽白门廊和红褐台阶"
+    ],
+    "referenceFile": "sina-alumni-14.jpg",
+    "signAspect": 15,
+    "entrySignOffset": -0.015,
+    "entrySources": [
+      "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+    ]
+  },
+  "304932138": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+    "referenceDate": "2017-05-06发布",
+    "roofStyle": "barrel",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "2017-05-06发布。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#748c96",
+    "trim": "#a7bbc3",
+    "glass": "#3f5964",
+    "accent": "#829daa",
+    "roofColor": "#91a9b4",
+    "specialModel": "twin-vault",
+    "bodyHeight": 0.36,
+    "photoFacade": "curtain-canteen",
+    "entry": "double-bank",
+    "entryWidth": 2.3,
+    "entryFloors": 1,
+    "entryPoint": [
+      -78.93,
+      75.82
+    ],
+    "entrySteps": 1,
+    "porchDepth": 0.12,
+    "entrySign": "网球馆",
+    "vaultFootprint": [
+      [
+        -79.4,
+        67.756
+      ],
+      [
+        -73.949,
+        69.562
+      ],
+      [
+        -76.216,
+        76.753
+      ],
+      [
+        -81.649,
+        74.898
+      ],
+      [
+        -79.4,
+        67.756
+      ]
+    ],
+    "observations": [
+      "并排双筒拱形金属屋顶",
+      "蓝灰色弧形端墙、沿屋面细肋",
+      "下部深色玻璃门窗带"
+    ],
+    "referenceFile": "sina-alumni-18.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entrySources": [
+      "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+    ]
+  },
+  "368589387": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+    "referenceDate": "2017-05-06发布",
+    "roofStyle": "flat",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "2017-05-06发布。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。2026年后勤新闻提及改造计划，未取得改造后完整外立面，当前采用2017年参考形制。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#ddcdb0",
+    "trim": "#ede7d8",
+    "glass": "#6c898f",
+    "accent": "#6fa6bf",
+    "roofColor": "#8a9995",
+    "photoFacade": "blue-canteen",
+    "entry": "curved-canopy",
+    "entryWidth": 1.35,
+    "entryFloors": 1.5,
+    "entryReserveFloors": 2,
+    "entryPoint": [
+      -31.2,
+      33.4
+    ],
+    "entrySteps": 9,
+    "porchDepth": 0.55,
+    "entryRailings": true,
+    "entryStepColor": "#885442",
+    "entrySign": "楠园学生一食堂",
+    "canopyColor": "#9fa9a5",
+    "observations": [
+      "浅米黄色小砖墙、浅蓝柱网和横向分带",
+      "白框宽窗、较高内凹门厅",
+      "银灰色弧边雨棚、红褐色宽台阶"
+    ],
+    "referenceFile": "sina-alumni-24.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entrySources": [
+      "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+      "https://xdhqjt.swu.edu.cn/info/1059/4361.htm"
+    ]
+  },
+  "368578312": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+    "referenceDate": "2017-05-06发布",
+    "roofStyle": "flat",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "2017-05-06发布。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。已知2018年有装修改造，本次门厅仍基于2017年照片，当前样貌待新照校正。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#d7d5bf",
+    "trim": "#e3dfca",
+    "glass": "#55756e",
+    "accent": "#9a7c70",
+    "roofColor": "#bd9a8b",
+    "photoFacade": "canteen",
+    "entry": "double-bank",
+    "entryWidth": 2.3,
+    "entryFloors": 1.1,
+    "entryPoint": [
+      -24.157,
+      43.291
+    ],
+    "entrySteps": 3,
+    "porchDepth": 0.25,
+    "entryRailings": true,
+    "entrySign": "楠园学生二食堂",
+    "observations": [
+      "浅米色小砖墙、粉褐色顶边",
+      "入口两组玻璃门、中间石色柱",
+      "宽门楣、低台阶和金属栏杆；照片只覆盖入口局部"
+    ],
+    "referenceFile": "sina-alumni-25.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entrySources": [
+      "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+    ]
+  },
+  "843421757": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+    "referenceDate": "2017-05-06发布",
+    "roofStyle": "flat",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "2017-05-06发布。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。2026年后勤新闻提及改造计划，未取得改造后完整外立面，当前采用2017年参考形制。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#b48666",
+    "trim": "#c6c9c3",
+    "frame": "#768b88",
+    "glass": "#4f7770",
+    "accent": "#ad744e",
+    "roofColor": "#a5aca2",
+    "photoFacade": "curtain-canteen",
+    "entry": "glass-canopy",
+    "entryWidth": 2.4,
+    "entryFloors": 1.1,
+    "entryPoint": [
+      37.1,
+      8.0
+    ],
+    "entrySteps": 5,
+    "porchDepth": 0.12,
+    "entryStepColor": "#969d94",
+    "entrySign": "李园学生食堂",
+    "canopyColor": "#aeb5ad",
+    "observations": [
+      "大幅蓝绿色玻璃幕墙、浅灰竖向柱",
+      "砖橙色端墙",
+      "沿街玻璃门和连续浅灰台阶；不复制旧商业广告"
+    ],
+    "referenceFile": "sina-alumni-29.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entrySources": [
+      "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+      "https://xdhqjt.swu.edu.cn/info/1059/4361.htm"
+    ]
+  },
+  "843465284": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+    "referenceDate": "2017-05-06发布",
+    "roofStyle": "flat",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "2017-05-06发布。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#c59d8b",
+    "trim": "#e4e3d6",
+    "glass": "#66878c",
+    "accent": "#b88b79",
+    "roofColor": "#aa9888",
+    "photoFacade": "canteen",
+    "ac": true,
+    "entry": "glass-canopy",
+    "entryWidth": 1.5,
+    "entryFloors": 1.1,
+    "entryPoint": [
+      33.95,
+      -63.39
+    ],
+    "entrySteps": 2,
+    "porchDepth": 0.4,
+    "entrySign": "橘园学生食堂",
+    "canopyColor": "#838e7d",
+    "observations": [
+      "粉橘色瓷砖墙、白色成组横窗",
+      "入口薄钢架雨棚",
+      "窗间外挂机；照片能辨识三层窗带"
+    ],
+    "referenceFile": "sina-alumni-32.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entrySources": [
+      "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+    ]
+  },
+  "843421755": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html",
+    "referenceDate": "2017-05-06发布",
+    "roofStyle": "flat",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "2017-05-06发布。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#d3c6a6",
+    "trim": "#bec5b3",
+    "glass": "#405e54",
+    "accent": "#4c7e68",
+    "roofColor": "#989c8d",
+    "photoFacade": "shops",
+    "entry": "glass-canopy",
+    "entryWidth": 0.5,
+    "entryFloors": 1,
+    "entryPoint": [
+      38.012,
+      9.614
+    ],
+    "entrySteps": 1,
+    "porchDepth": 0.2,
+    "observations": [
+      "低矮连续店面、细柱支撑的绿色与蓝色遮棚",
+      "分间玻璃门和小招牌位置",
+      "照片内树木、商户名称和临时物品不作为当前实景复制"
+    ],
+    "referenceFile": "sina-alumni-40.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entrySources": [
+      "https://k.sina.cn/article_2739362700_a3475b8c019001kbi.html"
+    ]
+  },
+  "840970010": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://zcgs.swu.edu.cn/cjrh/dwyy.htm",
+    "referenceDate": "页面未注明照片年份",
+    "roofStyle": "flat",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "页面未注明照片年份。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#bb8c76",
+    "trim": "#ded6b9",
+    "frame": "#637d69",
+    "glass": "#58977f",
+    "accent": "#b0826c",
+    "roofColor": "#aaa893",
+    "photoFacade": "animal",
+    "entry": "glass-canopy",
+    "entryWidth": 1.0,
+    "entryFloors": 1.1,
+    "entryReserveFloors": 2,
+    "entryPoint": [
+      -99.714,
+      109.99
+    ],
+    "entrySteps": 3,
+    "porchDepth": 0.34,
+    "entrySign": "教学动物医院",
+    "canopyColor": "#99ae9e",
+    "observations": [
+      "入口弧形绿色反光玻璃、米色侧墙",
+      "顶部格栅挑檐、玻璃门上方薄雨棚",
+      "两侧红褐墙；总层数与入口精确朝向待核"
+    ],
+    "referenceFile": "animal-hospital-3.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entrySources": [
+      "https://zcgs.swu.edu.cn/cjrh/dwyy.htm"
+    ]
+  },
+  "371876808": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://law.swu.edu.cn/rcpy/jxjy2/gbpx/hqbz/zshj.htm",
+    "referenceDate": "页面未注明照片年份",
+    "roofStyle": "flat",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "dimensionsNote": "页面未注明照片年份。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。",
+    "entryNote": "门廊、门窗和台阶参考可见照片；位置按原轮廓估计，未取得门位测绘。",
+    "wall": "#deded2",
+    "trim": "#e3e4d9",
+    "frame": "#bbbeb2",
+    "glass": "#718583",
+    "accent": "#94988b",
+    "roofColor": "#9da59a",
+    "photoFacade": "hotel",
+    "entry": "glass-canopy",
+    "entryWidth": 0.8,
+    "entryFloors": 1.25,
+    "entryPoint": [
+      -23.741,
+      78.627
+    ],
+    "entrySteps": 8,
+    "porchDepth": 0.16,
+    "doorFrame": "#b3a072",
+    "entryStepColor": "#a5a89d",
+    "entrySign": "兰苑宾馆",
+    "signColor": "#c4aa66",
+    "signBackground": "#3e4842",
+    "observations": [
+      "入口白色小砖弧形墙面和挑檐",
+      "深色石门套、金色框玻璃门",
+      "灰色宽台阶；照片没有覆盖整栋，其余立面仅采用相近墙色"
+    ],
+    "referenceFile": "lanyuan-3.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entrySources": [
+      "https://law.swu.edu.cn/rcpy/jxjy2/gbpx/hqbz/zshj.htm"
+    ]
+  },
+  "842765847": {
+    "basis": "single-photo",
+    "batchRevision": "remaining-2026-09-23",
+    "source": "https://dwxcbwlgzb.swu.edu.cn/info/1028/1910.htm",
+    "referenceDate": "2022年航拍",
+    "roofStyle": "segmented",
+    "wallFinish": "tile",
+    "facade": "regular",
+    "bay": 0.65,
+    "windowWidth": 0.77,
+    "windowHeight": 0.72,
+    "frameWidth": 0.012,
+    "entryBasis": "inferred",
+    "dimensionsNote": "2022年航拍。仅照片可见立面有外观依据；背面、窗数、构件尺寸和入口朝向未实测，定位沿用原地图。",
+    "entryNote": "航拍可确认檐廊和玻璃环带；门扇数量、入口位置与台阶为估计。",
+    "wall": "#737e78",
+    "trim": "#c1c9c0",
+    "glass": "#354f50",
+    "accent": "#5c6c69",
+    "roofColor": "#a2afad",
+    "specialModel": "segmented-arena",
+    "bodyHeight": 0.14,
+    "entry": "glass-canopy",
+    "entryWidth": 0.75,
+    "entryFloors": 1,
+    "entryPoint": [
+      21.39,
+      30.48
+    ],
+    "entrySteps": 4,
+    "porchDepth": 0.24,
+    "observations": [
+      "灰银色分瓣折面外壳、深色竖向分缝",
+      "浅弧同心圆顶盖，替换原普通半球屋顶",
+      "下部玻璃环带、外圈檐廊与细柱；瓣数和门位按航拍简化估计"
+    ],
+    "referenceFile": "campus-photographer-3.jpg",
+    "signAspect": 15,
+    "entrySignOffset": 0.025,
+    "entryHeight": 0.4,
+    "entrySources": [
+      "https://dwxcbwlgzb.swu.edu.cn/info/1028/1910.htm"
+    ]
+  },
+  "843421765": {
+    "basis": "single-photo",
+    "batchRevision": "yongxiu-2026-09-23",
+    "referenceDate": "学校楼宇目录照片，未注明拍摄年份；2026-09-23查阅",
+    "wallFinish": "brick",
+    "roofStyle": "hip",
+    "facade": "historic",
+    "frameWidth": 0.012,
+    "bay": 0.52,
+    "windowWidth": 0.57,
+    "windowHeight": 0.72,
+    "base": "#92958c",
+    "entryBasis": "photo-reference",
+    "entryFloors": 1,
+    "entrySteps": 3,
+    "signAspect": 15,
+    "entrySignOffset": 0.015,
+    "dimensionsNote": "平面保留原地图。可见立面、屋顶及入口按对应照片简化；层数为照片估读，层高、背面、构件数量与门位未测绘。原地图已标新闻传媒学院；照片长条两翼、中央凸部、东端后凸部与该轮廓相符，校园图4教位置及学院地址佐证。",
+    "entryNote": "入口形制参考本栋照片；门扇、台阶数量和精确位置为估计。",
+    "source": "https://www.swu.edu.cn/info/1153/2392.htm",
+    "referenceFile": "work/next-batch/journalism-2.jpg",
+    "wall": "#8b918b",
+    "trim": "#dddace",
+    "accent": "#8b918b",
+    "frame": "#e5e3d6",
+    "glass": "#405759",
+    "roofColor": "#706d61",
+    "roofRise": 0.32,
+    "photoFacade": "yongxiu-a",
+    "roofPlan": {
+      "angle": -0.127,
+      "rects": [
+        [
+          -0.02,
+          1.96,
+          -0.01,
+          0.92,
+          0.22
+        ],
+        [
+          1.76,
+          4.96,
+          -0.33,
+          1.34,
+          0.36
+        ],
+        [
+          4.65,
+          7.57,
+          -0.035,
+          0.99,
+          0.23
+        ],
+        [
+          6.61,
+          7.57,
+          -0.59,
+          0.99,
+          0.23
+        ]
+      ]
+    },
+    "entry": "lanhua-porch",
+    "entryWidth": 1.48,
+    "entryPoint": [
+      40.16,
+      -22.32
+    ],
+    "porchDepth": 0.23,
+    "entrySign": "新闻传媒学院",
+    "signColor": "#3b463e",
+    "signBackground": "#d5d1bd",
+    "entryStepColor": "#96998e",
+    "observations": [
+      "灰砖长条楼体、中央门厅向外突出，约三层",
+      "中部较高的灰褐坡屋面与两侧较低翼部屋面，分段屋脊",
+      "浅色窗下墙、白色窗框，中央入口薄挑檐和灰色台阶"
+    ],
+    "matchNote": "原地图已标新闻传媒学院；照片长条两翼、中央凸部、东端后凸部与该轮廓相符，校园图4教位置及学院地址佐证。",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/2392.htm"
+    ]
+  },
+  "843465310": {
+    "basis": "single-photo",
+    "batchRevision": "yongxiu-2026-09-23",
+    "referenceDate": "学校楼宇目录照片，未注明拍摄年份；2026-09-23查阅",
+    "wallFinish": "tile",
+    "roofStyle": "flat",
+    "facade": "regular",
+    "frameWidth": 0.012,
+    "bay": 0.48,
+    "windowWidth": 0.64,
+    "windowHeight": 0.72,
+    "base": "#92958c",
+    "entryBasis": "photo-reference",
+    "entryFloors": 1,
+    "entrySteps": 2,
+    "signAspect": 15,
+    "entrySignOffset": 0.015,
+    "dimensionsNote": "平面保留原地图。可见立面、屋顶及入口按对应照片简化；层数为照片估读，层高、背面、构件数量与门位未测绘。学校B栋照片显示旧出版社弧形端部及长条后翼；在A栋西北侧对应轮廓中，本对象具有相同弧端与斜向长翼。位置为轮廓和相邻关系匹配，非坐标测绘。",
+    "entryNote": "入口形制参考本栋照片；门扇、台阶数量和精确位置为估计。",
+    "source": "https://www.swu.edu.cn/info/1153/16911.htm",
+    "referenceFile": "work/next-batch/journalism-b-2.jpg",
+    "wall": "#c1b69a",
+    "trim": "#d8d2be",
+    "accent": "#a79d84",
+    "frame": "#666f68",
+    "glass": "#496266",
+    "roofColor": "#aaa994",
+    "photoFacade": "yongxiu-b",
+    "photoFacadePoints": [
+      [
+        40.5,
+        -28.4
+      ],
+      [
+        39.85,
+        -28.05
+      ],
+      [
+        38.85,
+        -27.98
+      ],
+      [
+        38.02,
+        -27.83
+      ],
+      [
+        37.69,
+        -28.02
+      ],
+      [
+        37.43,
+        -28.39
+      ],
+      [
+        37.37,
+        -28.74
+      ],
+      [
+        37.47,
+        -29.03
+      ],
+      [
+        38.25,
+        -29.81
+      ]
+    ],
+    "entry": "glass-canopy",
+    "entryWidth": 0.72,
+    "entryPoint": [
+      38.8,
+      -27.97
+    ],
+    "porchDepth": 0.14,
+    "entrySign": "阅见书店",
+    "signColor": "#3a463f",
+    "signBackground": "#d7d2bd",
+    "entryReserveFloors": 1,
+    "entryStepColor": "#a7a99f",
+    "observations": [
+      "浅米色方板外墙、深灰窗框和宽玻璃窗",
+      "弧形端部、分层横带及两层露台栏杆",
+      "底层书店入口和橱窗；长条后翼及屋顶背面未获完整照片"
+    ],
+    "matchNote": "学校B栋照片显示旧出版社弧形端部及长条后翼；在A栋西北侧对应轮廓中，本对象具有相同弧端与斜向长翼。位置为轮廓和相邻关系匹配，非坐标测绘。",
+    "entrySources": [
+      "https://www.swu.edu.cn/info/1153/16911.htm"
+    ]
+  },
+  "843421808": {
+    "basis": "single-photo",
+    "batchRevision": "researched-2026-09-24",
+    "source": "https://tuchong.com/30762006/140468613/",
+    "referenceDate": "2026-04-09，图虫个人实拍；照片标题明确为西南大学桂园宾馆",
+    "referenceFile": "work/remaining/guiyuan-photo-0.jpg",
+    "wallFinish": "panel",
+    "wall": "#e5e7e1",
+    "trim": "#e9ece5",
+    "accent": "#202d30",
+    "glass": "#536d72",
+    "frame": "#c8d0cb",
+    "base": "#a5aaa4",
+    "roofStyle": "flat",
+    "roofColor": "#7c8582",
+    "facade": "louver",
+    "photoFacade": "guiyuan",
+    "bay": 0.34,
+    "windowWidth": 0.58,
+    "windowHeight": 0.7,
+    "frameWidth": 0.012,
+    "front": [
+      1,
+      0
+    ],
+    "entryBasis": "inferred",
+    "entry": "glass-canopy",
+    "entryWidth": 1.25,
+    "entryFloors": 1,
+    "entryPoint": [
+      111.7365,
+      -97.3705
+    ],
+    "entrySteps": 6,
+    "porchDepth": 0.24,
+    "entrySign": "桂园宾馆",
+    "signColor": "#c53f2e",
+    "signBackground": "#e7e9e3",
+    "entryStepColor": "#999f98",
+    "entrySources": [
+      "https://tuchong.com/30762006/140468613/"
+    ],
+    "dimensionsNote": "个人实拍只覆盖桂园宾馆东南侧高层立面；白色板墙、深色百叶带、连续竖向窗鳍按照片简化，背面、完整屋顶和入口未测绘。",
+    "entryNote": "照片未拍到正门；大门、雨棚和六级台阶按建筑主入口方向估计，位置沿原轮廓长边推定。",
+    "observations": [
+      "白色大板墙与深灰色连续百叶带",
+      "密集的窄窗组和竖向外挑窗鳍",
+      "高层平屋顶及端部竖向白色收边；入口未在照片中出现"
+    ]
+  },
+  "843421784": {
+    "basis": "single-photo",
+    "batchRevision": "researched-2026-09-24",
+    "source": "https://xndxyy.swu.edu.cn/",
+    "referenceDate": "医院官网首页照片；照片门头明确为西南大学医院一院",
+    "referenceFile": "work/next-batch/hospital-home-15.jpg",
+    "wallFinish": "paint",
+    "wall": "#d5d8d2",
+    "trim": "#eef0ea",
+    "accent": "#b52d42",
+    "glass": "#356f78",
+    "frame": "#9aa9a5",
+    "base": "#8f9991",
+    "roofStyle": "flat",
+    "roofColor": "#aab3aa",
+    "facade": "regular",
+    "photoFacade": "hospital",
+    "bay": 0.82,
+    "windowWidth": 0.68,
+    "windowHeight": 0.65,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "entry": "glass-canopy",
+    "entryWidth": 1.34,
+    "entryFloors": 1,
+    "entryPoint": [
+      88.562,
+      -50.234
+    ],
+    "entrySteps": 8,
+    "porchDepth": 0.3,
+    "entrySign": "西南大学医院一院",
+    "signColor": "#b52d42",
+    "signBackground": "#e4e6de",
+    "canopyColor": "#adb5ad",
+    "entryStepColor": "#969b94",
+    "entrySources": [
+      "https://xndxyy.swu.edu.cn/"
+    ],
+    "dimensionsNote": "医院官网首页照片明确对应西南大学医院一院入口，模型保留地图六层高度；白色小砖、红色院名牌、灰色雨棚、玻璃门和宽台阶按照片简化，侧面及高层立面仍为估计。",
+    "entryNote": "一院入口有官网照片依据；照片没有给出平面测绘，门洞中心、雨棚深度和八级台阶按原轮廓长边估计。",
+    "observations": [
+      "白色小砖墙面与红色“西南大学医院一院”门头",
+      "灰色金属雨棚、蓝绿色玻璃门和两侧防护窗",
+      "宽台阶与入口绿化；完整高层立面未被照片覆盖"
+    ]
+  },
+  "843465223": {
+    "basis": "single-photo",
+    "batchRevision": "researched-2026-09-24",
+    "source": "https://xdhqjt.swu.edu.cn/info/1059/4361.htm",
+    "referenceDate": "2026-04-15后勤集团报道；改造后试营业照片",
+    "referenceFile": "work/remaining/meiyuan-2.jpg",
+    "wallFinish": "stone-tile",
+    "wall": "#e8ddc7",
+    "trim": "#f2eadb",
+    "accent": "#bd3038",
+    "glass": "#557174",
+    "frame": "#b7afa0",
+    "base": "#9fa29a",
+    "roofStyle": "flat",
+    "roofColor": "#a6aa9e",
+    "facade": "regular",
+    "photoFacade": "meiyuan",
+    "bay": 0.72,
+    "windowWidth": 0.68,
+    "windowHeight": 0.7,
+    "frameWidth": 0.012,
+    "entryBasis": "photo-reference",
+    "entry": "glass-canopy",
+    "entryWidth": 1.45,
+    "entryFloors": 1,
+    "entryPoint": [
+      6.6025,
+      -43.3265
+    ],
+    "entrySteps": 8,
+    "porchDepth": 0.26,
+    "entrySign": "梅园学生食堂",
+    "signColor": "#fff4df",
+    "signBackground": "#bd3038",
+    "canopyColor": "#d3c2a4",
+    "entryStepColor": "#91968f",
+    "entrySources": [
+      "https://xdhqjt.swu.edu.cn/info/1059/4361.htm"
+    ],
+    "dimensionsNote": "后勤集团2026年改造报道确认梅园学生食堂；入口照片显示米白分格墙、宽台阶和红色校名标识，后场、屋顶与完整外立面未拍摄，保留地图轮廓和估算层数。",
+    "entryNote": "入口台阶和门头依据2026年改造后照片；门扇中心、雨棚尺寸和侧面窗组按原轮廓估计。",
+    "observations": [
+      "改造后米白色石材分格墙面",
+      "入口有宽灰色台阶、玻璃门和浅色雨棚",
+      "红色西南大学标识牌；内部照片显示明亮大跨度就餐厅，外部背面未确认"
+    ]
+  }
+}

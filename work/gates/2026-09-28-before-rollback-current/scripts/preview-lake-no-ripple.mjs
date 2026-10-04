@@ -1,0 +1,2 @@
+import {chromium} from 'playwright';
+const b=await chromium.launch({channel:'msedge',headless:true});const p=await b.newPage({viewport:{width:1440,height:960}});const errors=[];p.on('pageerror',e=>errors.push(String(e)));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});await p.goto('http://127.0.0.1:4311/#place=r5522696',{waitUntil:'networkidle'});await p.waitForTimeout(1200);await p.screenshot({path:'work/landscape-details/lake-no-ripple.png'});console.log(JSON.stringify({title:await p.locator('#detail h2').textContent(),errors}));await b.close();
