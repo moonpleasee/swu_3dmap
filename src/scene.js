@@ -36,6 +36,16 @@ function bounds(p) {
   const xs=p.map(p=>p[0]),zs=p.map(p=>p[1]);
   return {minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
 }
+function nearestBoundary(p,ring){
+  let best=Infinity,point=[ring[0][0],ring[0][1]];
+  for(let i=1;i<ring.length;i++){
+    const a=ring[i-1],b=ring[i],dx=b[0]-a[0],dz=b[1]-a[1];
+    const t=clamp(((p[0]-a[0])*dx+(p[1]-a[1])*dz)/(dx*dx+dz*dz||1),0,1);
+    const q=[a[0]+dx*t,a[1]+dz*t],d=Math.hypot(p[0]-q[0],p[1]-q[1]);
+    if(d<best){best=d;point=q;}
+  }
+  return {distance:best,point};
+}
 function segmentIntersection(a,b,c,d){
   const r=[b[0]-a[0],b[1]-a[1]],s=[d[0]-c[0],d[1]-c[1]],cross=r[0]*s[1]-r[1]*s[0];
   if(Math.abs(cross)<1e-8)return null;
@@ -167,6 +177,26 @@ export class CampusScene {
     this.layers.contours.add(new THREE.LineSegments(contourGeometry(geometry,this.terrain.raster.datumMeters+.1),new THREE.LineBasicMaterial({color:'#67774f',transparent:true,opacity:.48})));geometry.dispose();
     this.terrainMaterial=top.material;
     this.campusBase=[base,top];
+    // Extend the land by following the existing campus outline.  The original
+    // boundary remains the inner edge of this ring; only a narrow, outward
+    // copy is generated here, so buildings, roads and the DEM skin keep their
+    // exact positions while the visible edge still has the campus shape.
+    const b=bounds(this.data.boundary),cx=(b.minX+b.maxX)/2,cz=(b.minZ+b.maxZ)/2;
+    const maxRadius=Math.max(...this.data.boundary.map(([x,z])=>Math.hypot(x-cx,z-cz)));
+    const outward=20,scale=(maxRadius+outward)/maxRadius;
+    const expanded=this.data.boundary.map(([x,z])=>[cx+(x-cx)*scale,cz+(z-cz)*scale]);
+    const edgeSamples=[];for(let i=1;i<this.data.boundary.length;i++){
+      const a=this.data.boundary[i-1],q=this.data.boundary[i],n=Math.max(1,Math.ceil(Math.hypot(q[0]-a[0],q[1]-a[1])/4));
+      for(let j=0;j<n;j++){const t=j/n;edgeSamples.push(this.terrain.sample(a[0]+(q[0]-a[0])*t,a[1]+(q[1]-a[1])*t)-.01);}
+    }
+    const outerLevel=Math.max(this.terrain.bottom+.12,Math.min(...edgeSamples)-1.25),transition=outward;
+    const extendedHeight=(x,z)=>{const near=nearestBoundary([x,z],this.data.boundary),t=clamp(near.distance/transition,0,1);return edgeSamples.length?this.terrain.sample(near.point[0],near.point[1])*(1-t)+outerLevel*t:outerLevel;};
+    const extendedGeometry=terrainGeometry(expanded,[this.data.boundary],extendedHeight,.85,null);
+    const extended=new THREE.Mesh(extendedGeometry,mat('#b7c4a1',{roughness:.98,side:THREE.DoubleSide}));
+    extended.receiveShadow=true;this.scene.add(extended);this.extendedTerrain=extended;
+    const outerPoints=expanded.map(p=>new THREE.Vector3(p[0],outerLevel,p[1]));
+    const outerBase=new THREE.Mesh(skirtGeometry([...outerPoints,outerPoints[0].clone()],this.terrain.bottom),mat('#aab893',{side:THREE.DoubleSide}));
+    outerBase.receiveShadow=true;this.scene.add(outerBase);this.extendedBase=outerBase;
     const ground=new THREE.Mesh(new THREE.PlaneGeometry(3000,3000),mat('#edece3'));
     ground.rotation.x=-Math.PI/2;ground.position.y=-2.65;ground.receiveShadow=true;this.scene.add(ground);this.ground=ground;
     this.boundaryLine=new THREE.Line(new THREE.BufferGeometry().setFromPoints(boundaryPoints(this.data.boundary,this.terrain,.01)),new THREE.LineBasicMaterial({color:'#f9f7e9'}));
