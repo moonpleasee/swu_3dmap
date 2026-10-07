@@ -312,10 +312,10 @@ export class CampusScene {
     const polygons=this.roadPolygons;
     for(const rings of polygons){
       const outer=rings[0],holes=rings.slice(1);
-      const g=terrainGeometry(outer,holes,(x,z)=>nearestRoadHeight(x,z,this.data.roads,this.terrain,.038),.16,this.terrain);
+      const g=terrainGeometry(outer,holes,(x,z)=>nearestRoadHeight(x,z,this.data.roads,this.terrain,.05),.16,this.terrain);
       g.deleteAttribute('normal');g.deleteAttribute('uv');geos.push(g);
     }
-    if(geos.length){const merged=mergeGeometries(geos);merged.computeVertexNormals();const mesh=new THREE.Mesh(merged,mat('#5a5f5a',{roughness:.96}));mesh.receiveShadow=true;this.layers.roads.add(mesh);geos.forEach(g=>g.dispose());}
+    if(geos.length){const merged=mergeGeometries(geos);merged.computeVertexNormals();const mesh=new THREE.Mesh(merged,mat('#5a5f5a',{roughness:.96,transparent:false,opacity:1,depthWrite:true,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-2}));mesh.receiveShadow=true;this.layers.roads.add(mesh);geos.forEach(g=>g.dispose());}
   }
   buildTrees(){
     const buildingBounds=this.data.buildings.map(f=>({f,b:bounds(f.polygon)}));
