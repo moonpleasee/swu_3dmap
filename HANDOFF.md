@@ -222,3 +222,13 @@
 验证：`scripts/preview-mobile-forum.mjs` 实际检查390×844和360×640竖屏、约69%论坛面板、固定地点身份、评价、回复、评分、照片上传、刷新持久化、关闭恢复地图、桌面建筑细看；无页面错误且无横向溢出。截图保存于 `work/mobile-forum/mobile-map.png`、`mobile-discussion.png`、`mobile-9x16.png`。`node --check src/main.js`、`node --check src/community.js` 和 `npm.cmd run build` 通过。
 
 下一步：可继续把本机存储迁移到云端地点/照片/评论服务，并补充登录、审核和多人同步；在此之前不要把 localStorage 内容称为其他用户的真实发言。
+
+## 2026-10-07 地面透明缺口修复
+
+实际 terrain-only 截图确认：之前把道路连续面外环作为地面孔洞，导致隐藏道路图层后出现大块缺面，背景和底座边墙可见；这不是地面材质透明。
+
+本批恢复完整校园地形顶面，不再用道路外环切开地面；地面材质显式设置为不透明、双面渲染和深度写入。道路仍保留连续圆角多边形，贴地偏移调整为 `.038`，避免道路与完整地面发生深度竞争。建筑、DEM高程、道路中心线和道路裁剪逻辑未改动。
+
+验证：`npm.cmd run build`、`check-terrain.mjs`、`check-ground-contact.mjs` 通过。实际截图 `D:\Cloud_Campus\work\terrain\terrain-only.png` 显示地面连续覆盖校园范围，原先透明缺口消失。
+
+回退点：`work/gates/2026-10-07-before-ground-fill/`；双面材质检查点：`work/gates/2026-10-07-before-ground-opaque/`。

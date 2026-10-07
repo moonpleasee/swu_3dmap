@@ -147,3 +147,11 @@
 - `scripts/preview-mobile-forum.mjs` 通过：390×844、360×640、固定地点、发布/回复/评分/照片、刷新持久化、关闭恢复、桌面细看；错误数组为空，移动页面无横向溢出。
 - `node --check src/main.js`、`node --check src/community.js`、`npm.cmd run build` 通过。截图：`work/mobile-forum/mobile-map.png`、`mobile-discussion.png`、`mobile-9x16.png`。
 - 当前照片、评价和回复仍只保存在本机浏览器；云端、多用户身份和审核尚未接入。
+
+## 2026-10-07 地面透明缺口
+
+- 根因：道路外环被当作地面孔洞，terrain-only 视图出现大块缺面，能看到背景和底座边墙。
+- 修复：恢复完整地形顶面；材质显式 `transparent:false`、`opacity:1`、`depthWrite:true`、`side:THREE.DoubleSide`。
+- 道路继续使用独立连续面，贴地偏移为 `.038`，避免与完整地面发生深度竞争。
+- `npm.cmd run build`、`node scripts/check-terrain.mjs`、`node scripts/check-ground-contact.mjs` 通过。
+- 实际截图 `D:\Cloud_Campus\work\terrain\terrain-only.png` 显示地面连续，透明缺口消失。

@@ -157,9 +157,12 @@ export class CampusScene {
     const perimeter=boundaryPoints(this.data.boundary,this.terrain,-.01);
     const base=new THREE.Mesh(skirtGeometry(perimeter,this.terrain.bottom),mat('#b6c39f',{side:THREE.DoubleSide}));
     base.receiveShadow=true;this.scene.add(base);
-    const roadHoles=this.roadPolygons.map(poly=>poly[0]).filter(r=>r?.length>=4);
-    const geometry=terrainGeometry(this.data.boundary,roadHoles,(x,z)=>this.terrain.sample(x,z)-.01,.65,this.terrain);
-    const top=new THREE.Mesh(colorTerrain(geometry,this.terrain),mat('#ffffff',{vertexColors:true}));
+    const geometry=terrainGeometry(this.data.boundary,[],(x,z)=>this.terrain.sample(x,z)-.01,.65,this.terrain);
+    // The terrain is a complete visual skin over the raised campus base. Roads
+    // remain a separate, slightly lifted surface; cutting their outline out
+    // of the terrain would expose the base wall whenever the road layer is
+    // hidden or a clipped junction does not cover every pixel.
+    const top=new THREE.Mesh(colorTerrain(geometry,this.terrain),mat('#ffffff',{vertexColors:true,transparent:false,opacity:1,depthWrite:true,side:THREE.DoubleSide}));
     top.receiveShadow=true;this.scene.add(top);
     this.layers.contours.add(new THREE.LineSegments(contourGeometry(geometry,this.terrain.raster.datumMeters+.1),new THREE.LineBasicMaterial({color:'#67774f',transparent:true,opacity:.48})));geometry.dispose();
     this.terrainMaterial=top.material;
@@ -309,7 +312,7 @@ export class CampusScene {
     const polygons=this.roadPolygons;
     for(const rings of polygons){
       const outer=rings[0],holes=rings.slice(1);
-      const g=terrainGeometry(outer,holes,(x,z)=>nearestRoadHeight(x,z,this.data.roads,this.terrain),.16,this.terrain);
+      const g=terrainGeometry(outer,holes,(x,z)=>nearestRoadHeight(x,z,this.data.roads,this.terrain,.038),.16,this.terrain);
       g.deleteAttribute('normal');g.deleteAttribute('uv');geos.push(g);
     }
     if(geos.length){const merged=mergeGeometries(geos);merged.computeVertexNormals();const mesh=new THREE.Mesh(merged,mat('#5a5f5a',{roughness:.96}));mesh.receiveShadow=true;this.layers.roads.add(mesh);geos.forEach(g=>g.dispose());}
