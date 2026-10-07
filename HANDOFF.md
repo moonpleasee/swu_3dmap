@@ -232,3 +232,11 @@
 验证：`npm.cmd run build`、`check-terrain.mjs`、`check-ground-contact.mjs` 通过。实际截图 `D:\Cloud_Campus\work\terrain\terrain-only.png` 显示地面连续覆盖校园范围，原先透明缺口消失。
 
 回退点：`work/gates/2026-10-07-before-ground-fill/`；双面材质检查点：`work/gates/2026-10-07-before-ground-opaque/`。
+
+## 2026-10-07 道路边缘深度竞争修复
+
+恢复完整地面后，道路边缘重新出现锯齿的原因是道路表面与DEM地面在同一像素深度附近重叠。道路中心线按中心高度贴地，而地面按每个地形点起伏，边缘并不共面。
+
+本批将道路贴地偏移从 `.038` 调整为 `.05`，并给柏油材质启用显式不透明、深度写入和 `polygonOffset`，让道路在深度测试中稳定位于地面上方。地面仍保持完整，不再开道路孔洞。
+
+`npm.cmd run build`、`check-roads.mjs`、`check-terrain.mjs`、`check-ground-contact.mjs` 通过。道路中心线、宽度、建筑和DEM数据未改动。上一提交 `219adc7` 可作为地面完整版本的回退点。

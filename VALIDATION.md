@@ -155,3 +155,10 @@
 - 道路继续使用独立连续面，贴地偏移为 `.038`，避免与完整地面发生深度竞争。
 - `npm.cmd run build`、`node scripts/check-terrain.mjs`、`node scripts/check-ground-contact.mjs` 通过。
 - 实际截图 `D:\Cloud_Campus\work\terrain\terrain-only.png` 显示地面连续，透明缺口消失。
+
+## 2026-10-07 道路边缘深度竞争
+
+- 完整地面恢复后，路面锯齿来自道路与DEM地面边缘重叠，不是道路颜色消失。
+- 道路贴地偏移调整为 `.05`；柏油材质启用 `transparent:false`、`opacity:1`、`depthWrite:true` 和 `polygonOffset`。
+- 地面保持完整，不再使用道路外环挖孔。
+- `npm.cmd run build`、`node scripts/check-roads.mjs`、`node scripts/check-terrain.mjs`、`node scripts/check-ground-contact.mjs` 通过。
