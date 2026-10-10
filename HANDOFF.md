@@ -240,3 +240,8 @@
 本批将道路贴地偏移从 `.038` 调整为 `.05`，并给柏油材质启用显式不透明、深度写入和 `polygonOffset`，让道路在深度测试中稳定位于地面上方。地面仍保持完整，不再开道路孔洞。
 
 `npm.cmd run build`、`check-roads.mjs`、`check-terrain.mjs`、`check-ground-contact.mjs` 通过。道路中心线、宽度、建筑和DEM数据未改动。上一提交 `219adc7` 可作为地面完整版本的回退点。
+## 2026-10-10 统一手机界面
+
+按用户要求，页面现在在电脑和手机上均使用手机竖屏布局。桌面浏览器中，应用居中显示，最大宽度 430px；地图、探索面板和地点论坛维持手机布局，选中地点后论坛占下方约 69% 高度。`src/main.js` 的探索面板初始化不再按浏览器宽度切换，电脑打开时也默认收起。回退点在 `work/gates/2026-10-10-before-mobile-only/`。
+
+本批仅调整 `src/style.css` 和 `src/main.js`，没有修改校园模型、地点数据或论坛存储。`node --check src/main.js` 与 `npm.cmd run build` 通过。桌面 1440×900 的实测应用宽度为 430px 且居中，地点论坛面板尺寸为 430×621px，页面没有横向溢出或脚本错误。旧的 `preview-mobile-forum.mjs` 在当前运行环境启动 Edge 时失败，不能将整套自动预览记为通过。下一步如需调整电脑上的手机画布宽度，可修改 `.app-shell` 的 `max-width`。

@@ -162,3 +162,10 @@
 - 道路贴地偏移调整为 `.05`；柏油材质启用 `transparent:false`、`opacity:1`、`depthWrite:true` 和 `polygonOffset`。
 - 地面保持完整，不再使用道路外环挖孔。
 - `npm.cmd run build`、`node scripts/check-roads.mjs`、`node scripts/check-terrain.mjs`、`node scripts/check-ground-contact.mjs` 通过。
+## 2026-10-10 统一手机界面
+
+- 电脑和手机均使用同一套手机布局；桌面最大宽度 430px，居中显示。
+- `node --check src/main.js` 与 `npm.cmd run build` 通过。
+- 1440×900 浏览器检测：应用 x=505、宽 430px；地点论坛宽 430px、高 621px；无脚本错误，页面无横向溢出。
+- `preview-mobile-forum.mjs` 本批因 Edge 启动环境退出而未跑完，不计为通过。
+- 回退点：`work/gates/2026-10-10-before-mobile-only/`。

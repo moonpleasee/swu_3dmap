@@ -177,7 +177,7 @@ function selectFeature(f,fromTour=false){
  arrangeForum();
  $('share-place').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);toast('地标链接已复制');}catch{toast('可复制浏览器地址栏中的地标链接');}};
  renderList();
- if(matchMedia('(max-width: 760px)').matches){$('explorer').classList.add('collapsed');$('mobile-collapse').setAttribute('aria-expanded','false');$('mobile-collapse').setAttribute('aria-label','展开探索面板');}
+ {$('explorer').classList.add('collapsed');$('mobile-collapse').setAttribute('aria-expanded','false');$('mobile-collapse').setAttribute('aria-label','展开探索面板');}
 }
 function reset(){stopTour(false);selected=null;$('detail').hidden=true;setHash(null);scene.reset();renderList();}
 function syncTourButton(){
@@ -196,9 +196,8 @@ document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{co
 $('sources-open').onclick=$('data-open').onclick=()=>showDialog('sources-dialog');
 $('layers-open').onclick=()=>showDialog('layers-dialog');
 $('mobile-collapse').onclick=()=>{const collapsed=$('explorer').classList.toggle('collapsed');$('mobile-collapse').setAttribute('aria-expanded',String(!collapsed));$('mobile-collapse').setAttribute('aria-label',collapsed?'展开探索面板':'收起探索面板');};
-const mobileMedia=matchMedia('(max-width: 760px)');
-const adaptExplorer=()=>{if(mobileMedia.matches){$('explorer').classList.add('collapsed');$('mobile-collapse').setAttribute('aria-expanded','false');$('mobile-collapse').setAttribute('aria-label','展开探索面板');}};
-mobileMedia.addEventListener('change',adaptExplorer);adaptExplorer();
+const adaptExplorer=()=>{$('explorer').classList.add('collapsed');$('mobile-collapse').setAttribute('aria-expanded','false');$('mobile-collapse').setAttribute('aria-label','展开探索面板');};
+adaptExplorer();
 async function init(){
  try{
   const [response,terrainResponse]=await Promise.all([fetch(`${import.meta.env.BASE_URL}data/campus.json`),fetch(`${import.meta.env.BASE_URL}data/terrain.json`)]);if(!response.ok||!terrainResponse.ok)throw new Error('校园或地形数据加载失败');data=await response.json();const terrain=await terrainResponse.json();
