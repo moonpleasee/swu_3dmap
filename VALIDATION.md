@@ -169,3 +169,15 @@
 - 1440×900 浏览器检测：应用 x=505、宽 430px；地点论坛宽 430px、高 621px；无脚本错误，页面无横向溢出。
 - `preview-mobile-forum.mjs` 本批因 Edge 启动环境退出而未跑完，不计为通过。
 - 回退点：`work/gates/2026-10-10-before-mobile-only/`。
+## 2026-10-10 修复打开校园网站
+
+- `打开校园网站.cmd` 先检查 `http://127.0.0.1:4311/__campus_health`。
+- 4311 无响应时，自动启动 4312 端口并打开对应网站，避免端口异常导致双击后无反应。
+- `scripts/local-server.mjs` 支持 `PORT` 环境变量；`scripts/open-local.mjs` 也按 4311、4312 顺序尝试。
+- `node --check scripts/open-local.mjs`、`node --check scripts/local-server.mjs` 与 `npm.cmd run build` 通过。
+## 2026-10-11 双击启动文件复核
+
+- 直接执行 `打开校园网站.cmd` 成功启动并输出实际访问地址。
+- `http://127.0.0.1:4311/__campus_health` 返回 `{"app":"swu-campus-local"}`。
+- 首页返回 HTTP 200，内容类型为 `text/html`。
+- `node --check scripts/open-local.mjs`、`node --check scripts/local-server.mjs` 和 `npm.cmd run build` 通过。
