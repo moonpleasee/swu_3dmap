@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "collapsed search launcher",
+    "expanded category filter",
+    "search clear affordance",
+    "result selection",
+    "detail close restores query",
+    "390px no horizontal overflow"
+  ],
+  "errors": []
+}

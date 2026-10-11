@@ -1,5 +1,12 @@
 # 验证记录
 
+## 2026-10-11 探索界面优化
+
+- `npm.cmd run build` 通过，Vite 8.3.0 无构建错误（仅保留已有主脚本体积提示）。
+- `node scripts/preview-ui-refresh.mjs` 通过：390×844收起状态仍显示搜索框；展开后分类可见；输入“大礼堂”显示结果并出现清除按钮；选择结果后详情展开；关闭详情恢复原搜索词和分类；`scrollWidth` 等于390；页面错误数组为空。
+- 实际查看截图：`work/ui-refresh/collapsed.png`、`work/ui-refresh/search-expanded.png`。收起面板不再被底部工具条挡住，搜索结果长名称会截断在卡片内。
+- 本批没有重跑建筑、地形或道路数据检查，因为没有修改对应数据和几何。
+
 ## 2026-09-26 估算外观批次
 
 - 通过 `check-data.py`、`check-exteriors.mjs`、`check-roofs-entrances.mjs`、`check-refinement.mjs`、`check-terrain.mjs`、`check-ground-contact.mjs`、`check-researched-batch-2026-09-24.mjs`。结果：300栋建筑、93个场地要素、299段道路、12处地标；41个完整坡屋顶；300个已配置入口；接地异常为0。

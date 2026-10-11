@@ -35,9 +35,9 @@ app.innerHTML=`
   </header>
   <aside class="explorer" id="explorer" aria-label="校园探索面板">
    <div class="intro"><div class="eyebrow"><span></span> 山城里的花园大学</div><h1>山水之间，<br>遇见西大<span>。</span></h1><p>把熟悉的校园，换个角度看。</p><div class="intro-rule"></div></div>
-   <div class="explore-heading"><h2>探索校园</h2><span id="landmark-count">12 处精选地标</span><button id="create-place" class="create-place-button">＋ 创建地点</button><button id="mobile-collapse" aria-expanded="true" aria-label="收起探索面板">⌄</button></div>
+   <div class="explore-heading"><div><h2>探索校园</h2><small>从一栋楼，走到一段校园记忆</small></div><span id="landmark-count">12 处精选地标</span><button id="create-place" class="create-place-button">＋ 创建地点</button><button id="mobile-collapse" aria-expanded="true" aria-label="收起探索面板">⌄</button></div>
    <div class="explorer-content">
-    <label class="search-box">${icon('search')}<input id="search" type="search" placeholder="找一栋楼，或一段校园记忆" autocomplete="off" aria-label="搜索校园建筑与地标"><kbd>/</kbd></label>
+    <label class="search-box">${icon('search')}<input id="search" type="search" placeholder="找一栋楼，或一段校园记忆" autocomplete="off" aria-label="搜索校园建筑与地标"><button id="clear-search" type="button" aria-label="清除搜索" hidden>×</button><kbd>/</kbd></label>
     <div class="categories" aria-label="按类型筛选">${['全部','教学','宿舍','文化','运动','生活','风景','待核名'].map((c,i)=>`<button data-category="${c}" class="category ${i===0?'active':''}" aria-pressed="${i===0}">${c}</button>`).join('')}</div>
     <p class="directory-hint">放大地图可见更多楼名 · 支持现名、旧名和舍号</p>
     <div class="landmark-list" id="landmark-list" aria-live="polite"></div>
@@ -70,6 +70,7 @@ app.innerHTML=`
 `;
 
 let scene,data,category='全部',selected=null,tourRunning=false,tourIndex=0,tourTimer,toastTimer;
+let explorerState={expanded:false,query:'',category:'全部',scrollTop:0};
 let community=communityState(),mapPickPoint=null;
 const $=id=>document.getElementById(id);
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -79,22 +80,30 @@ function previewExport(blob){if(exportUrl)URL.revokeObjectURL(exportUrl);exportU
 function setHash(id){history.replaceState(null,'',id?'#place='+encodeURIComponent(id):location.pathname+location.search);}
 function renderList(){
  const query=$('search').value.trim().toLowerCase();
+ $('clear-search').hidden=!query;
  const status={official:'名称已核对',map:'地图原标注',conflict:'名称有冲突',unresolved:'名称待核实'};
  const landmarks=new Map(data.landmarks.map(l=>[l.id,l]));
- let items=[...data.buildings.map(f=>({id:f.id,name:f.displayName,category:f.category,en:f.dormGroup?`${f.dormGroup}学生园区 · ${status[f.nameStatus]}`:status[f.nameStatus],aliases:[...f.aliases,landmarks.get(f.id)?.aliases||'',f.id].join(' '),nameStatus:f.nameStatus,featured:landmarks.has(f.id)})),...data.landmarks.filter(l=>!data.buildings.some(f=>f.id===l.id)),...community.places.map(p=>({id:p.id,name:p.name,category:'生活',en:'用户地点 · 社区内容',aliases:p.name+' '+p.description,nameStatus:'map',featured:true}))];
+ let items=[...data.buildings.map(f=>({id:f.id,name:f.displayName,category:f.category,en:f.dormGroup?`${f.dormGroup}学生园区 · ${status[f.nameStatus]}`:status[f.nameStatus],aliases:[...f.aliases,landmarks.get(f.id)?.aliases||'',f.id].join(' '),nameStatus:f.nameStatus,featured:landmarks.has(f.id)})),...data.landmarks.filter(l=>!data.buildings.some(f=>f.id===l.id)),...community.places.filter(p=>!p.fixedId).map(p=>({id:p.id,name:p.name,category:'生活',en:'用户地点 · 社区内容',aliases:p.name+' '+p.description,nameStatus:'map',featured:true}))];
  items.push(...data.surfaces.filter(f=>f.displayName&&!landmarks.has(f.id)).map(f=>({id:f.id,name:f.displayName,category:f.category,en:'运动场地',aliases:(f.aliases||[]).join(' '),nameStatus:f.nameStatus})));
  items=items.filter(l=>(category==='全部'||(category==='待核名'?['unresolved','conflict'].includes(l.nameStatus):l.category===category))&&(!query||[l.name,l.en,l.aliases].some(s=>(s||'').toLowerCase().includes(query))));
  items.sort((a,b)=>Number(b.featured||false)-Number(a.featured||false)||(a.nameStatus==='unresolved')-(b.nameStatus==='unresolved')||a.name.localeCompare(b.name,'zh-CN',{numeric:true}));
- $('landmark-count').textContent=`${items.length} ${query?'个搜索结果':'处建筑与场地'}`;
- $('landmark-list').innerHTML=items.length?items.map((l,i)=>`<button class="landmark-item ${selected?.id===l.id?'selected':''}" data-place="${l.id}" aria-pressed="${selected?.id===l.id}"><span class="place-icon ${l.category==='风景'?'nature-icon':''}">${icon(catIcon[l.category]||'building')}</span><span class="place-copy"><strong>${escape(l.name)}</strong><small>${escape(l.en)}</small></span><span class="place-arrow">${icon('arrow')}</span></button>`).join(''):`<div class="empty-state">${icon('search')}<strong>还没找到这个地方</strong><p>试试「图书馆」「29」或「楠园」</p></div>`;
+ $('landmark-count').textContent=`${items.length} ${query||category!=='全部'?'个搜索结果':'处建筑与场地'}`;
+ $('landmark-list').innerHTML=items.length?items.map((l,i)=>`<button class="landmark-item ${selected?.id===l.id?'selected':''}" data-place="${l.id}" aria-pressed="${selected?.id===l.id}"><span class="place-icon ${l.category==='风景'?'nature-icon':''}">${icon(catIcon[l.category]||'building')}</span><span class="place-copy"><strong>${escape(l.name)}</strong><small>${escape(l.en)}</small></span><span class="place-arrow">${icon('arrow')}</span></button>`).join(''):`<div class="empty-state">${icon('search')}<strong>还没找到这个地方</strong><p>试试「图书馆」「29」或「楠园」</p><button type="button" id="clear-filters" class="clear-filters">清除筛选</button></div>`;
+ $('landmark-list').querySelector('#clear-filters')?.addEventListener('click',()=>{category='全部';$('search').value='';document.querySelectorAll('[data-category]').forEach((x,i)=>{x.classList.toggle('active',i===0);x.setAttribute('aria-pressed',String(i===0));});renderList();});
  $('landmark-list').querySelectorAll('[data-place]').forEach(b=>b.onclick=()=>b.dataset.place.startsWith('user:')?selectCommunityPlace(b.dataset.place):selectById(b.dataset.place));
 }
 function featureById(id){return data.buildings.concat(data.surfaces).find(f=>f.id===id);}
 function selectById(id,fromTour=false){const f=featureById(id);if(f)selectFeature(f,fromTour);}
 function communitySummary(p){const avg=p.ratings.length?(p.ratings.reduce((a,b)=>a+b,0)/p.ratings.length).toFixed(1):'暂无';return `${p.photos.length} 张照片 · ${p.comments.length} 条评论 · ${avg} 分`;}
 function refreshCommunity(p){
+ const panel=$('detail').querySelector('.community-panel');
+ const tab=panel?.dataset.tab||'discussion';
+ const scroll=$('detail').scrollTop;
  community=communityState();
  if(p.fixedId)selectById(p.fixedId);else selectCommunityPlace(p.id);
+ const next=$('detail').querySelector('.community-panel');
+ if(next){next.dataset.tab=tab;next.querySelectorAll('[data-forum-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.forumTab===tab)));}
+ $('detail').scrollTop=scroll;
 }
 function bindCommunityPanel(p){
  const detail=$('detail');
@@ -129,15 +138,15 @@ function arrangeForum(){
  detail.append(info);detail.scrollTop=0;
 }
 function selectCommunityPlace(id){
- const p=getPlace(id);if(!p)return;selected={id:p.id};setHash(p.id);$('detail').innerHTML=`<div class="detail-top"><span class="detail-tag">${icon('pin')} 社区地点 · 北碚校区</span><button id="detail-close" aria-label="关闭地点详情">${icon('close')}</button></div><h2>${escape(p.name)}</h2><span class="detail-en">CAMPUS PLACE</span><p>${escape(p.description||'用户创建的校园地点。')}</p><div class="detail-note">位置已记录在当前三维地图上，可继续上传照片、评论和评分。</div>${communityPanel(p)}`;$('detail').hidden=false;$('detail-close').onclick=reset;scene.focusPoint(p.point);renderList();bindCommunityPanel(p);arrangeForum();
+ const p=getPlace(id);if(!p)return;rememberExplorer();selected={id:p.id};setHash(p.id);$('detail').innerHTML=`<div class="detail-top"><span class="detail-tag">${icon('pin')} 社区地点 · 北碚校区</span><button id="detail-close" aria-label="关闭地点详情">${icon('close')}</button></div><h2>${escape(p.name)}</h2><span class="detail-en">CAMPUS PLACE</span><p>${escape(p.description||'用户创建的校园地点。')}</p><div class="detail-note">位置已记录在当前三维地图上，可继续上传照片、评论和评分。</div>${communityPanel(p)}`;$('detail').hidden=false;$('detail-close').onclick=closeDetail;scene.focusPoint(p.point);renderList();bindCommunityPanel(p);arrangeForum();
 }
 function selectFeature(f,fromTour=false){
  if(f?.kind==='community-place'){selectCommunityPlace(f.communityPlaceId||f.id);return;}
- if(!fromTour)stopTour();selected=f;scene.focus(f);setHash(f.id);
+ if(!fromTour){stopTour();rememberExplorer();}selected=f;scene.focus(f);setHash(f.id);
  const l=data.landmarks.find(l=>l.id===f.id),title=f.displayName||l?.name||f.name||'校园建筑';
  const category=l?.category||f.category||'建筑';
  $('detail').innerHTML=`<div class="detail-top"><span class="detail-tag">${icon(catIcon[category]||'building')} ${category} · 北碚校区</span><button id="detail-close" aria-label="关闭地标详情">${icon('close')}</button></div><h2>${escape(title)}</h2><span class="detail-en">${escape(l?.en||'SOUTHWEST UNIVERSITY')}</span><p>${escape(l?.description||'根据开放地图中的建筑轮廓生成。可拖动场景，从不同方向查看这栋建筑。')}</p><div class="detail-note">${escape(l?.note||(f.heightBasis==='map-levels'?'高度按开放地图楼层数估算，立面为简化示意。':f.heightBasis==='map-height'?'采用地图标注高度，外观为简化表达。':'建筑高度与外观为示意，待进一步核对。'))}</div><div class="detail-actions"><a href="${escape(l?.source||`https://www.openstreetmap.org/${f.sourceId.startsWith('r')?'relation/'+f.sourceId.slice(1):'way/'+f.sourceId}`)}" target="_blank" rel="noreferrer">查看参考资料 ↗</a><button id="share-place">${icon('share')} 分享地标</button></div>`;
- $('detail').hidden=false;$('detail-close').onclick=()=>{if(scene.inspectionMode)scene.setInspection(false);selected=null;$('detail').hidden=true;scene.highlight(null);scene.activeId=null;setHash(null);renderList();};
+ $('detail').hidden=false;$('detail-close').onclick=closeDetail;
  const notes=[f.nameNote,f.geometryNote,f.heightNote,f.appearanceNote].filter(Boolean);
  if(notes.length)$('detail').querySelector('.detail-note').textContent=notes.join(' ');
  const facts=document.createElement('div');facts.className='building-facts';
@@ -177,9 +186,13 @@ function selectFeature(f,fromTour=false){
  arrangeForum();
  $('share-place').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);toast('地标链接已复制');}catch{toast('可复制浏览器地址栏中的地标链接');}};
  renderList();
- {$('explorer').classList.add('collapsed');$('mobile-collapse').setAttribute('aria-expanded','false');$('mobile-collapse').setAttribute('aria-label','展开探索面板');}
+ setExplorerExpanded(false);
 }
-function reset(){stopTour(false);selected=null;$('detail').hidden=true;setHash(null);scene.reset();renderList();}
+function rememberExplorer(){explorerState={expanded:!$('explorer').classList.contains('collapsed'),query:$('search').value,category,scrollTop:$('landmark-list').scrollTop};}
+function setExplorerExpanded(expanded,focus=false){$('explorer').classList.toggle('collapsed',!expanded);$('mobile-collapse').setAttribute('aria-expanded',String(expanded));$('mobile-collapse').setAttribute('aria-label',expanded?'收起探索面板':'展开探索面板');if(expanded&&focus)$('search').focus();}
+function restoreExplorer(){category=explorerState.category;$('search').value=explorerState.query;document.querySelectorAll('[data-category]').forEach(b=>{const active=b.dataset.category===category;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});renderList();setExplorerExpanded(explorerState.expanded);requestAnimationFrame(()=>$('landmark-list').scrollTop=explorerState.scrollTop);}
+function closeDetail(){if(scene.inspectionMode)scene.setInspection(false);selected=null;$('detail').hidden=true;scene.highlight(null);scene.activeId=null;setHash(null);restoreExplorer();}
+function reset(){stopTour(false);selected=null;$('detail').hidden=true;setHash(null);scene.reset();setExplorerExpanded(false);renderList();}
 function syncTourButton(){
  $('tour').innerHTML=`${icon(tourRunning?'pause':'play')}<span>${tourRunning?'暂停校园漫游':'沿着校园走一走'}</span>`;
  $('tour').classList.toggle('playing',tourRunning);$('tour').setAttribute('aria-pressed',String(tourRunning));
@@ -195,8 +208,8 @@ document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('di
 document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{const r=d.getBoundingClientRect();if(e.target===d&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))d.close();}));
 $('sources-open').onclick=$('data-open').onclick=()=>showDialog('sources-dialog');
 $('layers-open').onclick=()=>showDialog('layers-dialog');
-$('mobile-collapse').onclick=()=>{const collapsed=$('explorer').classList.toggle('collapsed');$('mobile-collapse').setAttribute('aria-expanded',String(!collapsed));$('mobile-collapse').setAttribute('aria-label',collapsed?'展开探索面板':'收起探索面板');};
-const adaptExplorer=()=>{$('explorer').classList.add('collapsed');$('mobile-collapse').setAttribute('aria-expanded','false');$('mobile-collapse').setAttribute('aria-label','展开探索面板');};
+$('mobile-collapse').onclick=()=>setExplorerExpanded($('explorer').classList.contains('collapsed'));
+const adaptExplorer=()=>setExplorerExpanded(false);
 adaptExplorer();
 async function init(){
  try{
@@ -214,7 +227,8 @@ async function init(){
   for(const [title,url] of [['学校楼宇目录 · 84处建筑资料','https://www.swu.edu.cn/whxd/hjwh/ly.htm'],['学校学生园区目录 · 新旧宿舍名称','https://www.swu.edu.cn/whxd/hjwh/jdxsyq.htm'],['2026年校运会 · 第二运动场近照','https://www.swu.edu.cn/info/1197/27757.htm']]){const li=document.createElement('li'),a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noreferrer';a.textContent=title+' ↗';li.append(a);sources.prepend(li);}
   renderList();
   $('search').addEventListener('input',renderList);
-  document.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{category=b.dataset.category;document.querySelectorAll('[data-category]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));});renderList();});
+  $('clear-search').onclick=()=>{ $('search').value='';renderList();$('search').focus(); };
+  document.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{category=b.dataset.category;setExplorerExpanded(true);document.querySelectorAll('[data-category]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));});renderList();});
   $('reset').onclick=$('compass').onclick=reset;document.querySelector('.brand').onclick=e=>{e.preventDefault();reset();};
   $('top-view').onclick=()=>{stopTour();scene.topView();};$('zoom-in').onclick=()=>scene.zoom(.75);$('zoom-out').onclick=()=>scene.zoom(1.3);
   document.querySelectorAll('[data-time]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-time]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));});scene.setTime(b.dataset.time);document.body.dataset.time=b.dataset.time;});
@@ -223,7 +237,7 @@ async function init(){
   $('tour-next').onclick=()=>{tourIndex=(tourIndex+1)%data.landmarks.length;tourStep();};$('tour-stop').onclick=()=>stopTour();
   $('fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{toast('当前浏览器不支持全屏，请尝试 F11');}};
   $('capture').onclick=async()=>{try{previewExport(await scene.screenshot());}catch{toast('画面生成失败，请重试');}};
-  document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)&&!document.querySelector('dialog[open]')){e.preventDefault();$('explorer').classList.remove('collapsed');$('search').focus();}});
+  document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)&&!document.querySelector('dialog[open]')){e.preventDefault();setExplorerExpanded(true,true);}});
   const parseHash=()=>{const id=new URLSearchParams(location.hash.slice(1)).get('place');if(id&&featureById(id))selectById(id);};
   window.addEventListener('hashchange',parseHash);parseHash();
   window.__campusDebug={buildingCount:data.buildings.length,landmarkCount:data.landmarks.length,get activeId(){return scene.activeId;},get tourRunning(){return tourRunning;},get layers(){return Object.fromEntries(Object.entries(scene.layers).map(([k,v])=>[k,v.visible]));},get drawCalls(){return scene.renderer.info.render.calls;},get triangles(){return scene.renderer.info.render.triangles;}};
