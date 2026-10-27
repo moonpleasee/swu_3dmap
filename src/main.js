@@ -186,13 +186,13 @@ function selectFeature(f,fromTour=false){
  arrangeForum();
  $('share-place').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);toast('地标链接已复制');}catch{toast('可复制浏览器地址栏中的地标链接');}};
  renderList();
- setExplorerExpanded(false);
+ if(mobileMedia.matches)setExplorerExpanded(false);
 }
 function rememberExplorer(){explorerState={expanded:!$('explorer').classList.contains('collapsed'),query:$('search').value,category,scrollTop:$('landmark-list').scrollTop};}
 function setExplorerExpanded(expanded,focus=false){$('explorer').classList.toggle('collapsed',!expanded);$('mobile-collapse').setAttribute('aria-expanded',String(expanded));$('mobile-collapse').setAttribute('aria-label',expanded?'收起探索面板':'展开探索面板');if(expanded&&focus)$('search').focus();}
 function restoreExplorer(){category=explorerState.category;$('search').value=explorerState.query;document.querySelectorAll('[data-category]').forEach(b=>{const active=b.dataset.category===category;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});renderList();setExplorerExpanded(explorerState.expanded);requestAnimationFrame(()=>$('landmark-list').scrollTop=explorerState.scrollTop);}
 function closeDetail(){if(scene.inspectionMode)scene.setInspection(false);selected=null;$('detail').hidden=true;scene.highlight(null);scene.activeId=null;setHash(null);restoreExplorer();}
-function reset(){stopTour(false);selected=null;$('detail').hidden=true;setHash(null);scene.reset();setExplorerExpanded(false);renderList();}
+function reset(){stopTour(false);selected=null;$('detail').hidden=true;setHash(null);scene.reset();setExplorerExpanded(!mobileMedia.matches);renderList();}
 function syncTourButton(){
  $('tour').innerHTML=`${icon(tourRunning?'pause':'play')}<span>${tourRunning?'暂停校园漫游':'沿着校园走一走'}</span>`;
  $('tour').classList.toggle('playing',tourRunning);$('tour').setAttribute('aria-pressed',String(tourRunning));
@@ -209,7 +209,9 @@ document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{co
 $('sources-open').onclick=$('data-open').onclick=()=>showDialog('sources-dialog');
 $('layers-open').onclick=()=>showDialog('layers-dialog');
 $('mobile-collapse').onclick=()=>setExplorerExpanded($('explorer').classList.contains('collapsed'));
-const adaptExplorer=()=>setExplorerExpanded(false);
+const mobileMedia=matchMedia('(max-width: 760px)');
+const adaptExplorer=()=>setExplorerExpanded(!mobileMedia.matches);
+mobileMedia.addEventListener('change',adaptExplorer);
 adaptExplorer();
 async function init(){
  try{

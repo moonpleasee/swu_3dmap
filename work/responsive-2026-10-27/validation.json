@@ -1,0 +1,153 @@
+{
+  "phone": {
+    ".app-shell": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 844,
+      "visible": true
+    },
+    "#scene": {
+      "x": 1,
+      "y": 75,
+      "width": 388,
+      "height": 659,
+      "visible": true
+    },
+    "#explorer": {
+      "x": 15,
+      "y": 691,
+      "width": 360,
+      "height": 133,
+      "visible": true
+    },
+    "#detail": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "visible": false
+    }
+  },
+  "desktop": {
+    ".app-shell": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 800,
+      "visible": true
+    },
+    "#scene": {
+      "x": 360,
+      "y": 88,
+      "width": 920,
+      "height": 712,
+      "visible": true
+    },
+    "#explorer": {
+      "x": 30,
+      "y": 108,
+      "width": 300,
+      "height": 642,
+      "visible": true
+    },
+    "#detail": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "visible": false
+    }
+  },
+  "desktopDetail": {
+    ".app-shell": {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 800,
+      "visible": true
+    },
+    "#scene": {
+      "x": 360,
+      "y": 88,
+      "width": 490,
+      "height": 712,
+      "visible": true
+    },
+    "#explorer": {
+      "x": 30,
+      "y": 108,
+      "width": 300,
+      "height": 642,
+      "visible": true
+    },
+    "#detail": {
+      "x": 878,
+      "y": 108,
+      "width": 380,
+      "height": 650,
+      "visible": true
+    }
+  },
+  "compact": {
+    ".app-shell": {
+      "x": 0,
+      "y": 0,
+      "width": 900,
+      "height": 800,
+      "visible": true
+    },
+    "#scene": {
+      "x": 360,
+      "y": 88,
+      "width": 540,
+      "height": 712,
+      "visible": true
+    },
+    "#explorer": {
+      "x": 30,
+      "y": 108,
+      "width": 300,
+      "height": 642,
+      "visible": true
+    },
+    "#detail": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "visible": false
+    }
+  },
+  "phoneDetail": {
+    ".app-shell": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 844,
+      "visible": true
+    },
+    "#scene": {
+      "x": 1,
+      "y": 75,
+      "width": 388,
+      "height": 196.625,
+      "visible": true
+    },
+    "#explorer": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "visible": false
+    },
+    "#detail": {
+      "x": 1,
+      "y": 436.33282470703125,
+      "width": 388,
+      "height": 582.359375,
+      "visible": true
+    }
+  },
+  "errors": []
+}
