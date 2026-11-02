@@ -1,9 +1,0 @@
-{
-  "source": "OpenStreetMap API 0.6",
-  "roads": 299,
-  "outsideVertices": 0,
-  "invalidWidths": 0,
-  "potentialBuildingOverlapMidpoints": 36,
-  "potentialWaterOverlapMidpoints": 9,
-  "note": "Overlap counts are audit flags from the original OSM snapshot; this check does not invent, delete or reroute roads."
-}

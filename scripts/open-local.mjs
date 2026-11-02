@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 
 const ports = [4311, 4312];
 async function healthy(url) {
-  try { return (await (await fetch(url + '__campus_health', { signal: AbortSignal.timeout(600) })).json()).app === 'swu-campus-local'; }
+  try { const health=await (await fetch(url + '__campus_health', { signal: AbortSignal.timeout(600) })).json();return health.app === 'swu-campus-local'&&health.backend===true; }
   catch { return false; }
 }
 let url;

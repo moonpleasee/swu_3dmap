@@ -1,5 +1,0 @@
-{
-  "createdAt": "2026-10-04",
-  "reason": "Rollback point before rounded capsule road junction geometry",
-  "files": ["src/roads.js", "src/scene.js", "HANDOFF.md", "VALIDATION.md", "README.md", "package.json", "package-lock.json"]
-}

@@ -1,6 +1,10 @@
 import './style.css';
+import './minimal.css';
+import './community-ui.css';
 import { CampusScene } from './scene.js';
-import {communityState,fixedPlace,createPlace,addPhoto,addComment,addRating,addReply,getPlace} from './community.js';
+import {communityState,fixedPlace,createPlace,addPhoto,addComment,addRating,addReply,getPlace} from './community-api.js';
+import {connectCommunity,loadPlace,api,currentUser,backendAvailable,moderation,communityEnabled} from './community-api.js';
+import {initAccount} from './account.js';
 
 const icons={
  search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/>',
@@ -30,14 +34,14 @@ app.innerHTML=`
  <div class="app-shell">
   <div id="scene"></div><div class="map-grain" aria-hidden="true"></div>
   <header class="masthead">
-   <a class="brand" href="#" aria-label="西南大学云游北碚，返回全景"><span class="brand-seal">西南</span><span><strong>西南大学<span class="brand-divider">/</span><b>云游北碚</b></strong><small>SOUTHWEST UNIVERSITY · CAMPUS EXPLORER</small></span></a>
+   <a class="brand" href="#" aria-label="西大云游，返回全景"><strong>西大云游</strong></a>
    <div class="header-right"><span class="location"><i></i> 重庆 · 北碚校区</span><button class="text-button" id="sources-open" aria-label="关于这座校园">${icon('info')}<span>关于这座校园</span></button></div>
   </header>
   <aside class="explorer" id="explorer" aria-label="校园探索面板">
    <div class="intro"><div class="eyebrow"><span></span> 山城里的花园大学</div><h1>山水之间，<br>遇见西大<span>。</span></h1><p>把熟悉的校园，换个角度看。</p><div class="intro-rule"></div></div>
-   <div class="explore-heading"><div><h2>探索校园</h2><small>从一栋楼，走到一段校园记忆</small></div><span id="landmark-count">12 处精选地标</span><button id="create-place" class="create-place-button">＋ 创建地点</button><button id="mobile-collapse" aria-expanded="true" aria-label="收起探索面板">⌄</button></div>
+   <div class="explore-heading"><div><h2>探索校园</h2></div><span id="landmark-count">12 处精选地标</span><button id="create-place" class="create-place-button">＋ 地点</button><button id="mobile-collapse" aria-expanded="true" aria-label="收起探索面板">⌄</button></div>
    <div class="explorer-content">
-    <label class="search-box">${icon('search')}<input id="search" type="search" placeholder="找一栋楼，或一段校园记忆" autocomplete="off" aria-label="搜索校园建筑与地标"><button id="clear-search" type="button" aria-label="清除搜索" hidden>×</button><kbd>/</kbd></label>
+    <label class="search-box">${icon('search')}<input id="search" type="search" placeholder="搜索校园地点" autocomplete="off" aria-label="搜索校园建筑与地标"><button id="clear-search" type="button" aria-label="清除搜索" hidden>×</button></label>
     <div class="categories" aria-label="按类型筛选">${['全部','教学','宿舍','文化','运动','生活','风景','待核名'].map((c,i)=>`<button data-category="${c}" class="category ${i===0?'active':''}" aria-pressed="${i===0}">${c}</button>`).join('')}</div>
     <p class="directory-hint">放大地图可见更多楼名 · 支持现名、旧名和舍号</p>
     <div class="landmark-list" id="landmark-list" aria-live="polite"></div>
@@ -100,14 +104,16 @@ function refreshCommunity(p){
  const tab=panel?.dataset.tab||'discussion';
  const scroll=$('detail').scrollTop;
  community=communityState();
- if(p.fixedId)selectById(p.fixedId);else selectCommunityPlace(p.id);
+ if(panel){panel.outerHTML=communityPanel(getPlace(p.id)||p);bindCommunityPanel(getPlace(p.id)||p);}
  const next=$('detail').querySelector('.community-panel');
  if(next){next.dataset.tab=tab;next.querySelectorAll('[data-forum-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.forumTab===tab)));}
  $('detail').scrollTop=scroll;
 }
 function bindCommunityPanel(p){
  const detail=$('detail');
- const save=action=>{try{action();refreshCommunity(p);}catch{toast('保存失败，浏览器空间可能不足，请减少照片大小后重试');}};
+ detail.querySelectorAll('[data-delete-post]').forEach(b=>b.onclick=async()=>{try{await api('/api/posts/'+b.dataset.deletePost,null,'DELETE');await loadPlace(p.id);refreshCommunity(p);}catch(e){toast(e.message);}});
+ detail.querySelectorAll('[data-report-post]').forEach(b=>b.onclick=async()=>{const reason=prompt('举报原因');if(!reason)return;try{await api('/api/posts/'+b.dataset.reportPost+'/report',{reason});toast('举报已提交');}catch(e){toast(e.message);}});
+ const save=async action=>{try{await action();refreshCommunity(p);toast(moderation==='manual'?'已保存，审核通过后向其他人展示':'已保存');}catch(error){toast(error.message);}};
  detail.querySelector('#community-comment-form')?.addEventListener('submit',e=>{e.preventDefault();const input=detail.querySelector('#community-comment');if(input.value.trim())save(()=>addComment(p.id,input.value));});
  detail.querySelectorAll('[data-reply-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const input=form.querySelector('input');if(input.value.trim())save(()=>addReply(p.id,form.dataset.replyForm,input.value));}));
  detail.querySelectorAll('[data-reply-toggle]').forEach(button=>button.onclick=()=>{const form=button.parentElement.querySelector('form');form.hidden=!form.hidden;if(!form.hidden)form.querySelector('input').focus();});
@@ -115,8 +121,8 @@ function bindCommunityPanel(p){
  detail.querySelector('#community-photo')?.addEventListener('change',async e=>{
   for(const file of e.target.files){
    if(!file.type.startsWith('image/')){toast('请选择图片文件');continue;}
-   if(file.size>1800000){toast('单张图片请控制在 1.8 MB 以内');continue;}
-   try{const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file);});addPhoto(p.id,{name:file.name,data});refreshCommunity(p);}catch{toast('照片未保存，可能已超出浏览器存储空间');}
+   if(file.size>5*1024*1024){toast('单张图片请控制在 5 MB 以内');continue;}
+   try{await addPhoto(p.id,file);refreshCommunity(p);toast(moderation==='manual'?'图片已保存，等待审核':'图片已保存');}catch(error){toast(error.message);}
   }
  });
  detail.querySelectorAll('[data-forum-tab]').forEach(button=>button.onclick=()=>{
@@ -125,20 +131,21 @@ function bindCommunityPanel(p){
  });
 }
 function communityPanel(p){
- const photos=p.photos.map(x=>`<img src="${escape(x.data)}" alt="${escape(x.name||'地点照片')}" loading="lazy">`).join('');
+ if(!communityEnabled)return '<section class="community-panel community-unavailable"><strong>讨论</strong><p>暂不开放</p></section>';
+ const photos=p.photos.map(x=>`<figure><img src="${escape(x.data)}" alt="${escape(x.name||'地点照片')}" loading="lazy">${x.status==='pending'?'<figcaption>待审核</figcaption>':''}${x.canDelete?`<button data-delete-post="${escape(x.id)}">删除</button>`:`<button data-report-post="${escape(x.id)}">举报</button>`}</figure>`).join('');
  const date=x=>new Date(x).toLocaleDateString('zh-CN');
- const comments=[...p.comments].reverse().map(x=>`<li class="forum-post"><header><span class="forum-avatar">我</span><div><strong>本机访客</strong><small>${escape(date(x.createdAt))}</small></div></header><p>${escape(x.text)}</p><div class="forum-replies">${(x.replies||[]).map(r=>`<p><b>本机访客</b> ${escape(r.text)}</p>`).join('')}</div><button type="button" data-reply-toggle="${escape(x.id)}">回复 · ${(x.replies||[]).length}</button><form data-reply-form="${escape(x.id)}" class="community-comment-form" hidden><input aria-label="回复这条评价" maxlength="240" placeholder="回应这条评价…" required><button type="submit">发送</button></form></li>`).join('');
- return `<section class="community-panel" data-tab="discussion"><div class="community-heading"><strong>这里的校园日常</strong><small>${communitySummary(p)}</small></div><div class="forum-tabs" role="tablist" aria-label="地点内容"><button role="tab" aria-selected="true" data-forum-tab="discussion">讨论 <small>${p.comments.length}</small></button><button role="tab" aria-selected="false" data-forum-tab="photos">照片 <small>${p.photos.length}</small></button></div><div class="forum-photo-section">${photos?`<div class="community-photos">${photos}</div>`:'<div class="forum-empty"><strong>第一张照片，等你来拍</strong><p>记录这里的风景、课间与校园生活。</p></div>'}</div><div class="forum-discussion-section"><div class="community-rating"><span>这个地方，你给几分？</span><select id="community-rating" aria-label="为地点评分"><option value="">去评分</option>${[5,4,3,2,1].map(n=>`<option value="${n}">${'★'.repeat(n)} ${n}分</option>`).join('')}</select></div>${comments?`<ul class="community-comments">${comments}</ul>`:'<div class="forum-empty"><strong>还没有讨论，来坐第一排</strong><p>上课体验、实用提醒，或是你在这里的故事。</p></div>'}</div><div class="forum-compose"><label class="upload-photo">＋ 照片<input id="community-photo" type="file" accept="image/*" multiple></label><form id="community-comment-form" class="community-comment-form"><input id="community-comment" aria-label="发表地点评价" maxlength="240" placeholder="说说这个地方…" required><button type="submit">发布</button></form></div><small class="community-local-note">本机体验版 · 照片与讨论仅在此浏览器保存，尚未与其他用户共享。</small></section>`;
+ const comments=[...p.comments].reverse().map(x=>`<li class="forum-post"><header><span class="forum-avatar">${escape((x.author||"校").slice(0,1))}</span><div><strong>${escape(x.author||'校园用户')}${x.status==='pending'?' · 待审核':''}</strong><small>${escape(date(x.createdAt))}</small></div></header><p>${escape(x.text)}</p>${x.canDelete?`<button type="button" data-delete-post="${escape(x.id)}">删除</button>`:`<button type="button" data-report-post="${escape(x.id)}">举报</button>`}<div class="forum-replies">${(x.replies||[]).map(r=>`<p><b>${escape(r.author||'校园用户')}${r.status==='pending'?' · 待审核':''}</b> ${escape(r.text)}</p>`).join('')}</div><button type="button" data-reply-toggle="${escape(x.id)}">回复 · ${(x.replies||[]).length}</button><form data-reply-form="${escape(x.id)}" class="community-comment-form" hidden><input aria-label="回复这条评价" maxlength="240" placeholder="回应这条评价…" required><button type="submit">发送</button></form></li>`).join('');
+ return `<section class="community-panel" data-tab="discussion"><div class="community-heading"><strong>这里的校园日常</strong><small>${communitySummary(p)}</small></div><div class="forum-tabs" role="tablist" aria-label="地点内容"><button role="tab" aria-selected="true" data-forum-tab="discussion">讨论 <small>${p.comments.length}</small></button><button role="tab" aria-selected="false" data-forum-tab="photos">照片 <small>${p.photos.length}</small></button></div><div class="forum-photo-section">${photos?`<div class="community-photos">${photos}</div>`:'<div class="forum-empty"><strong>第一张照片，等你来拍</strong><p>记录这里的风景、课间与校园生活。</p></div>'}</div><div class="forum-discussion-section"><div class="community-rating"><span>这个地方，你给几分？</span><select id="community-rating" aria-label="为地点评分"><option value="">去评分</option>${[5,4,3,2,1].map(n=>`<option value="${n}">${'★'.repeat(n)} ${n}分</option>`).join('')}</select></div>${comments?`<ul class="community-comments">${comments}</ul>`:'<div class="forum-empty"><strong>还没有讨论，来坐第一排</strong><p>上课体验、实用提醒，或是你在这里的故事。</p></div>'}</div><div class="forum-compose"><label class="upload-photo">＋ 照片<input id="community-photo" type="file" accept="image/*" multiple></label><form id="community-comment-form" class="community-comment-form"><input id="community-comment" aria-label="发表地点评价" maxlength="240" placeholder="说说这个地方…" required><button type="submit">发布</button></form></div><small class="community-local-note">${backendAvailable?(moderation==='manual'?'内容保存于服务器；新内容审核通过后公开。':'内容保存于服务器，与其他用户共享。'):'社区服务未连接，暂时无法保存内容。'}</small></section>`;
 }
 function arrangeForum(){
  const detail=$('detail'),panel=detail.querySelector('.community-panel');if(!panel)return;
  const info=document.createElement('details');info.className='forum-building-info';
  const summary=document.createElement('summary');summary.textContent='建筑资料与模型';info.append(summary);
- for(const child of [...detail.children])if(child!==panel&&!child.matches('.detail-top,h2'))info.append(child);
+ for(const child of [...detail.children])if(child!==panel&&!child.matches('.detail-top,h2,.name-suggestion'))info.append(child);
  detail.append(info);detail.scrollTop=0;
 }
 function selectCommunityPlace(id){
- const p=getPlace(id);if(!p)return;rememberExplorer();selected={id:p.id};setHash(p.id);$('detail').innerHTML=`<div class="detail-top"><span class="detail-tag">${icon('pin')} 社区地点 · 北碚校区</span><button id="detail-close" aria-label="关闭地点详情">${icon('close')}</button></div><h2>${escape(p.name)}</h2><span class="detail-en">CAMPUS PLACE</span><p>${escape(p.description||'用户创建的校园地点。')}</p><div class="detail-note">位置已记录在当前三维地图上，可继续上传照片、评论和评分。</div>${communityPanel(p)}`;$('detail').hidden=false;$('detail-close').onclick=closeDetail;scene.focusPoint(p.point);renderList();bindCommunityPanel(p);arrangeForum();
+ const p=getPlace(id);if(!p)return;rememberExplorer();selected={id:p.id};setHash(p.id);$('detail').innerHTML=`<div class="detail-top"><span class="detail-tag">${icon('pin')} 社区地点 · 北碚校区</span><button id="detail-close" aria-label="关闭地点详情">${icon('close')}</button></div><h2>${escape(p.name)}</h2><span class="detail-en">CAMPUS PLACE</span><p>${escape(p.description||'用户创建的校园地点。')}</p><div class="detail-note">位置已记录在当前三维地图上，可继续上传照片、评论和评分。</div>${communityPanel(p)}`;$('detail').hidden=false;$('detail-close').onclick=closeDetail;scene.focusPoint(p.point);renderList();bindCommunityPanel(p);arrangeForum();loadVisiblePlace(p.id);
 }
 function selectFeature(f,fromTour=false){
  if(f?.kind==='community-place'){selectCommunityPlace(f.communityPlaceId||f.id);return;}
@@ -182,8 +189,9 @@ function selectFeature(f,fromTour=false){
    $('detail').querySelector('.detail-note').before(observation);
    if(f.exterior.entryNote){const note=document.createElement('p');note.className='entry-evidence';note.textContent=(f.exterior.entryBasis==='photo-reference'?'入口参考：':'入口待核实：')+f.exterior.entryNote;observation.append(note);}
  }
+ if(communityEnabled&&['unresolved','conflict'].includes(f.nameStatus))addNameSuggestion(f);
  const place=fixedPlace(f.id,f);$('detail').insertAdjacentHTML('beforeend',communityPanel(place));bindCommunityPanel(place);
- arrangeForum();
+ arrangeForum();loadVisiblePlace(place.id);
  $('share-place').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);toast('地标链接已复制');}catch{toast('可复制浏览器地址栏中的地标链接');}};
  renderList();
  if(mobileMedia.matches)setExplorerExpanded(false);
@@ -216,10 +224,12 @@ adaptExplorer();
 async function init(){
  try{
   const [response,terrainResponse]=await Promise.all([fetch(`${import.meta.env.BASE_URL}data/campus.json`),fetch(`${import.meta.env.BASE_URL}data/terrain.json`)]);if(!response.ok||!terrainResponse.ok)throw new Error('校园或地形数据加载失败');data=await response.json();const terrain=await terrainResponse.json();
+  await connectCommunity();community=communityState();if(communityEnabled)initAccount(async()=>{community=communityState();scene.setCommunityMarkers(community.places.filter(p=>!p.fixedId));renderList();if(selected){const key=selected.id.startsWith('user:')?selected.id:'fixed:'+selected.id;await loadVisiblePlace(key);}});
+  $('create-place').hidden=!communityEnabled;
   scene=new CampusScene($('scene'),data,{terrain,onSelect:selectFeature,onMove:()=>{if(tourRunning){stopTour(false);toast('漫游已暂停，可自由查看校园');}},onReady:()=>{$('loading').classList.add('loaded');setTimeout(()=>$('loading').remove(),650);}});
-  scene.setCommunityMarkers(community.places);
-  $('create-place').onclick=()=>{mapPickPoint=null;scene.setMapPickMode(point=>{mapPickPoint=point;scene.setMapMarker(point);$('place-point').value=point.join(',');$('place-create-dialog').showModal();toast('位置已选定，可以确认或重新点击地图移动标记');});scene.setMapMarker(null);toast('请点击地图选择位置，再填写地点信息');};
-  $('place-create-form').onsubmit=e=>{e.preventDefault();if(!mapPickPoint){toast('请先在地图上选择位置');return;}const p=createPlace({name:$('place-name').value,description:$('place-description').value,point:mapPickPoint});community=communityState();scene.setMapPickMode(null);scene.setCommunityMarkers(community.places);$('place-create-dialog').close();$('place-create-form').reset();mapPickPoint=null;renderList();selectCommunityPlace(p.id);toast('地点已创建');};
+  scene.setCommunityMarkers(community.places.filter(p=>!p.fixedId));
+  $('create-place').onclick=()=>{if(!currentUser){window.dispatchEvent(new Event('campus-login-required'));return;}mapPickPoint=null;scene.setMapPickMode(point=>{mapPickPoint=point;scene.setMapMarker(point);$('place-point').value=point.join(',');$('place-create-dialog').showModal();toast('位置已选定，可以确认或重新点击地图移动标记');});scene.setMapMarker(null);toast('请点击地图选择位置，再填写地点信息');};
+  $('place-create-form').onsubmit=async e=>{e.preventDefault();if(!mapPickPoint){toast('请先在地图上选择位置');return;}try{const p=await createPlace({name:$('place-name').value,description:$('place-description').value,point:mapPickPoint});community=communityState();scene.setMapPickMode(null);scene.setCommunityMarkers(community.places.filter(p=>!p.fixedId));$('place-create-dialog').close();$('place-create-form').reset();mapPickPoint=null;renderList();selectCommunityPlace(p.id);toast(moderation==='manual'?'地点已保存，待审核后公开':'地点已创建');}catch(error){toast(error.message);}};
   document.querySelector('.model-badge').innerHTML='<i></i> DEM 地形 · 高差比例 1:1';
   const terrainLayer=document.createElement('label');terrainLayer.className='layer-row';terrainLayer.innerHTML='<span><strong>地形等高线</strong><small>间隔 10 米 · 含平台平整处理</small></span><input type="checkbox" data-layer="contours"><span class="toggle"></span>';document.querySelector('.layer-list').append(terrainLayer);
   $('building-total').textContent=data.buildings.length;
@@ -242,7 +252,19 @@ async function init(){
   document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)&&!document.querySelector('dialog[open]')){e.preventDefault();setExplorerExpanded(true,true);}});
   const parseHash=()=>{const id=new URLSearchParams(location.hash.slice(1)).get('place');if(id&&featureById(id))selectById(id);};
   window.addEventListener('hashchange',parseHash);parseHash();
+  setInterval(()=>{if(document.hidden||!backendAvailable||!selected||document.activeElement?.matches('input,textarea,select')||document.querySelector('dialog[open]'))return;loadVisiblePlace(selected.id.startsWith('user:')?selected.id:'fixed:'+selected.id);},15000);
   window.__campusDebug={buildingCount:data.buildings.length,landmarkCount:data.landmarks.length,get activeId(){return scene.activeId;},get tourRunning(){return tourRunning;},get layers(){return Object.fromEntries(Object.entries(scene.layers).map(([k,v])=>[k,v.visible]));},get drawCalls(){return scene.renderer.info.render.calls;},get triangles(){return scene.renderer.info.render.triangles;}};
  }catch(error){console.error(error);$('loading').innerHTML=`${icon('info')}<strong>校园暂时没有展开</strong><span>请确认浏览器支持 WebGL，并通过本地服务打开网页。</span><button onclick="location.reload()">重新加载</button>`;}
 }
 init();
+
+async function loadVisiblePlace(id){
+ if(!communityEnabled)return;
+ try{const p=await loadPlace(id);if(!selected||$('detail').hidden)return;if((selected.id.startsWith('user:')?selected.id:'fixed:'+selected.id)!==id)return;const input=$('detail').querySelector('#community-comment');if(input?.value||document.activeElement?.closest('.community-panel'))return;refreshCommunity(p);}catch(error){toast(error.message);}
+}
+function addNameSuggestion(f){
+ const card=document.createElement('section');card.className='name-suggestion';
+ card.innerHTML=`<details><summary>知道这栋楼的名字？提个建议</summary><p>建议绑定建筑编号 ${escape(f.id)}，审核后采用。</p><form><label>你知道的名称<input name="name" maxlength="40" required placeholder="如：楠园某栋宿舍"></label><button type="submit">提交建议</button><p role="status"></p></form></details>`;
+ $('detail').querySelector('h2').after(card);
+ card.querySelector('form').onsubmit=async e=>{e.preventDefault();const form=e.target,b=form.querySelector('button');b.disabled=true;try{await api(`/api/buildings/${encodeURIComponent(f.id)}/suggestions`,{name:form.elements.name.value});form.reset();form.querySelector('[role=status]').textContent='建议已保存，等待核实。';}catch(error){form.querySelector('[role=status]').textContent=error.message;}finally{b.disabled=false;}};
+}

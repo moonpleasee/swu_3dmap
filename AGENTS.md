@@ -1,0 +1,9 @@
+# 西大云游：长期协作约定
+
+- 当前项目根目录：`D:\Cloud_Campus\campus-platform-starter\swu-campus-3d`，本目录拥有独立Git元数据。
+- 用户所说“更新git”“上传GitHub”“推送项目”，默认且唯一目标为私有仓库 `https://github.com/moonpleasee/swu_3dmap.git`，主分支 `main`。
+- 执行Git操作前先确认 `git rev-parse --show-toplevel` 和 `git remote -v`。不得向父目录原 `snsn78/Cloud_Campus` 仓库推送地图更新，也不得更改原平台远程配置。
+- 不将用户数据库、上传图片、密钥、依赖目录、构建产物或视频输出提交Git。work为本机研究、回退与测试产物，默认不提交；需要可移植证据时另选必要文件。
+- 先阅读 `HANDOFF.md` 最新状态、`INTEGRATION-HANDOFF.md` 和现有源码。当前只展示地图，讨论显示“暂不开放”；未经用户要求不得恢复社区。
+- 地图功能开发由本项目开发AI负责；现有主站及集成部署由另一AI负责。部署交接以 `INTEGRATION-HANDOFF.md` 为准。
+- 此文件记录用户长期偏好。新会话应沿用私有仓库，不从对话记忆猜测状态。

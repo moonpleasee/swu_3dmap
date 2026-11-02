@@ -1,5 +1,0 @@
-import {chromium} from 'playwright';
-const b=await chromium.launch({channel:'msedge',headless:true});const p=await b.newPage({viewport:{width:1440,height:960}});const errs=[];p.on('pageerror',e=>errs.push(String(e)));p.on('console',m=>{if(m.type()==='error')errs.push(m.text())});
-await p.goto('http://127.0.0.1:4311/',{waitUntil:'networkidle'});await p.evaluate(()=>localStorage.removeItem('swu-place-community-v1'));await p.reload({waitUntil:'networkidle'});await p.waitForTimeout(1400);
-await p.locator('#create-place').click();const box=await p.locator('#scene canvas').boundingBox();await p.mouse.click(box.x+box.width*.55,box.y+box.height*.50);await p.waitForTimeout(200);await p.locator('#place-name').fill('测试地点');await p.locator('#place-description').fill('地图选点测试');await p.locator('#place-create-form button[type=submit]').click();await p.waitForTimeout(800);
-const result=await p.evaluate(()=>({title:document.querySelector('#detail h2')?.textContent,community:!!document.querySelector('.community-panel'),list:document.querySelector('#landmark-list')?.textContent.includes('测试地点')}));console.log(JSON.stringify({result,errs}));await b.close();

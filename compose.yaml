@@ -1,0 +1,38 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      PUBLIC_ORIGIN: https://${DOMAIN:?Set DOMAIN in .env}
+      COOKIE_SECURE: '1'
+      TRUST_PROXY: '1'
+      MODERATION: manual
+      COMMUNITY_ENABLED: '0'
+      REGISTRATION: ${REGISTRATION:-closed}
+    volumes:
+      - campus-data:/data
+    expose:
+      - '4311'
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - app
+volumes:
+  campus-data:
+  caddy-data:
+  caddy-config:

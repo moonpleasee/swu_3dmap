@@ -349,7 +349,7 @@ export class CampusScene {
     entries.forEach((l,i)=>{
       const f=this.data.buildings.concat(this.data.surfaces).find(f=>f.id===l.id);l.baseElevation=f?this.terrain.elevation(f):this.terrain.sample(...l.center);
       const button=document.createElement('button');button.className='map-label'+(l.priority<3?' ordinary-label':'')+(l.priority===0?' unresolved-label':'');
-      const dot=document.createElement('i'),span=document.createElement('span');span.textContent=l.name;button.append(dot,span);
+      const dot=document.createElement('i'),span=document.createElement('span');span.textContent=l.name;button.append(dot,span);button.hidden=true;
       button.setAttribute('aria-label',`查看${l.name}`);button.onclick=()=>this.onSelect(this.data.buildings.concat(this.data.surfaces).find(f=>f.id===l.id));
       this.labelHost.append(button);this.labelElements.push({button,l,index:i});
     });
@@ -443,7 +443,8 @@ export class CampusScene {
       const x=(p.x*.5+.5)*w,y=(-p.y*.5+.5)*h;
       const active=l.id===this.activeId;const collision=used.some(a=>Math.abs(a[0]-x)<125&&Math.abs(a[1]-y)<36);
       const nearTarget=Math.hypot(l.center[0]-this.controls.target.x,l.center[1]-this.controls.target.z)<cameraDistance*.7;
-      const eligible=active||l.priority===3||(l.priority>0&&cameraDistance<190&&nearTarget)||(l.priority===0&&cameraDistance<65&&nearTarget);
+      // No labels in the initial panorama, including portrait layouts. Reveal by zoom.
+      const eligible=cameraDistance<300&&(active||(l.priority===3&&cameraDistance<300)||(l.priority>0&&cameraDistance<190&&nearTarget)||(l.priority===0&&cameraDistance<95&&nearTarget));
       const underPanel=blocked.some(r=>x+55>r.left&&x-55<r.right&&y>r.top&&y-25<r.bottom);
       const show=eligible&&p.z<1&&p.z>-1&&x>25&&x<w-30&&y>20&&y<h-35&&!collision&&!underPanel;
       button.hidden=!show;button.classList.toggle('selected',active);

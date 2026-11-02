@@ -194,3 +194,6 @@
 - `http://127.0.0.1:4311/__campus_health` 返回 `{"app":"swu-campus-local"}`。
 - 首页返回 HTTP 200，内容类型为 `text/html`。
 - `node --check scripts/open-local.mjs`、`node --check scripts/local-server.mjs` 和 `npm.cmd run build` 通过。
+
+## 2026-11-02 持久社区、名称建议与标签
+Node24后端集成测试通过：未登录/越权拦截、来源校验、审核隔离、图片校验、评分覆盖、建议/举报/删除与重启持久化。浏览器临时数据库验证初始无标签、缩放显示、注册、名称建议、评论及另一浏览器读取，390px无横向溢出、无页面错误。证据在 work/community-backend-2026-11-02。preview-responsive.mjs也通过。构建和npm审计通过；Docker云端部署未实测。
