@@ -15,7 +15,7 @@
 - 新增`server/`：Node24+Express+SQLite持久社区与本地WebP图片存储；账号密码会话、地点、评论/回复（15秒轮询）、评分覆盖、建议、审核、举报与删除、审核日志。`/admin`是管理入口，无默认管理员密码；`npm.cmd run admin`设置。默认先审后发，SQLite和uploads位于server-data，已忽略Git。
 - `community-api.js`/`account.js`替代当前页面的localStorage读写；旧`community.js`与浏览器旧记录保留，但不自动迁移。地图账号独立，未与旁边campus-platform订单账号打通。
 - 原本地启动器现在调用新后端；`npm.cmd start`与`打开校园网站`均服务dist+API。4311本地服务已重启。不要用旧纯静态服务覆盖本批API。
-- 部署及成本详见根目录`DEPLOY-CN.md`，提供Dockerfile/compose/Caddy/备份脚本。注册在云部署默认关闭。当前账号不是实名认证；大陆公开社区上线前需要主体、备案、真实认证、协议与运营审核等；未购买服务器、未部署到公网、未接SMS/微信/COS/自动内容审核。当前机器无Docker，容器配置未在云机实测。
+- 部署及成本详见根目录`docs/DEPLOY-CN.md`，提供Dockerfile/compose/Caddy/备份脚本。注册在云部署默认关闭。当前账号不是实名认证；大陆公开社区上线前需要主体、备案、真实认证、协议与运营审核等；未购买服务器、未部署到公网、未接SMS/微信/COS/自动内容审核。当前机器无Docker，容器配置未在云机实测。
 - 验证：`test:backend`通过，覆盖权限、来源校验、审核隔离、图片解码与访问、评分覆盖、建议、举报、删除及重启持久化；`preview-community-backend.mjs`用临时DB测试初始无标签/缩放/名称建议/注册/评论/另浏览器读取/手机390px，无页面错误，截图和报告`work/community-backend-2026-11-02/`。生产构建通过，npm审计0漏洞；Vite升级8.3.5、sharp使用0.35.5。
 - 本批未更改建筑、道路、地形数据。回退源文件在`work/gates/2026-11-02-before-community-backend/`。下一步：与用户确认实际部署主体和域名/服务器配置，再接入真实认证；先完成Docker云机部署与备份恢复验收，再开放公测。功能缺口：自助账号找回/注销、分页与单条回复管理、私信/WebSocket、云审核与对象存储；不要称完整商业社交后端或已经公网上线。
 
@@ -43,19 +43,19 @@
 - 数据仍为300栋建筑、93个场地/水体/绿地要素、299段道路和12处地标。
 - 116栋既有参考配置保持不变（63栋单体照片、53栋园区风格）；本批为其余184栋新增独立“用途与轮廓估算”配置。当前外观依据计数为：single-photo 63、garden-photo 53、inferred 184、未配置 0。
 - 300栋现在都有独立墙面、窗格、屋顶收边和入口几何；新增入口全部标记为 `entryBasis: inferred`，不代表已找到本栋照片。参考配置的轮廓、层高、名称、屋顶和颜色未被覆盖。
-- 名称仍有151栋待可靠确认、4处冲突；这与外观配置统计有重叠。184栋估算楼栋仍列在 `REMAINING-BUILDINGS.csv`，状态是“已有独立估算配置，仍待照片核实”，不能称为照片精确还原。
+- 名称仍有151栋待可靠确认、4处冲突；这与外观配置统计有重叠。184栋估算楼栋仍列在 `data-sources/registers/REMAINING-BUILDINGS.csv`，状态是“已有独立估算配置，仍待照片核实”，不能称为照片精确还原。
 
 ## 2026-09-26 估算外观批次
 
 新增保护式脚本 `scripts/apply-inferred-exteriors.py`，先把 `work/inferred-exteriors/before-campus.json` 和 `before-profiles.json` 保存为基线，再按地图轮廓、用途标签和既有层高为184栋逐栋生成稳定参数。教学/实验室/宿舍/住宅/食堂/商业/温室/服务/体育/医院分别使用不同墙色、窗格密度、阳台或百叶、屋面色和入口宽度；入口朝向按本栋OSM多边形上最接近校内道路的外墙边估算，台阶按体量缩放。
 
-本批没有新增照片证据，没有把相邻楼栋或网上其他建筑照片套用到未确认对象；所有新增对象的观察记录、估计范围、OSM轮廓来源和入口待核说明已写入 `data-sources/exterior-profiles.json`、`public/data/campus.json` 和 `EXTERIOR-REGISTER.csv`。温室等特殊用途保留原轮廓和现有低矮高度，不因估算配置擅自改动几何。
+本批没有新增照片证据，没有把相邻楼栋或网上其他建筑照片套用到未确认对象；所有新增对象的观察记录、估计范围、OSM轮廓来源和入口待核说明已写入 `data-sources/exterior-profiles.json`、`public/data/campus.json` 和 `data-sources/registers/EXTERIOR-REGISTER.csv`。温室等特殊用途保留原轮廓和现有低矮高度，不因估算配置擅自改动几何。
 
 ## 验证与接续
 
 - `check-data.py`、`check-exteriors.mjs`、`check-roofs-entrances.mjs`、`check-refinement.mjs`、`check-terrain.mjs`、`check-ground-contact.mjs`、`check-researched-batch-2026-09-24.mjs` 均通过；验证显示300个入口配置、41个完整坡屋顶、无接地异常。
 - 既有116栋参考外观与批前校园快照逐字段比较无差异；建筑轮廓、层高和名称也无差异。
-- 下一步只应从 `REMAINING-BUILDINGS.csv` 中为能获得本栋照片的楼栋替换对应“估算”细节，并保留照片年代、可见范围和未覆盖面说明；不要把本批估算计作新增照片参考。
+- 下一步只应从 `data-sources/registers/REMAINING-BUILDINGS.csv` 中为能获得本栋照片的楼栋替换对应“估算”细节，并保留照片年代、可见范围和未覆盖面说明；不要把本批估算计作新增照片参考。
 
 # 接续记录 · 2026-09-23
 
@@ -100,7 +100,7 @@
 
 本批主要成果：羽毛球馆白色宽檐/绿色门柱/红台阶；网球馆双拱筒形屋顶；楠园一食堂蓝白立面/弧雨棚；楠园二食堂双组入口；李园食堂绿色幕墙；橘园食堂粉墙/窗组/空调；李园小吃街连续绿蓝雨棚店面；动物医院弧形玻璃/顶部格架；兰苑宾馆金色门框/灰台阶；体育中心分瓣外壳/浅顶盘/玻璃环带，替换旧半球。
 
-原101个参考建筑、全部290个非目标建筑的记录以及道路、表面、边界经基线比较未变。基线和截图在 work/building-batch/。BUILDING-REGISTER.csv、EXTERIOR-REGISTER.csv、REMAINING-BUILDINGS.csv 已导出，剩余清单189行。
+原101个参考建筑、全部290个非目标建筑的记录以及道路、表面、边界经基线比较未变。基线和截图在 work/building-batch/。data-sources/registers/BUILDING-REGISTER.csv、data-sources/registers/EXTERIOR-REGISTER.csv、data-sources/registers/REMAINING-BUILDINGS.csv 已导出，剩余清单189行。
 
 本批已通过数据、外观、屋顶入口、地形、墙脚接地和专用批次检查以及生产构建。preview-building-batch.mjs 覆盖10栋和390像素移动端，browser-validation.json 中 errors 为空。个别截图可能拍在模式切换过渡中；下一轮先增加布局/相机稳定等待，再复核羽毛球馆全景和各入口。
 
@@ -126,7 +126,7 @@
 
 来源和研究图在 work/next-batch/：学校楼宇目录 https://www.swu.edu.cn/whxd/hjwh/ly.htm、咏修楼B栋 https://www.swu.edu.cn/info/1153/16911.htm、阅见书店 https://www.swu.edu.cn/info/1197/7774.htm。新增脚本 scripts/apply-yongxiu-batch.py，仅保护式写入这2栋。
 
-当前验证：300栋数据、300栋外观实例、25栋坡屋顶、113处常驻入口检查通过；生产构建成功。REMAINING-BUILDINGS.csv 当前187行。导航功能本轮只完成方案讨论，尚未写入代码。
+当前验证：300栋数据、300栋外观实例、25栋坡屋顶、113处常驻入口检查通过；生产构建成功。data-sources/registers/REMAINING-BUILDINGS.csv 当前187行。导航功能本轮只完成方案讨论，尚未写入代码。
 
 ## 2026-09-24/25 研究批次：丹桂楼、医院、梅园学生食堂
 
@@ -153,7 +153,7 @@
 
 - `check-data.py`、`check-researched-batch-2026-09-24.mjs`、`check-refinement.mjs`、`check-exteriors.mjs`、`check-roofs-entrances.mjs`、`check-terrain.mjs`、`check-ground-contact.mjs` 全部通过；结果为300栋、93个表面、299条道路、12处地标、25个完整屋顶、116处常驻入口、无接地异常。
 - `npm.cmd run build` 成功，Vite仅提示主chunk约680KB的体积建议。生产页面已在 `http://127.0.0.1:4311/` 实际打开；全景、丹桂楼、医院、梅园学生食堂三个 hash 详情均能加载，名称、参考说明和入口按钮可见，未见页面错误。
-- `BUILDING-REGISTER.csv`、`EXTERIOR-REGISTER.csv`、`REMAINING-BUILDINGS.csv` 已按本批数据重新导出；剩余清单184行。下一步从清单中选取有可靠对应照片的对象继续逐批处理，优先补齐能确认入口或屋顶的建筑；不要把同组参考当成单体精确复原。
+- `data-sources/registers/BUILDING-REGISTER.csv`、`data-sources/registers/EXTERIOR-REGISTER.csv`、`data-sources/registers/REMAINING-BUILDINGS.csv` 已按本批数据重新导出；剩余清单184行。下一步从清单中选取有可靠对应照片的对象继续逐批处理，优先补齐能确认入口或屋顶的建筑；不要把同组参考当成单体精确复原。
 
 ## 2026-09-26 地图对应修订
 
@@ -161,7 +161,7 @@
 
 本次验证：7组数据/几何/地形/接地检查通过；300栋入口配置、41个完整坡屋顶；`preview-inferred.mjs` 实际访问温室、教育超市、二院、物业管理中心和圆顶5个估算对象，详情均显示“用途与轮廓估算，待照片核实”，入口按钮可用，浏览器无错误；`npm.cmd run build` 成功。压缩包已更新。
 
-下一步：继续为 `REMAINING-BUILDINGS.csv` 中的184栋寻找能与这些 OSM 对象可靠对应的本栋照片或航拍，逐栋将估算字段替换为有日期和可见范围记录的参考配置；地图对应字段应保留。
+下一步：继续为 `data-sources/registers/REMAINING-BUILDINGS.csv` 中的184栋寻找能与这些 OSM 对象可靠对应的本栋照片或航拍，逐栋将估算字段替换为有日期和可见范围记录的参考配置；地图对应字段应保留。
 
 ## 2026-09-26 地点社区第一阶段
 
@@ -181,7 +181,7 @@
 
 ## 2026-09-29 地面视觉平滑处理
 
-本批建立回退检查点：`work/gates/2026-09-29-before-ground-smoothing-164050/`。该检查点包含本批修改前的 `src/terrain.js`、`HANDOFF.md`、`VALIDATION.md`，需要撤回时按 `GATE-MANIFEST.json` 恢复。
+本批建立回退检查点：`work/gates/2026-09-29-before-ground-smoothing-164050/`。该检查点包含本批修改前的 `src/terrain.js`、`HANDOFF.md`、`docs/VALIDATION.md`，需要撤回时按 `GATE-MANIFEST.json` 恢复。
 
 本批只调整地面渲染的法线和明暗过渡：`src/terrain.js` 的 `colorTerrain()` 根据现有 DEM 采样生成连续的局部坡面法线，降低三角面之间的明暗断裂。没有修改高程采样、地面顶点、建筑、道路、水域、树木、运动场或地点社区数据，因此既有对象位置和接地关系保持不变。地面网格的分割数量也没有伪装成被减少；本批解决的是可见的折面感，后续如仍需降低网格量，应单独调整底面网格密度并重新检查接地。
 
@@ -301,7 +301,7 @@
 按用户要求，名称建议仅需名称；前台移除依据输入框，API将依据改为可选（空字符串），保留历史数据库字段。后端测试已覆盖只提交名称成功；生产构建通过。
 
 ## 双AI分工与集成接续
-用户现有域名及原站由另一个AI维护和部署；本AI继续负责西大云游实际开发。已新增根目录 INTEGRATION-HANDOFF.md 供部署AI阅读，首选子域名入口集成；子路径和跨origin iframe尚需源码/响应头适配，不可称已即插即用。当前未改部署拓扑、未操作域名或线上网站。
+用户现有域名及原站由另一个AI维护和部署；本AI继续负责西大云游实际开发。已新增根目录 docs/DEPLOYMENT.md 供部署AI阅读，首选子域名入口集成；子路径和跨origin iframe尚需源码/响应头适配，不可称已即插即用。当前未改部署拓扑、未操作域名或线上网站。
 
 ## 仅展示版部署交接文档重写
 INTEGRATION-HANDOFF.md已整体改写为静态展示集成交接，移除本次必须部署后端的表述。覆盖子域/子目录/iframe、尾斜线、API探测冲突、文件清单与数据保护、缓存/回滚/验收。旧文档保存在work/handoffs/INTEGRATION-HANDOFF-before-display-only.md。仅改文档，未动功能或线上配置。
@@ -344,8 +344,18 @@ Gitleaks 8.30.1 对现有 11 个提交和本批暂存改动均未检出密钥。
 
 上一批19bfdcb已推送至main，GitHub Actions执行成功。用户进一步选择继续采用当前标准非商用许可，使用者自愿回馈改进，外部贡献沿用现有项目许可。
 
-新增 MAINTAINER-GUIDE.md 回答本地开发、公开文件、分支/PR审核、获取下游改进、权限、发布和回退问题。新增 PUBLICATION-REPORT.md 记录公开准备结果及限制，README提供入口，CODEOWNERS指定moonpleasee审查PR。贡献指南明确维护者决定实际合并。
+新增 docs/MAINTENANCE.md 回答本地开发、公开文件、分支/PR审核、获取下游改进、权限、发布和回退问题。新增 docs/MAINTENANCE.md#发布准备状态 记录公开准备结果及限制，README提供入口，CODEOWNERS指定moonpleasee审查PR。贡献指南明确维护者决定实际合并。
 
 实际API检查显示仓库Private、Issues开启、自动合并关闭，main尚未受保护。分支保护和rulesets返回403，GitHub要求升级Pro或将仓库公开。私密漏洞报告状态接口返回404。报告已明确这些未完成配置，公开后需实际启用并验证。源码文件及平台状态分开记录。
 
 本批仅修改文档和审核负责人文件，文档链接检查与生产构建已通过。推送后CI结果可在GitHub Actions核对。下一步由用户决定公开，公开后落实平台保护规则。
+
+## 2026-11-13 精简仓库文件
+
+用户要求按个人项目的规模减少文件和重复规则。README缩短，维护指南与发布报告合并为docs/MAINTENANCE.md，详细部署、来源、地形与验证说明移入docs。三份建模历史合并为docs/BUILDING-HISTORY.md，原文信息保留。贡献与安全入口移入GitHub可识别的.github目录，反馈模板统一为一个。
+
+三份CSV原样移至data-sources/registers，export-register.py和export-remaining.py同步输出路径，迁移同时更新文档引用。根目录保留README、LICENSE、NOTICE、AGENTS、HANDOFF及运行配置。后续资料优先补充现有文档。
+
+根目录已跟踪文件32→17，其中Markdown16→4；仓库已跟踪文件总数114→107。相对链接检查、三份CSV的Git对象逐字节比较、隔离目录导出与生产构建均通过。
+
+当前仓库依然为Private，公开与商用授权方式沿用用户已确认的决定，GitHub平台保护的套餐限制仍记录在docs/MAINTENANCE.md。

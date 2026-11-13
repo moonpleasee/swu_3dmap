@@ -36,7 +36,7 @@ Git根目录：D:\Cloud_Campus\campus-platform-starter\swu-campus-3d
 
 以D盘当前项目为准，不使用早期C盘副本。地图已经从父目录的Cloud_Campus仓库中提取为独立仓库，当前目录的.git是有意建立的，不要删除或改回父目录远程。以后更新仅推送moonpleasee/swu_3dmap；先检查git status和远程地址。原主站仓库仍由另一AI管理。
 
-先读本文件，再读 `HANDOFF.md` 顶部“仅展示”记录、`README.md`、`package.json` 与 `vite.config.js`。`DEPLOY-CN.md` 保留社区后端的未来部署资料，**不是本次必须启用的组件清单**。
+先读本文件，再读 `HANDOFF.md` 顶部“仅展示”记录、`README.md`、`package.json` 与 `vite.config.js`。`docs/DEPLOY-CN.md` 保留社区后端的未来部署资料，**不是本次必须启用的组件清单**。
 
 ## 4. 推荐部署方式：作为静态模块发布
 

@@ -17,7 +17,7 @@
 
 - 通过 `check-data.py`、`check-exteriors.mjs`、`check-roofs-entrances.mjs`、`check-refinement.mjs`、`check-terrain.mjs`、`check-ground-contact.mjs`、`check-researched-batch-2026-09-24.mjs`。结果：300栋建筑、93个场地要素、299段道路、12处地标；41个完整坡屋顶；300个已配置入口；接地异常为0。
 - `data-sources/exterior-profiles.json` 中的63个单体照片配置与53个园区参考配置保持原值；新增184个 `basis: inferred` 配置；每条记录写入 `mapObjectId`、`mapSourceId`、`mapCenter`、`footprintEdgeLength` 和 `nearestRoadDistance`，入口优先落在该多边形最近的校内道路边。批前 `work/inferred-exteriors/before-campus.json` 对照确认116个参考对象的几何、层高、名称和外观未改变。
-- `REMAINING-BUILDINGS.csv` 仍保留184行，表示这些楼栋尚未取得能可靠对应本栋的照片或航拍。
+- `data-sources/registers/REMAINING-BUILDINGS.csv` 仍保留184行，表示这些楼栋尚未取得能可靠对应本栋的照片或航拍。
 
 日期：2026-09-23（地形接入）；下方旧版记录保留供追溯。
 
@@ -47,7 +47,7 @@
 - 本轮15栋入口有照片形制参考，86栋仍是示意。外观证据分类仍为48栋单体照片、53栋园区照片、199栋尚缺单体证据。
 - 桌面检查兰华屋顶、雨僧门套、文俊六柱门廊、明德深门厅、书楠跨层拱窗、弘信弧形立面；修复门窗穿插和独立查看时穿透楼体的选中轮廓线。
 - 生产构建成功，主脚本约660 KB，gzip约174 KB；保留体积提示。细部仍主要在选中楼栋生成，总实例测试数不等于同时渲染数。
-- 逐栋修改和精度限制见 ROOF-ENTRANCE-PASS.md，入口证据已导出至 EXTERIOR-REGISTER.csv。
+- 逐栋修改和精度限制见 docs/BUILDING-HISTORY.md#roofs-and-entrances，入口证据已导出至 data-sources/registers/EXTERIOR-REGISTER.csv。
 - 390×844实际检查兰华入口与关闭详情返回校园，宽度与滚动宽度均390，无横向溢出；检查结束恢复默认尺寸。当前浏览器无error级日志。
 
 ## 第二轮外观细化
@@ -220,3 +220,9 @@ Node24后端集成测试通过：未登录/越权拦截、来源校验、审核�
 ## 2026-11-13 维护者文档补充
 
 维护指南、发布准备报告、README、贡献指南的本地链接及图片路径检查通过，生产构建通过。CODEOWNERS指定仓库维护者，main分支保护状态已通过API核实为未启用，当前私有仓库套餐的限制已写入报告。此前程序与页面验证对应的19bfdcb在GitHub Actions执行成功。
+
+## 2026-11-13 文档合并与目录简化
+
+部署、来源、地形及本验证文档集中到docs，建模历史合并保存，维护与公开准备说明合并。楼栋清单迁移到data-sources/registers，导出脚本同步路径。本批检查相对链接、迁移清单字节一致性、隔离目录导出和生产构建，远端CI以本次推送记录为准。
+
+上述本地检查均通过。根目录文件由32个减少到17个，Markdown由16份减少到4份，已跟踪文件总数由114个减少到107个。三份CSV在Git中的内容保持逐字节一致，隔离导出结果与迁移文件相同。

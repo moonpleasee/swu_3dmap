@@ -43,7 +43,7 @@ licenses and any notices accompanying optional native binaries remain applicable
 
 ## Reference photography
 
-Official campus pages and photography are linked in SOURCES.md and within the app. These images are referenced for research only and are not bundled or redistributed as app assets. No ownership of those images is claimed.
+Official campus pages and photography are linked in docs/SOURCES.md and within the app. These images are referenced for research only and are not bundled or redistributed as app assets. No ownership of those images is claimed.
 
 ## Affiliation
 
