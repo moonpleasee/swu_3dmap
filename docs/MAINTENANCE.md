@@ -1,6 +1,14 @@
 # 维护与公开准备
 
-更新于 2026-11-13，由 moonpleasee 维护，公开联系入口为 GitHub Issues。
+更新于 2026-11-14，由 moonpleasee 维护，公开联系入口为 GitHub Issues。
+
+## 本机位置与旧版恢复
+
+维护者的唯一开发目录为 `D:\swu-campus-3d`，origin指向 `moonpleasee/swu_3dmap`。云校园共享仓库保留原有内容，本机通过稀疏检出收起其旧地图目录。
+
+早期D盘副本的Git历史已保存并推送为 `archive/legacy-local-map-2026-11-14` 标签，可以用 `git show archive/legacy-local-map-2026-11-14:README.md` 查看旧文件。当前地图之前的修改也保存在main历史中。
+
+未进入Git的原研究照片、视频和资料保存在本机 `work/migration-2026-11-14/` 的校验归档中。现用研究资料位于 `work/research-sources/`。
 
 ## 日常开发
 

@@ -43,7 +43,7 @@
 安装 Node.js 24 后，在项目目录执行：
 
 ```powershell
-cd D:\Cloud_Campus\campus-platform-starter\swu-campus-3d
+cd D:\swu-campus-3d
 npm.cmd ci
 npm.cmd run build
 npm.cmd start

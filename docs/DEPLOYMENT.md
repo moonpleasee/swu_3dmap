@@ -1,6 +1,6 @@
 # 西大云游 · 仅展示版部署交接
 
-更新：2026-11-02。面向负责用户现有网站的部署 AI。本文件替代此前偏重社区后端的交接说明；以本文件及当前源码为准。
+更新：2026-11-14。面向负责用户现有网站的部署 AI，以本文件及当前源码为准。
 
 ## 1. 本次任务与分工
 
@@ -28,13 +28,13 @@
 ## 3. 项目位置与优先阅读顺序
 
 ```text
-开发项目：D:\Cloud_Campus\campus-platform-starter\swu-campus-3d
-Git根目录：D:\Cloud_Campus\campus-platform-starter\swu-campus-3d
+开发项目：D:\swu-campus-3d
+Git根目录：D:\swu-campus-3d
 源码仓库：https://github.com/moonpleasee/swu_3dmap
 默认分支：main
 ```
 
-以D盘当前项目为准，不使用早期C盘副本。地图已经从父目录的Cloud_Campus仓库中提取为独立仓库，当前目录的.git是有意建立的，不要删除或改回父目录远程。以后更新仅推送moonpleasee/swu_3dmap；先检查git status和远程地址。原主站仓库仍由另一AI管理。
+地图已迁到D盘根目录，拥有自己的.git、源码、依赖和运行数据。以后更新推送moonpleasee/swu_3dmap，先检查git status和远程地址。原主站仓库由另一AI管理，用户选择保留共享仓库已有内容。本机云校园仓库使用稀疏检出排除其旧地图目录，避免出现第二个开发入口。
 
 先读本文件，再读 `HANDOFF.md` 顶部“仅展示”记录、`README.md`、`package.json` 与 `vite.config.js`。`docs/DEPLOY-CN.md` 保留社区后端的未来部署资料，**不是本次必须启用的组件清单**。
 
