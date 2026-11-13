@@ -1,5 +1,20 @@
 # Attribution and data licenses
 
+## Project code
+
+Required Notice: Copyright (c) 2026 moonpleasee and contributors.
+
+Project-owned code is offered under the PolyForm Noncommercial License 1.0.0.
+The complete terms are in LICENSE. These terms apply to code the project authors
+have the right to license. Third-party software, geographic data, elevation data,
+and reference materials retain their respective licenses and notices below.
+Commercial use outside the purposes permitted by that license requires prior,
+separate written permission from the relevant rightsholders. Contact maintainer
+moonpleasee through https://github.com/moonpleasee/swu_3dmap/issues to request
+permission. An inquiry alone does not grant permission. Scope, duration and any
+fees are subject to a separate agreement. Third-party rights remain governed by
+their own terms.
+
 ## Geographic data
 
 © OpenStreetMap contributors.
@@ -16,6 +31,15 @@ Preserve the OpenStreetMap attribution when publishing this site or exported cam
 Three.js is provided under the MIT License: https://github.com/mrdoob/three.js/blob/dev/LICENSE
 
 Vite is provided under the MIT License: https://github.com/vitejs/vite/blob/main/LICENSE
+
+The production frontend also includes polygon-clipping (MIT), splaytree (MIT),
+and robust-predicates (Unlicense). Complete frontend dependency notices are in
+`public/THIRD-PARTY-NOTICES.txt`, which is copied into the static distribution.
+
+The backend uses Express, express-rate-limit, Helmet and Multer (MIT), and Sharp
+(Apache-2.0). Playwright is a development dependency (Apache-2.0). Exact versions
+and transitive dependency metadata are recorded in package-lock.json. Their
+licenses and any notices accompanying optional native binaries remain applicable.
 
 ## Reference photography
 

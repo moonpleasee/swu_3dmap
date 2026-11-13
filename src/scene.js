@@ -6,7 +6,7 @@ import {entryDimensions} from './entrances.js';
 import {specialBuildingMeshes} from './building-character.js';
 import { buildingParts, pitchedRoof, secondFieldDetails, footballMarkings, addBox } from './model-details.js';
 import {CampusTerrain,terrainGeometry,drapeGeometry,boundaryPoints,skirtGeometry,contourGeometry,colorTerrain} from './terrain.js';
-import {buildRoadPolygons,nearestRoadHeight} from './roads.js';
+import {buildRoadPolygons,createRoadHeightSampler} from './roads.js';
 
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export function inside([x,y], polygon) {
@@ -96,17 +96,22 @@ function drapeRoadGeometry(g,terrain,a,b,offset=0){
 export class CampusScene {
   constructor(host,data,{onSelect,onMove,onReady,terrain}) {
     this.host=host;this.data=data;this.onSelect=onSelect;this.onMove=onMove;
+    this.mobileQuality=matchMedia('(max-width: 760px) and (pointer: coarse)').matches;
+    const bootStarted=performance.now();this.bootTimings={};
+    const bootStep=name=>{this.bootTimings[name]=Math.round(performance.now()-bootStarted);};
     this.terrain=new CampusTerrain(data,terrain);
+    bootStep('terrain');
     // Compute the visible road corridors once. The same polygons are used to
     // cut the terrain and to render asphalt, so the two surfaces cannot fight
     // each other along a rounded turn or at a junction.
     const roadBlocked=[...data.buildings,...data.surfaces.filter(f=>f.kind==='water')];
     this.roadPolygons=buildRoadPolygons(data.roads,roadBlocked);
+    bootStep('roadPolygons');
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#edece3');
     this.camera=new THREE.PerspectiveCamera(37,1,.15,2200);
-    this.renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true});
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.7));
-    this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFShadowMap;
+    this.renderer=new THREE.WebGLRenderer({antialias:!this.mobileQuality,alpha:false,preserveDrawingBuffer:!this.mobileQuality});
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.mobileQuality?1.35:1.7));
+    this.renderer.shadowMap.enabled=!this.mobileQuality;this.renderer.shadowMap.type=THREE.PCFShadowMap;
     this.renderer.outputColorSpace=THREE.SRGBColorSpace;
     this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.12;
     host.appendChild(this.renderer.domElement);
@@ -119,7 +124,7 @@ export class CampusScene {
     this.controls.addEventListener('start',()=>{this.flight=null;this.onMove?.();});
     this.hemi=new THREE.HemisphereLight('#f9fbff','#7c8e69',2.65);this.scene.add(this.hemi);
     this.sun=new THREE.DirectionalLight('#fff2d8',3.15);this.sun.position.set(-100,190,100);
-    this.sun.castShadow=true;this.sun.shadow.mapSize.set(2048,2048);
+    this.sun.castShadow=!this.mobileQuality;this.sun.shadow.mapSize.set(2048,2048);
     Object.assign(this.sun.shadow.camera,{left:-160,right:160,top:160,bottom:-160,near:1,far:480});
     this.sun.shadow.bias=-.0005;this.sun.shadow.normalBias=.09;this.scene.add(this.sun);
     this.layers={};for(const key of ['buildings','roads','nature','water','labels','contours'])this.layers[key]=new THREE.Group();
@@ -127,7 +132,11 @@ export class CampusScene {
     Object.values(this.layers).forEach(g=>this.scene.add(g));
     this.pickables=[];this.namedMeshes=new Map();this.labelElements=[];this.isNight=false;
     this.mapPickMode=null;this.communityMarkers=new Map();
-    this.buildGround();this.buildSurfaces();this.buildBuildings();this.buildRoads();this.buildTrees();
+    this.buildGround();bootStep('ground');
+    this.buildSurfaces();bootStep('surfaces');
+    this.buildBuildings();bootStep('buildings');
+    this.buildRoads();bootStep('roads');
+    this.buildTrees();bootStep('trees');
     this.selection=new THREE.Group();this.scene.add(this.selection);
     this.createLabels();
     this.raycaster=new THREE.Raycaster();this.pointer=new THREE.Vector2();
@@ -157,7 +166,7 @@ export class CampusScene {
     const perimeter=boundaryPoints(this.data.boundary,this.terrain,-.01);
     const base=new THREE.Mesh(skirtGeometry(perimeter,this.terrain.bottom),mat('#b6c39f',{side:THREE.DoubleSide}));
     base.receiveShadow=true;this.scene.add(base);
-    const geometry=terrainGeometry(this.data.boundary,[],(x,z)=>this.terrain.sample(x,z)-.01,.65,this.terrain);
+    const geometry=terrainGeometry(this.data.boundary,[],(x,z)=>this.terrain.sample(x,z)-.01,this.mobileQuality?.9:.65,this.terrain);
     // The terrain is a complete visual skin over the raised campus base. Roads
     // remain a separate, slightly lifted surface; cutting their outline out
     // of the terrain would expose the base wall whenever the road layer is
@@ -310,9 +319,10 @@ export class CampusScene {
   buildRoads(){
     const geos=[];
     const polygons=this.roadPolygons;
+    const roadHeight=createRoadHeightSampler(this.data.roads,this.terrain,.05);
     for(const rings of polygons){
       const outer=rings[0],holes=rings.slice(1);
-      const g=terrainGeometry(outer,holes,(x,z)=>nearestRoadHeight(x,z,this.data.roads,this.terrain,.05),.16,this.terrain);
+      const g=terrainGeometry(outer,holes,roadHeight,this.mobileQuality?.26:.16,this.terrain);
       g.deleteAttribute('normal');g.deleteAttribute('uv');geos.push(g);
     }
     if(geos.length){const merged=mergeGeometries(geos);merged.computeVertexNormals();const mesh=new THREE.Mesh(merged,mat('#5a5f5a',{roughness:.96,transparent:false,opacity:1,depthWrite:true,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-2}));mesh.receiveShadow=true;this.layers.roads.add(mesh);geos.forEach(g=>g.dispose());}
@@ -454,6 +464,9 @@ export class CampusScene {
     this.renderer.render(this.scene,this.camera);
   }
   async screenshot(){
+    // Mobile renderers release the drawing buffer to save memory. Refresh it
+    // synchronously before copying a user-requested screenshot.
+    if(this.mobileQuality)this.renderer.render(this.scene,this.camera);
     const canvas=document.createElement('canvas');const src=this.renderer.domElement;canvas.width=src.width;canvas.height=src.height;
     const ctx=canvas.getContext('2d');ctx.drawImage(src,0,0);
     const size=Math.max(16,Math.round(canvas.width/65));ctx.fillStyle='rgba(249,248,240,.93)';ctx.fillRect(0,canvas.height-size*3.5,canvas.width,size*3.5);

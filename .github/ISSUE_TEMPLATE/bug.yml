@@ -1,0 +1,27 @@
+name: 页面或功能问题
+description: 地图加载、布局、搜索或操作异常
+title: "[问题] "
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: 如何遇到这个问题
+      description: 描述打开的网址、操作步骤和实际结果，可附截图。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望的结果
+  - type: input
+    id: environment
+    attributes:
+      label: 设备与浏览器
+      description: 手机或电脑型号、操作系统、浏览器名称和版本
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: 其他信息
+      description: 可补充控制台错误或网络请求结果，提交前检查个人信息。

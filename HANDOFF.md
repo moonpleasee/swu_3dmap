@@ -305,3 +305,37 @@
 
 ## 仅展示版部署交接文档重写
 INTEGRATION-HANDOFF.md已整体改写为静态展示集成交接，移除本次必须部署后端的表述。覆盖子域/子目录/iframe、尾斜线、API探测冲突、文件清单与数据保护、缓存/回滚/验收。旧文档保存在work/handoffs/INTEGRATION-HANDOFF-before-display-only.md。仅改文档，未动功能或线上配置。
+
+## 2026-11-02 手机端地图加载修复
+
+用户反馈手机页面能打开，但三维地图长时间加载或空白。Pixel 7 触控模拟的基线测量显示，初始化约 26–30 秒；其中道路高度计算约 22 秒：每个道路网格点原先都线性扫描全校道路。6 倍 CPU 限速模拟超过 3 分钟仍未完成。
+
+本批改动：`src/roads.js` 增加精确道路中心线空间索引，`src/scene.js` 的道路网格改为复用索引采样，保留原道路多边形与中心线；手机触控窄屏适度降低地面及道路内部网格密度、画布像素比，关闭高开销阴影与抗锯齿，电脑端渲染配置保留。手机保存地图图片前显式重绘。`src/main.js` 不再等待社区接口才创建地图，接口慢或不可用时仍先展示三维校园。追加启动阶段时间信息到 `__campusDebug` 供后续排查。回退文件在 `work/gates/2026-11-02-before-mobile-map-fix/`，基线提交见其中 `BASE-COMMIT.txt`。
+
+验证：`check-road-height-sampler.mjs` 将 2799 个采样点与旧精确扫描逐点对照，通过；`check-continuous-roads.mjs`、`check-terrain.mjs`、`check-ground-contact.mjs`、JavaScript 语法检查及生产构建通过。Pixel 7 正常触控模拟地图约 3–4 秒完成，6 倍 CPU 限速约 10 秒完成；手机首帧绘制调用由 1635 降至 916，三角面约 262 万降至 173 万。放大到中心图书馆的路面截图与本批调整前对照，未见明显轮廓或接地退步。实际操作验证地图显示、搜索并打开中心图书馆、导出地图图片均通过；模拟社区接口延迟 12 秒时，地图仍约 3.6 秒加载完成。`preview-responsive.mjs` 的手机、电脑、详情和紧凑窗口检查通过，无页面错误。报告和截图在 `work/mobile-load-2026-11-02/`。
+
+未在用户的真实手机及其线上网址上实测。若该手机更新后仍空白，下一步需取得手机型号、浏览器和实际网址，检查 WebGL 支持与资源请求；不要把模拟器结果称为所有手机均已验证。
+
+## 2026-11-02 OSS 静态资源加载优化
+
+源 `index.html` 增加相对路径 `./data/campus.json` 的匿名 fetch 预加载、纯 CSS 启动画面，并将描述改为仅展示定位。`src/main.js` 仍使用默认同源 `fetch`；生产构建的 `import.meta.env.BASE_URL` 为 `./`，与预加载的 URL 和凭据模式一致。浏览器实测校园数据只请求一次。
+
+构建时 `scripts/pack-dist-data.mjs` 将公开的完整 JSON 转为可检查的精简 JSON，写入 `dist/data/`。`src/data-pack.js` 用重复字符串和对象字段表、坐标差值及高程厘米差值编码；页面读取后无损还原。`public/data/` 保持原样，全部建筑及详情字段不删不改。构建脚本在写出前比较还原结果与原始数据；`scripts/check-packed-build.mjs` 再核对 dist、预加载路径、浏览器请求次数和响应式页面。
+
+本批体积（字节，未压缩）：campus 818573 → 342341；terrain 174296 → 100816。建筑 300 栋，ID、名称、分类和所有其他字段前后逐项相同。新资源：`dist/assets/index-Bi_5u_1O.js`、`index-C0NqqXvJ.css`。`npm.cmd run build`、`node scripts/preview-display-only.mjs`、`node scripts/check-packed-build.mjs` 均通过；390×844 与 1280×800 无横向溢出、页面错误或控制台错误，建筑详情可打开。
+
+部署时上传整个 `dist/`，勿用 `public/data/` 覆盖已精简的 `dist/data/`；静态更新宜原子切换，避免旧版 JS 与新版 JSON 混用。线上香港 OSS 的实际握手与首屏时间仍需部署侧复测。
+
+## 2026-11-13 公开源码准备与商业授权
+
+用户确认采用标准 PolyForm Noncommercial 1.0.0，并明确要求超出其许可范围的商业使用先联系本人、取得另行书面许可。公开联系入口为 GitHub Issues。LICENSE 来自官方完整文本，README、NOTICE、包元数据和贡献说明记录适用范围，OSM 数据继续按 ODbL 1.0 提供。
+
+README 已按当前展示状态重写，补充安装、构建、部署、模型资料精度和实际手机/电脑截图。新增建筑纠错、页面问题、功能建议和商业授权咨询表单、PR 模板、安全反馈说明及只读构建检查工作流。前端第三方许可全文在 public/THIRD-PARTY-NOTICES.txt，构建还将 LICENSE、NOTICE.md 复制到 dist。仓库简介和主题已通过 API 更新，Issues 已启用。
+
+检查时发现前批手机性能和数据加载优化尚未提交，相关源码与检查脚本也纳入本次版本保存。建筑和地形源数据无变更。宣传图片所在 launch-assets/ 为本机未提交内容。
+
+Gitleaks 8.30.1 对现有 11 个提交和本批暂存改动均未检出密钥。历史包含 284 个 work 路径及旧 project.private.config.json，后者字段仅为开发工具设置。此扫描为自动密钥检查，资料再分发权及历史内容是否适合公开仍需结合实际内容判断。历史清理或改写尚未执行。
+
+从 Git 索引导出的干净目录完成依赖安装和构建。首次 npm 下载连接重置，补齐官方缓存后 npm ci --offline --no-audit 成功。地形、接地、2799点道路采样与后端测试通过。preview-display-only 和 check-packed-build 通过，390×844、1280×800 下详情可打开，每页仅一次 campus 请求，无横向溢出及新增控制台错误。源码恢复后的完整数据与原始文件相同。报告在本机 work/public-release-2026-11-13/。
+
+最后核对仓库为 Private，账号有推送和管理权限。下一步在本批提交推送后询问用户是否立即改为 Public，说明现有提交历史会同时公开。仓库可见性须以 GitHub 实际结果为准。公开后可检查私密漏洞报告功能及首次工作流结果，再按需创建发布版本。

@@ -1,105 +1,115 @@
-# 西南大学 · 云游北碚
+# 西大云游 · 西南大学三维校园地图
 
-项目独立私有仓库：[moonpleasee/swu_3dmap](https://github.com/moonpleasee/swu_3dmap)，默认分支main。后续开发和Git更新均在本目录进行，不向父目录Cloud_Campus仓库推送地图更新。
+西南大学北碚校区的交互式三维校园地图，使用 Three.js 程序化生成建筑、道路、水域与地形，支持在手机和电脑上探索校园。
 
-**当前模式：仅展示地图。** 讨论显示“暂不开放”，不提供账号、照片、评分、地点创建及名称提交；社区代码与历史数据保留，默认关闭。可直接将 `npm run build` 生成的dist托管到已有网站，无需启用社区后端。部署交接见 `INTEGRATION-HANDOFF.md`。
+由 [moonpleasee](https://github.com/moonpleasee) 维护。自有代码采用 **PolyForm Noncommercial 1.0.0 非商用许可证，商用需另行联系授权**，适用范围见文末。
 
-西南大学北碚校区三维校园地图，使用 Three.js 程序化建模，无需地图密钥或 Blender。当前社区采用 Node.js 24 / Express / SQLite 后端持久保存照片与讨论；部署、费用和上线条件见 [DEPLOY-CN.md](DEPLOY-CN.md)。
+![电脑上的西大云游全景](docs/images/campus-desktop.webp)
 
-## 已实现
+## 当前功能
 
-- 基于 Mapzen / AWS Terrain Tiles 的真实高程地形，高差不夸张；建筑整体抬升，运动场与湖面保持水平，道路贴合坡面。
-- 道路端点、弯道与相交处由线段矩形和节点圆盘联合成连续圆角面，减少尖角、断开和线段接缝；中心线与宽度仍来自校园道路数据。
-- 道路表面采用高粗糙度深灰柏油材质，便于与草地、场地和建筑区分。
-- 普通道路横向保持找平，DEM 高差只沿道路行进方向表现为上下坡。
-- 道路渲染轮廓来自缓存的 OpenStreetMap 道路点；建筑和水面占用区域只裁剪显示面，不擅自改动路线。
-- 道路边界使用连续圆角联合面和精确多边形裁剪；地面顶面使用同一组道路外环开孔，减少地面露边、深度竞争和穿模。
-- 地面明暗按 DEM 连续坡面法线平滑，保留原有高程和对象接地关系；当前不改变地面网格密度。
-- 地形等高线开关（10米间隔）、详情中的估算海拔；高程已缓存，运行时不依赖远程地图。
+- 三维地图包含 300 个建筑对象、299 条道路分段、93 个水体、绿地及运动场要素。
+- 搜索现名、旧名和宿舍舍号，按类型筛选，通过列表或地图选中建筑。
+- 查看建筑资料与参考来源，单栋旋转、缩放，近距离观察外观和入口。
+- 旋转、平移、缩放、俯视、全景复位，切换日间、黄昏及夜景，自动漫游。
+- 按需显示建筑、道路、绿地、水体和名称，导出带地图署名的 PNG 图片。
+- 手机采用折叠探索面板与底部详情，电脑采用宽屏布局。
 
-- 300 个建筑轮廓、299 条校内道路分段、93 个水体/绿地/运动场要素。
-- 12 处精选地标，支持点击模型、点击名称与列表定位。
-- 全部建筑目录、教学/宿舍/生活/待核名分类、现名和旧名搜索，近距离显示楼栋标签。
-- 单栋细看：独立查看建筑，旋转、缩放、俯视和切换日夜，返回后恢复校园图层。
-- 当前数据共116处参考外观（63栋单体照片、53栋同组园区参考），其余184栋已有按用途和地图轮廓生成的独立估算外观；估算对象会明确标注“待照片核实”，不等同于实拍还原。300栋均可查看窗框、遮阳板、阳台栏杆、空调和入口等细节。
-- 拖动旋转、右键平移、滚轮缩放、俯视与全景复位。
-- 地图地点社区：可在地图选点创建地点；登录后上传照片、评论、回复与评分，服务器持久保存，默认审核后公开；待核名建筑可提交名称建议。
-- 日间、黄昏、夜景三种光照；夜间窗光为艺术表达。
-- 自动漫游、暂停、继续、下一站；手动拖动自动暂停。
-- 建筑、道路、绿地与运动场、水体、地标名称图层开关。
-- 地标链接（URL hash）、导出带署名的校园 PNG。
-- 手机折叠面板、键盘焦点、减少动态效果偏好支持。
+**当前公开展示版本中，讨论区域显示“暂不开放”。** 登录、上传照片、评论、评分和用户地点创建属于仓库保留的后续功能代码。默认运行和静态部署均使用展示模式。
+
+<img src="docs/images/campus-mobile.webp" alt="手机上的西大云游全景" width="280">
 
 ## 本地运行
 
-需要 Node.js 24。在本目录打开终端；使用完整社区功能优先执行 `npm.cmd ci`、`npm.cmd run build`、`npm.cmd start`，打开 http://127.0.0.1:4311/ 。以下为前端开发方式，需同时运行4311后端：
+需要 Node.js 24 和 npm，浏览器需要支持 WebGL。首次下载需要联网安装依赖。
 
-```powershell
-npm.cmd ci
-npm.cmd run dev
+```bash
+git clone https://github.com/moonpleasee/swu_3dmap.git
+cd swu_3dmap
+npm ci
+npm run build
+npm run preview
 ```
 
-打开终端给出的本地地址，默认 http://127.0.0.1:4310/ 。Windows 用户也可双击 `启动预览.cmd`。
+打开终端显示的地址，默认是 `http://127.0.0.1:4310/`。Windows PowerShell 如遇到脚本执行策略限制，可将命令中的 `npm` 换成 `npm.cmd`。
 
-```powershell
-npm.cmd run build
-npm.cmd run preview
+前端开发使用 `npm run dev`，该模式支持源码热更新。完整本地服务使用 `npm start`，默认地址为 `http://127.0.0.1:4311/`，并在本机创建 `server-data/`。环境变量示例见 `.env.example`，社区开关默认为关闭。
+
+校园数据通过 HTTP 加载，请通过上述本地服务访问页面。启动文件 `打开校园网站.cmd` 也可用于 Windows 本机预览。
+
+## 构建与部署
+
+```bash
+npm ci
+npm run build
 ```
 
-`dist/` 是可部署的静态网页。不要双击 HTML：校园 JSON 与模块脚本需要 HTTP 服务。Vite 使用相对资源地址，可以部署到 GitHub Pages 项目子路径。
+将 `dist/` 内全部文件上传到静态托管空间。`assets/` 和 `data/` 需要随 `index.html` 一起发布。展示模式可部署到对象存储、静态网站服务或现有站点子目录。
 
-当前预览只在本机运行；项目尚未发布到公网。本机地标链接只能在能访问同一站点的环境中打开。
+项目使用相对资源路径 `base: './'`。部署到子目录时，入口地址应保留结尾的 `/`，例如 `/campus/`。源码数据在 `public/data/`，构建脚本会无损精简 `dist/data/` 中的 JSON，页面读取时自动还原。
 
-## 模型数据与外观资料
+接入已有网站、缓存、发布与回滚说明见 [INTEGRATION-HANDOFF.md](INTEGRATION-HANDOFF.md)。社区后端的后续部署资料见 [DEPLOY-CN.md](DEPLOY-CN.md)。
 
-请见 [SOURCES.md](SOURCES.md)。
+## 模型与资料精度
 
-- `public/data/campus.json`：网页加载的模型数据，约 580 KB。
-- `data-sources/campus.osm`：2026-09-21 获取的开放地图原始快照。
-- `scripts/prepare-data.py`：从快照提取建筑、道路、水体、绿地与精选地标；仅使用 Python 标准库。
-- `src/scene.js`：建模、光照、相机、树木、窗户、标签与选中效果。
-- `src/exteriors.js`：实例化立面细节、窗框、阳台、入口和程序化砖瓦纹理。
-- `src/roofs.js`：按翼楼平面求交生成屋面，保留院落开口。
-- `src/entrances.js`：常驻入口、门扇、门廊、台阶与拱窗。
-- `data-sources/exterior-profiles.json`：逐栋外观颜色、构件风格、观察记录与照片页面来源。
-- `src/main.js`：界面、搜索、分类、漫游、资料说明与导出。
-- `src/style.css`：桌面与手机界面。
+当前 116 个建筑有照片或同组建筑参考配置，其中 63 个为单体照片参考、53 个为园区同组参考。其余 184 个按各自地图轮廓、用途和已有层高估算外观。上述配置均为简化表达，同组参考和估算部分需要继续核实。
 
-在项目目录运行 `python scripts/prepare-data.py` 可重新生成校园数据。修改地标名称、参考资料与高度配置后，需要重新执行该脚本。修改完成运行 `npm.cmd run build` 更新静态成品。
+地理轮廓来自 OpenStreetMap，地形基于约 30 米级公开 DEM。建筑高度、入口方向、局部平台与植被包含估算，模型可用于校园探索与展示，实地位置和道路通行情况仍需现场确认。
 
-## 当前模型的精度范围
+逐栋记录见 [BUILDING-REGISTER.csv](BUILDING-REGISTER.csv)、[EXTERIOR-REGISTER.csv](EXTERIOR-REGISTER.csv) 和 [REMAINING-BUILDINGS.csv](REMAINING-BUILDINGS.csv)。来源与地形说明见 [SOURCES.md](SOURCES.md)、[TERRAIN.md](TERRAIN.md)。
 
-最新逐栋修改见 [ROOF-ENTRANCE-PASS.md](ROOF-ENTRANCE-PASS.md)：修复兰华等多翼屋面，116处入口常驻，新增书楠、弘诚、弘信、弘义、咏修楼及本批三栋建筑独立处理。照片参考和仍待核实的入口位置分别记录。选中建筑可用“看入口”近距离检查。
+## 目录与开发检查
 
-本轮外观细化见 [DETAIL-PASS.md](DETAIL-PASS.md)，前一轮地图修订见 [REFINEMENT.md](REFINEMENT.md)，逐栋来源见 [BUILDING-REGISTER.csv](BUILDING-REGISTER.csv)。第二运动场、图书馆高低体量和普通楼栋标签已细化。当前校园数据为300栋建筑对象，151栋名称仍待可靠确认，另有4处名称冲突；名称待核与外观待细化有重叠，不能相加。
+| 路径 | 内容 |
+| --- | --- |
+| `src/` | 界面、场景、建筑、道路、地形与数据读取代码 |
+| `public/data/` | 可编辑的完整校园与地形数据 |
+| `data-sources/` | 地图快照、建筑配置、校准及来源记录 |
+| `scripts/` | 构建精简、验证、历史数据处理与预览脚本 |
+| `server/` | 默认关闭社区功能的本地服务及社区后端代码 |
+| `docs/images/` | 当前展示版本的界面截图 |
 
-最近一批丹桂楼、医院和梅园学生食堂的照片依据、估算范围、验证结果和接续事项记录在 [HANDOFF.md](HANDOFF.md)；不要把入口照片覆盖范围外的立面当成实测复原。
+常用检查在完成构建后运行。
 
-楼层依据分为官方文字、地图记录、照片估读和默认示意。仅中心图书馆的15层及1—5层裙楼在本轮取得明确官方楼层说明；照片估读不能当作实测。单体配置在 `data-sources/building-calibration.json`，宿舍更名和证据处理在 `scripts/enrich-data.py`，详细体量在 `src/model-details.js`。
+```bash
+node scripts/check-terrain.mjs
+node scripts/check-ground-contact.mjs
+node scripts/check-road-height-sampler.mjs
+npm run test:backend
+```
 
-当前已接入约30米级源数据的公开DEM，校界内采样海拔约197—290米。模型按真实高差1:1显示，平台和边坡衔接为推算，并非现场测绘；源数据年代较早，局部台阶、挡土墙及近年土方变化尚待校正。树木仍是示意布置。地形实现与精度说明见 [TERRAIN.md](TERRAIN.md)。
+安装了 Microsoft Edge 的开发机还可运行以下生产页面检查，覆盖手机与电脑布局、建筑详情、展示模式和精简数据完整性。
 
-照片仅在研究阶段作为造型参考，没有打包或作为贴图分发。网页所有主要运行资源都在本地，不依赖外部地图、字体或图片服务。
+```bash
+node scripts/preview-display-only.mjs
+node scripts/check-packed-build.mjs
+```
 
-## 数据许可
+验证记录见 [VALIDATION.md](VALIDATION.md)。修改建筑或研究资料前，请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [HANDOFF.md](HANDOFF.md)。历史生成脚本会重写数据，运行前需检查其输入与覆盖范围。
 
-校园地理数据源自 © OpenStreetMap contributors，按 ODbL 1.0 提供；相关署名和许可说明见 [NOTICE.md](NOTICE.md)。
+## 反馈与参与
 
-## 验证
+欢迎提交建筑名称纠错、模型照片参考、页面问题和功能建议，也欢迎通过 Pull Request 改进代码与资料。
 
-构建与实际浏览器交互检查记录见 [VALIDATION.md](VALIDATION.md)。
+[前往 GitHub Issues 反馈](https://github.com/moonpleasee/swu_3dmap/issues/new/choose)
 
+Issues 是公开讨论区。提交建筑资料时请说明地图对象 ID 或具体位置、资料日期和可核实来源。照片请说明作者与允许使用的范围。具体步骤见 [CONTRIBUTING.md](CONTRIBUTING.md)，安全问题报告方式见 [SECURITY.md](SECURITY.md)。
 
+## 授权与署名
 
+由项目作者有权授权的自有代码采用 [PolyForm Noncommercial License 1.0.0](LICENSE)。使用、修改和分发须遵守完整条款。该许可证明确列举了个人研究等用途及教育机构等机构的许可范围。
 
+**商用需联系授权。** 超出上述许可证许可范围的商业使用，须通过 GitHub Issues 联系维护者 moonpleasee，说明使用计划，并取得另行书面授权后再使用。商业授权的范围、期限及费用按双方实际约定确定，提交咨询本身不构成授权。
 
+[发起商业授权咨询](https://github.com/moonpleasee/swu_3dmap/issues/new?template=commercial.yml)
 
-- 手机版地点社区以论坛为主界面：选中建筑或地点后，地图保留在上方，底部展开讨论/照片面板；支持上传照片、评分、评价和逐条回复。
-- 手机使用全屏地图和可展开的底部探索面板；电脑使用宽屏地图、常驻左侧建筑目录和右侧地点论坛。搜索、分类及返回时恢复列表位置的功能在两种布局下都可用。
-- 固定建筑的社区内容按建筑 ID 保存，用户选点按独立地点保存；现由服务器SQLite与图片目录持久保存。旧localStorage数据保留，未自动上传；实际公网上线仍需配置云资源和认证。
-# 社区后端更新 · 2026-11-02
+| 内容 | 适用许可 |
+| --- | --- |
+| 自有项目代码 | PolyForm Noncommercial 1.0.0 |
+| `data-sources/campus.osm` 与衍生校园数据库 | ODbL 1.0，保留 OpenStreetMap 署名及共享要求 |
+| 地形数据 | 按 Mapzen / Terrain Tiles 与上游来源条款和署名要求使用 |
+| 第三方依赖 | 各自许可证，前端依赖的完整文本见 `public/THIRD-PARTY-NOTICES.txt` |
 
-当前包含持久社区服务（Node.js 24 / Express / SQLite）。`npm.cmd ci` → `npm.cmd run build` → `npm.cmd start` 后访问 http://127.0.0.1:4311/；管理员设置用 `npm.cmd run admin`（先设置 ADMIN_USERNAME / ADMIN_PASSWORD）。名称建议、照片与讨论由服务器保存，默认人工审核后公开。原浏览器localStorage数据保留但不自动迁移。账号与同仓库的订单平台暂未打通。
+第三方数据、软件与图片的权利归其相应权利人。完整范围和署名见 [NOTICE.md](NOTICE.md)。按照 OSI 的定义，开源许可包含商业使用权，本项目采用“公开源码、非商用授权”的表述。[定义说明](https://opensource.org/faq)
 
-国内部署、运行方式、费用预算、你需要准备的事项与尚未完成的上线条件，请读 [DEPLOY-CN.md](DEPLOY-CN.md)。云端配置与代码已提供，但未实际购买或部署云资源，未接实名/短信/微信认证。
-
+本项目是个人校园可视化作品，与西南大学官方无关。学校名称用于说明地图展示对象。模型与校园资料欢迎持续纠错。

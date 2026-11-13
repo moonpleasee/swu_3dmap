@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#285648" />
     <link rel="icon" href="data:," />
-    <meta name="description" content="西大云游：探索西南大学北碚校区三维校园，查找建筑与地标，分享地点照片、评价和校园记忆。" />
+    <meta name="description" content="西大云游：探索西南大学北碚校区三维校园，查看建筑、地标与校园风景。" />
+    <link rel="preload" as="fetch" href="./data/campus.json" crossorigin="anonymous" />
+    <style>.boot{position:fixed;inset:0;display:grid;place-content:center;justify-items:center;gap:16px;background:#f5f7f2;color:#285648;font:600 16px system-ui,sans-serif}.boot i{width:25px;height:25px;border:2px solid #cfddd4;border-top-color:#285648;border-radius:50%;animation:boot-spin .85s linear infinite}@keyframes boot-spin{to{transform:rotate(360deg)}}</style>
     <title>西大云游 · 西南大学北碚校区</title>
   </head>
-  <body><div id="app"></div><script type="module" src="/src/main.js"></script></body>
+  <body><div id="app"><div class="boot" role="status"><i aria-hidden="true"></i><span>正在打开西大云游</span></div></div><script type="module" src="/src/main.js"></script></body>
 </html>

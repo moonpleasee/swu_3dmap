@@ -30,7 +30,7 @@
 ```text
 开发项目：D:\Cloud_Campus\campus-platform-starter\swu-campus-3d
 Git根目录：D:\Cloud_Campus\campus-platform-starter\swu-campus-3d
-私有仓库：https://github.com/moonpleasee/swu_3dmap
+源码仓库：https://github.com/moonpleasee/swu_3dmap
 默认分支：main
 ```
 
@@ -106,7 +106,7 @@ Windows使用 `npm.cmd`。随后将 **dist内部全部文件与目录** 发布�
 
 ### 若部署系统自行构建，需要源码
 
-`package.json`、`package-lock.json`、`index.html`、`vite.config.js`、`src/`、`public/`。在目标构建环境执行npm ci，不直接复制Windows的node_modules。
+`package.json`、`package-lock.json`、`index.html`、`vite.config.js`、`src/`、`public/`、`scripts/pack-dist-data.mjs`。在目标构建环境执行npm ci。构建会精简 dist/data 的 JSON，页面读取时还原，整个 dist 应作为同一版本发布。
 
 ### 不应作为公开静态内容发布
 
@@ -114,7 +114,7 @@ Windows使用 `npm.cmd`。随后将 **dist内部全部文件与目录** 发布�
 
 后端和管理脚本可留在源码仓库，但本次无需启动。既有数据库与照片不要删除，也不要将开发机测试库覆盖服务器正式库。建筑ID、地形与名称数据不可在部署时重新生成。
 
-每次更新应记录源码版本/提交、构建时间、发布目录和可回退版本。以私有仓库main分支的已提交源码构建，部署AI需要拥有该私有仓库的读取权限。不把用户内容或大体积视频一起提交Git。
+每次更新应记录源码版本/提交、构建时间、发布目录和可回退版本。以仓库main分支的已提交源码构建，仓库为Private时部署方需有读取权限。授权和第三方署名见LICENSE及NOTICE.md，静态分发中保留THIRD-PARTY-NOTICES.txt。
 
 ## 8. 缓存、更新与回滚
 

@@ -2,6 +2,15 @@
   "name": "swu-campus-explorer",
   "private": true,
   "version": "0.1.0",
+  "description": "西大云游 · 西南大学北碚校区交互式三维校园地图",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moonpleasee/swu_3dmap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/moonpleasee/swu_3dmap/issues"
+  },
   "type": "module",
   "scripts": {
     "start": "node --env-file-if-exists=.env server/start.mjs",
@@ -9,7 +18,7 @@
     "admin": "node --env-file-if-exists=.env server/manage.mjs admin",
     "backup": "node --env-file-if-exists=.env server/manage.mjs backup",
     "dev": "vite --host 127.0.0.1 --port 4310",
-    "build": "vite build",
+    "build": "vite build && node scripts/pack-dist-data.mjs",
     "preview": "vite preview --host 127.0.0.1 --port 4310"
   },
   "dependencies": {

@@ -1,0 +1,17 @@
+name: 功能建议
+description: 提议新的地图体验或改进
+title: "[建议] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 想解决什么问题
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你的想法
+      description: 描述希望怎么操作、看到什么结果，可附参考资料。
+    validations:
+      required: true

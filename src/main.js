@@ -5,6 +5,7 @@ import { CampusScene } from './scene.js';
 import {communityState,fixedPlace,createPlace,addPhoto,addComment,addRating,addReply,getPlace} from './community-api.js';
 import {connectCommunity,loadPlace,api,currentUser,backendAvailable,moderation,communityEnabled} from './community-api.js';
 import {initAccount} from './account.js';
+import {unpackCampus,unpackTerrain} from './data-pack.js';
 
 const icons={
  search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/>',
@@ -223,11 +224,13 @@ mobileMedia.addEventListener('change',adaptExplorer);
 adaptExplorer();
 async function init(){
  try{
-  const [response,terrainResponse]=await Promise.all([fetch(`${import.meta.env.BASE_URL}data/campus.json`),fetch(`${import.meta.env.BASE_URL}data/terrain.json`)]);if(!response.ok||!terrainResponse.ok)throw new Error('校园或地形数据加载失败');data=await response.json();const terrain=await terrainResponse.json();
-  await connectCommunity();community=communityState();if(communityEnabled)initAccount(async()=>{community=communityState();scene.setCommunityMarkers(community.places.filter(p=>!p.fixedId));renderList();if(selected){const key=selected.id.startsWith('user:')?selected.id:'fixed:'+selected.id;await loadVisiblePlace(key);}});
-  $('create-place').hidden=!communityEnabled;
+  const [response,terrainResponse]=await Promise.all([fetch(`${import.meta.env.BASE_URL}data/campus.json`),fetch(`${import.meta.env.BASE_URL}data/terrain.json`)]);if(!response.ok||!terrainResponse.ok)throw new Error('校园或地形数据加载失败');data=unpackCampus(await response.json());const terrain=unpackTerrain(await terrainResponse.json());
+  // Community availability must never hold the 3D map behind a slow or
+  // unreachable API request, especially on a phone's mobile network.
+  const communityReady=connectCommunity();community=communityState();
+  $('create-place').hidden=true;
   scene=new CampusScene($('scene'),data,{terrain,onSelect:selectFeature,onMove:()=>{if(tourRunning){stopTour(false);toast('漫游已暂停，可自由查看校园');}},onReady:()=>{$('loading').classList.add('loaded');setTimeout(()=>$('loading').remove(),650);}});
-  scene.setCommunityMarkers(community.places.filter(p=>!p.fixedId));
+  scene.setCommunityMarkers([]);
   $('create-place').onclick=()=>{if(!currentUser){window.dispatchEvent(new Event('campus-login-required'));return;}mapPickPoint=null;scene.setMapPickMode(point=>{mapPickPoint=point;scene.setMapMarker(point);$('place-point').value=point.join(',');$('place-create-dialog').showModal();toast('位置已选定，可以确认或重新点击地图移动标记');});scene.setMapMarker(null);toast('请点击地图选择位置，再填写地点信息');};
   $('place-create-form').onsubmit=async e=>{e.preventDefault();if(!mapPickPoint){toast('请先在地图上选择位置');return;}try{const p=await createPlace({name:$('place-name').value,description:$('place-description').value,point:mapPickPoint});community=communityState();scene.setMapPickMode(null);scene.setCommunityMarkers(community.places.filter(p=>!p.fixedId));$('place-create-dialog').close();$('place-create-form').reset();mapPickPoint=null;renderList();selectCommunityPlace(p.id);toast(moderation==='manual'?'地点已保存，待审核后公开':'地点已创建');}catch(error){toast(error.message);}};
   document.querySelector('.model-badge').innerHTML='<i></i> DEM 地形 · 高差比例 1:1';
@@ -253,7 +256,17 @@ async function init(){
   const parseHash=()=>{const id=new URLSearchParams(location.hash.slice(1)).get('place');if(id&&featureById(id))selectById(id);};
   window.addEventListener('hashchange',parseHash);parseHash();
   setInterval(()=>{if(document.hidden||!backendAvailable||!selected||document.activeElement?.matches('input,textarea,select')||document.querySelector('dialog[open]'))return;loadVisiblePlace(selected.id.startsWith('user:')?selected.id:'fixed:'+selected.id);},15000);
-  window.__campusDebug={buildingCount:data.buildings.length,landmarkCount:data.landmarks.length,get activeId(){return scene.activeId;},get tourRunning(){return tourRunning;},get layers(){return Object.fromEntries(Object.entries(scene.layers).map(([k,v])=>[k,v.visible]));},get drawCalls(){return scene.renderer.info.render.calls;},get triangles(){return scene.renderer.info.render.triangles;}};
+  window.__campusDebug={buildingCount:data.buildings.length,landmarkCount:data.landmarks.length,get activeId(){return scene.activeId;},get tourRunning(){return tourRunning;},get layers(){return Object.fromEntries(Object.entries(scene.layers).map(([k,v])=>[k,v.visible]));},get drawCalls(){return scene.renderer.info.render.calls;},get triangles(){return scene.renderer.info.render.triangles;},get bootTimings(){return scene.bootTimings;},get geometryCount(){return scene.renderer.info.memory.geometries;},get roadMeshStats(){const g=scene.layers.roads.children[0]?.geometry;return g?{vertices:g.attributes.position.count,triangles:(g.index?.count||g.attributes.position.count)/3}:null;}};
+  void communityReady.then(()=>{
+   community=communityState();$('create-place').hidden=!communityEnabled;
+   if(communityEnabled)initAccount(async()=>{community=communityState();scene.setCommunityMarkers(community.places.filter(p=>!p.fixedId));renderList();if(selected){const key=selected.id.startsWith('user:')?selected.id:'fixed:'+selected.id;await loadVisiblePlace(key);}});
+   scene.setCommunityMarkers(community.places.filter(p=>!p.fixedId));renderList();
+   if(selected&&!$('detail').hidden){
+    const id=selected.id.startsWith('user:')?selected.id:'fixed:'+selected.id;
+    refreshCommunity(getPlace(id)||fixedPlace(selected.id,selected));
+    void loadVisiblePlace(id);
+   }
+  }).catch(error=>console.warn('社区服务暂不可用',error));
  }catch(error){console.error(error);$('loading').innerHTML=`${icon('info')}<strong>校园暂时没有展开</strong><span>请确认浏览器支持 WebGL，并通过本地服务打开网页。</span><button onclick="location.reload()">重新加载</button>`;}
 }
 init();
