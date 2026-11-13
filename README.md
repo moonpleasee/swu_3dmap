@@ -87,6 +87,8 @@ node scripts/check-packed-build.mjs
 
 验证记录见 [VALIDATION.md](VALIDATION.md)。修改建筑或研究资料前，请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [HANDOFF.md](HANDOFF.md)。历史生成脚本会重写数据，运行前需检查其输入与覆盖范围。
 
+日常开发、审查贡献与发布回退的操作见 [维护指南](MAINTAINER-GUIDE.md)，公开前的检查结果与平台待办见 [发布准备报告](PUBLICATION-REPORT.md)。
+
 ## 反馈与参与
 
 欢迎提交建筑名称纠错、模型照片参考、页面问题和功能建议，也欢迎通过 Pull Request 改进代码与资料。
