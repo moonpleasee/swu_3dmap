@@ -7,6 +7,7 @@ server-data/
 *.sqlite*
 backups/
 outputs/
+launch-assets/
 work/
 .env.*
 !.env.example

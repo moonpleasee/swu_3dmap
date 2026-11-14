@@ -2,13 +2,15 @@
 
 ## 当前项目位置与仓库分离
 
+2026-11-14仓库复查补齐Docker构建阶段所需的数据精简脚本、LICENSE和NOTICE，加入本机宣传素材及私密配置的忽略规则，移除网页未使用的旧微信小程序project.config.json。后端部署文档补充当前展示模式说明。机器未安装Docker，镜像构建尚未实测。
+
 唯一开发目录为 `D:\swu-campus-3d`。已将最新版连同独立.git、依赖、本地用户数据、研究资料和宣传素材从云校园目录整体迁出。迁移前后核对115个源码与本机重要文件哈希、HEAD和origin均一致。当前origin为https://github.com/moonpleasee/swu_3dmap.git，main分支。云校园共享仓库保留原有内容，本机稀疏检出排除swu-campus-3d目录，工作区保持干净。
 
 早期D盘副本的Git历史已导入个人仓库并推送标签 `archive/legacy-local-map-2026-11-14`，对应8cf50a2。已验证可从Git读回300栋地图数据。扫描含该旧版的15个提交，未检出密钥。
 
-旧副本手动清理后复核，work/migration-2026-11-14/local-archives和work/gates已不存在，work/public-release-2026-11-13/clean-checkout仍保留完整旧测试副本，尚待用户手动删除。该删除操作此前被自动审批以blocked by policy拒绝。32个代码及数据文件与迁移前哈希一致，Git标签可读回300栋旧版数据。原照片、视频与非Git资料的校验ZIP和Git bundle仍在work/migration-2026-11-14，现用595份原研究文件位于work/research-sources。
+用户完成手动清理后复核，work/migration-2026-11-14/local-archives、work/gates和work/public-release-2026-11-13/clean-checkout三个目录均已不存在，云校园原地图目录也不存在。此前32个代码及数据文件与迁移前哈希核对一致，Git标签可读回300栋旧版数据。原照片、视频与非Git资料的校验ZIP和Git bundle仍在work/migration-2026-11-14，现用595份原研究文件位于work/research-sources。
 
-早期C盘任务目录只保留AGENTS.md迁移指引。新路径生产构建、展示版与数据精简页面检查通过，390×844和1280×800可打开详情、无横向溢出或新增控制台错误。启动入口已从D盘新目录启动4311服务，健康接口返回backend:true。共享仓库HEAD、origin和其他文件索引哈希一致，工作区干净。下一步核对手动旧副本清理结果，仓库保持Private，由用户决定公开。
+早期C盘任务目录只保留AGENTS.md迁移指引。新路径生产构建、展示版与数据精简页面检查通过，390×844和1280×800可打开详情、无横向溢出或新增控制台错误。启动入口已从D盘新目录启动4311服务，健康接口返回backend:true。共享仓库HEAD、origin和其他文件索引哈希一致，工作区干净。本轮仓库复查完成，旧副本清理结果已确认。仓库保持Private，由用户决定公开，公开后落实平台保护设置。
 
 ## Git迁移 · 2026-11-02
 

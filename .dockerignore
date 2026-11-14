@@ -2,8 +2,14 @@ node_modules
 dist
 work
 outputs
+launch-assets
 server-data
 backups
 .git
 .env
+.env.*
+!.env.example
+project.private.config.json
+*.pem
+*.key
 *.sqlite*

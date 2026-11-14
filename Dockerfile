@@ -3,8 +3,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY index.html vite.config.js ./
+COPY LICENSE NOTICE.md ./
 COPY src ./src
 COPY public ./public
+COPY scripts/pack-dist-data.mjs ./scripts/pack-dist-data.mjs
 RUN npm run build
 FROM node:24-bookworm-slim
 ENV NODE_ENV=production HOST=0.0.0.0 PORT=4311 DATA_DIR=/data

@@ -236,3 +236,7 @@ Node24后端集成测试通过：未登录/越权拦截、来源校验、审核�
 新路径生产构建、preview-display-only及check-packed-build通过。390×844和1280×800页面、详情与单次校园数据请求检查通过。open-local启动的进程路径为D:\swu-campus-3d\scripts\local-server.mjs，4311健康接口返回backend:true。旧副本目录删除受自动审批限制，等待用户手动清理，校验归档已保存在本机work目录。
 
 用户手动清理后复核，local-archives与gates目录已删除，clean-checkout仍存在且包含完整旧测试代码。32个代码及数据文件哈希与迁移前一致，旧版Git标签能恢复300栋数据，备份ZIP及bundle仍在。云校园共享仓库本地状态干净。重启本地入口后4311健康检查通过。
+
+## 2026-11-14 最后仓库复查
+
+再次核对local-archives、gates、clean-checkout三个旧副本目录及云校园原地图目录，均已不存在。补齐Docker构建COPY输入，忽略本机宣传素材与私密构建上下文文件，移除未使用的小程序配置，并在后端部署资料中明确当前展示模式。文档链接和Docker输入路径检查通过，生产构建、preview-display-only与check-packed-build通过。当前机器没有Docker，镜像构建未实测。
