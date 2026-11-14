@@ -1,5 +1,9 @@
 # 当前接续摘要 · 2026-11-14
 
+## 当前公开状态
+
+用户已将moonpleasee/swu_3dmap改为Public，匿名API及README、LICENSE、NOTICE、反馈模板和手机/电脑截图均可访问。CODEOWNERS无语法错误。已启用main分支保护，普通写入者经PR、至少一次CODEOWNERS审核、GitHub Actions的verify检查、分支同步及讨论解决后合并，新提交使旧审批失效，限制强推与分支删除。为单人维护保留管理员例外（enforce_admins:false），管理员可绕过这些限制。私密漏洞报告已启用并通过GET复核，详情在本机work/public-release-2026-11-13/public-settings-verification.json。
+
 ## 当前项目位置与仓库分离
 
 2026-11-14仓库复查补齐Docker构建阶段所需的数据精简脚本、LICENSE和NOTICE，加入本机宣传素材及私密配置的忽略规则，移除网页未使用的旧微信小程序project.config.json。后端部署文档补充当前展示模式说明。机器未安装Docker，镜像构建尚未实测。
@@ -10,7 +14,7 @@
 
 用户完成手动清理后复核，work/migration-2026-11-14/local-archives、work/gates和work/public-release-2026-11-13/clean-checkout三个目录均已不存在，云校园原地图目录也不存在。此前32个代码及数据文件与迁移前哈希核对一致，Git标签可读回300栋旧版数据。原照片、视频与非Git资料的校验ZIP和Git bundle仍在work/migration-2026-11-14，现用595份原研究文件位于work/research-sources。
 
-早期C盘任务目录只保留AGENTS.md迁移指引。新路径生产构建、展示版与数据精简页面检查通过，390×844和1280×800可打开详情、无横向溢出或新增控制台错误。启动入口已从D盘新目录启动4311服务，健康接口返回backend:true。共享仓库HEAD、origin和其他文件索引哈希一致，工作区干净。本轮仓库复查完成，旧副本清理结果已确认。仓库保持Private，由用户决定公开，公开后落实平台保护设置。
+早期C盘任务目录只保留AGENTS.md迁移指引。新路径生产构建、展示版与数据精简页面检查通过，390×844和1280×800可打开详情、无横向溢出或新增控制台错误。启动入口已从D盘新目录启动4311服务，健康接口返回backend:true。共享仓库HEAD、origin和其他文件索引哈希一致，工作区干净。本轮仓库复查完成，旧副本清理结果已确认，当前公开及保护状态见本文件顶部。
 
 ## Git迁移 · 2026-11-02
 

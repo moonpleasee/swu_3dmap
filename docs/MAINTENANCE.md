@@ -50,8 +50,8 @@ npm run test:backend
 
 准备时的自动密钥扫描未检出问题。历史仍含旧研究快照、开发工具配置与作者元数据，自动扫描无法判断所有资料的公开和再分发权。
 
-仓库仍为 Private，Issues 已启用。GitHub API 明确返回当前套餐需升级 Pro 或先公开，才能启用分支保护。目前 main 尚未受保护，CODEOWNERS 和通过的 CI 本身不等于强制审核。
+仓库已于2026-11-14确认公开，README、许可、反馈模板及截图可匿名访问。Issues与私密漏洞报告均已启用。
 
-决定公开后，在仓库 Settings → General → Danger Zone 更改可见性。随后核对 main 分支保护、CI检查、PR审核和私密漏洞报告入口。单人维护时，审核规则需要兼顾作者无法批准自己PR的情况，按实际协作安排可信审核者或维护者例外权限。
+main已启用保护，普通写入者通过PR、CODEOWNERS审核和GitHub Actions的verify检查后合并，分支需同步最新main并解决讨论，新提交使旧审批失效。强推和分支删除受限制。为单人维护保留管理员例外，管理员可以绕过这些规则，日常仍按PR及检查流程处理。
 
-公开后检查源码下载、图片和 Issues 入口，按需创建 Release。当前授权为 [PolyForm Noncommercial 1.0.0](../LICENSE)，超出许可范围的商用需另行联系授权。第三方范围见 [NOTICE.md](../NOTICE.md)。
+可按需要创建Release记录版本。当前授权为 [PolyForm Noncommercial 1.0.0](../LICENSE)，超出许可范围的商用需另行联系授权。第三方范围见 [NOTICE.md](../NOTICE.md)。

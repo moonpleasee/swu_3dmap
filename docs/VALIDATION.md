@@ -240,3 +240,7 @@ Node24后端集成测试通过：未登录/越权拦截、来源校验、审核�
 ## 2026-11-14 最后仓库复查
 
 再次核对local-archives、gates、clean-checkout三个旧副本目录及云校园原地图目录，均已不存在。补齐Docker构建COPY输入，忽略本机宣传素材与私密构建上下文文件，移除未使用的小程序配置，并在后端部署资料中明确当前展示模式。文档链接和Docker输入路径检查通过，生产构建、preview-display-only与check-packed-build通过。当前机器没有Docker，镜像构建未实测。
+
+## 2026-11-14 公开访问与平台保护
+
+GitHub API确认仓库Public，匿名访问README、LICENSE、NOTICE、反馈模板、手机与电脑截图均返回200，原始文本及图片通过本机已配置的代理复核可访问。CODEOWNERS错误列表为空。main保护规则GET回读确认PR及1次CODEOWNERS审核、严格同步的verify检查（GitHub Actions app_id 15368）、旧审批失效、讨论解决要求、强推和删除限制均生效，管理员保留例外。私密漏洞报告启用后GET返回enabled:true。
