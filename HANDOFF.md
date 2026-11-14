@@ -6,7 +6,7 @@
 
 早期D盘副本的Git历史已导入个人仓库并推送标签 `archive/legacy-local-map-2026-11-14`，对应8cf50a2。已验证可从Git读回300栋地图数据。扫描含该旧版的15个提交，未检出密钥。
 
-旧源码、检查点和试验目录已集中到本机work区，删除操作两次被自动审批以blocked by policy拒绝。用户已明确授权删除旧副本，已给出三条手动清理命令，实际删除状态须现场核对。原照片、视频与非Git资料有SHA-256校验的ZIP备份，位于work/migration-2026-11-14。现用595份原研究文件导入work/research-sources。
+旧副本手动清理后复核，work/migration-2026-11-14/local-archives和work/gates已不存在，work/public-release-2026-11-13/clean-checkout仍保留完整旧测试副本，尚待用户手动删除。该删除操作此前被自动审批以blocked by policy拒绝。32个代码及数据文件与迁移前哈希一致，Git标签可读回300栋旧版数据。原照片、视频与非Git资料的校验ZIP和Git bundle仍在work/migration-2026-11-14，现用595份原研究文件位于work/research-sources。
 
 早期C盘任务目录只保留AGENTS.md迁移指引。新路径生产构建、展示版与数据精简页面检查通过，390×844和1280×800可打开详情、无横向溢出或新增控制台错误。启动入口已从D盘新目录启动4311服务，健康接口返回backend:true。共享仓库HEAD、origin和其他文件索引哈希一致，工作区干净。下一步核对手动旧副本清理结果，仓库保持Private，由用户决定公开。
 
