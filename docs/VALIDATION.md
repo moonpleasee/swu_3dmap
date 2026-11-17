@@ -270,3 +270,5 @@ preview-display-only与check-packed-build均通过，300栋完整数据还原一
 检查发现已有图层按钮被探索面板遮挡，色彩检查用程序触发图层弹窗，实际按钮点击路径待修。真实手机尚未复测。
 
 三维场景背景补齐为浅蓝#DCEEFF，背景平面采用MeshBasicMaterial并关闭色调映射，避免灯光将浅蓝染成灰色；背景平面不接收投影。黄昏和夜间分别使用#CFDEF3与#182B45。生产构建及preview-responsive六组尺寸通过，无页面或控制台错误。手机全景截图已查看，位于work/mobile-layout-2026-11-17/phone.png。产物index-DYLkJiQm.js。
+
+同日根据用户最新要求将土地基础色及底座侧面设为白色#FFFFFF，绿地图层关闭与单栋查看返回时使用相同白色。生产构建与preview-responsive六组视口通过，无页面或控制台错误，手机全景截图已查看。产物index-BP1ikdA_.js。
