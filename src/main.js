@@ -40,7 +40,7 @@ app.innerHTML=`
   </header>
   <aside class="explorer" id="explorer" aria-label="校园探索面板">
    <div class="intro"><div class="eyebrow"><span></span> 山城里的花园大学</div><h1>山水之间，<br>遇见西大<span>。</span></h1><p>把熟悉的校园，换个角度看。</p><div class="intro-rule"></div></div>
-   <div class="explore-heading"><div><h2>探索校园</h2></div><span id="landmark-count">12 处精选地标</span><button id="create-place" class="create-place-button">＋ 地点</button><button id="mobile-collapse" aria-expanded="true" aria-label="收起探索面板">⌄</button></div>
+   <div class="explore-heading"><div><h2>探索校园</h2></div><span id="landmark-count">12 处精选地标</span><button id="create-place" class="create-place-button" hidden>＋ 地点</button><button id="mobile-collapse" aria-expanded="true" aria-label="收起探索面板">⌄</button></div>
    <div class="explorer-content">
     <label class="search-box">${icon('search')}<input id="search" type="search" placeholder="搜索校园地点" autocomplete="off" aria-label="搜索校园建筑与地标"><button id="clear-search" type="button" aria-label="清除搜索" hidden>×</button></label>
     <div class="categories" aria-label="按类型筛选">${['全部','教学','宿舍','文化','运动','生活','风景','待核名'].map((c,i)=>`<button data-category="${c}" class="category ${i===0?'active':''}" aria-pressed="${i===0}">${c}</button>`).join('')}</div>

@@ -6,6 +6,8 @@
 
 preview-responsive已按新需求更新并通过390×844、1280×800、1440×900、900×700、360×640检查，覆盖居中、搜索、详情、弹窗、返回和复位。截图已查看，结果位于work/mobile-layout-2026-11-17。生产构建、preview-display-only与check-packed-build均通过，启动入口为http://127.0.0.1:4311/。README截图和部署说明已同步。
 
+首次加载覆盖问题已修正：地图容器层级0、加载遮罩6、探索面板8；地点创建按钮从初始HTML即隐藏，避免展示模式启动闪现。preview-responsive新增阻塞campus.json下载的慢加载检查，在390×844和1280×800验证探索面板位于加载遮罩上方并保存截图；已有六组尺寸交互检查继续执行。详见docs/VALIDATION.md。
+
 ## 当前公开状态
 
 用户已将moonpleasee/swu_3dmap改为Public，匿名API及README、LICENSE、NOTICE、反馈模板和手机/电脑截图均可访问。CODEOWNERS无语法错误。已启用main分支保护，普通写入者经PR、至少一次CODEOWNERS审核、GitHub Actions的verify检查、分支同步及讨论解决后合并，新提交使旧审批失效，限制强推与分支删除。为单人维护保留管理员例外（enforce_admins:false），管理员可绕过这些限制。私密漏洞报告已启用并通过GET复核，详情在本机work/public-release-2026-11-13/public-settings-verification.json。

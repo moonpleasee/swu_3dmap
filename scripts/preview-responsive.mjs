@@ -18,7 +18,38 @@ try{
   const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
   page.on('pageerror',error=>errors.push(error.message));
   page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
+  let releaseCampus;
+  const campusPending=new Promise(resolve=>{releaseCampus=resolve;});
+  await page.route('**/data/campus.json',async route=>{
+    await campusPending;
+    await route.continue();
+  });
   await page.goto(`http://127.0.0.1:${server.address().port}/`);
+  try{
+    await page.locator('#loading').waitFor({state:'visible'});
+    for(const [width,height,name] of [[390,844,'phone'],[1280,800,'desktop']]){
+      await page.setViewportSize({width,height});
+      await page.waitForFunction(({width,height})=>{
+        const shell=document.querySelector('.app-shell').getBoundingClientRect();
+        const expectedWidth=width>760?Math.min(height,430*16/9)*9/16:Math.min(width,430);
+        return innerWidth===width&&Math.abs(shell.width-expectedWidth)<1&&Math.abs(shell.x-(width-expectedWidth)/2)<1;
+      },{width,height});
+      const visibleAboveLoading=await page.evaluate(()=>{
+        const sheet=document.getElementById('explorer').getBoundingClientRect();
+        const loading=document.getElementById('loading').getBoundingClientRect();
+        const top=Math.max(sheet.top,loading.top);
+        const bottom=Math.min(sheet.bottom,loading.bottom);
+        if(bottom<=top)return {visible:false,sheet:sheet.toJSON(),loading:loading.toJSON()};
+        const target=document.elementFromPoint(sheet.left+sheet.width/2,(top+bottom)/2);
+        return {visible:!!target?.closest('#explorer'),target:target?.outerHTML.slice(0,160),sheet:sheet.toJSON(),loading:loading.toJSON()};
+      });
+      await page.screenshot({path:`${out}/loading-${name}.png`});
+      assert(visibleAboveLoading.visible,JSON.stringify(visibleAboveLoading));
+    }
+    await page.setViewportSize({width:390,height:844});
+  }finally{
+    releaseCampus();
+  }
   await page.waitForFunction(()=>window.__campusDebug,null,{timeout:120000});
   await page.locator('#loading').waitFor({state:'detached',timeout:120000});
   for(const [width,height,name] of [[390,844,'phone'],[1280,800,'desktop'],[1440,900,'wide'],[900,700,'compact'],[1280,600,'short-desktop'],[360,640,'small-phone']]){
@@ -64,7 +95,7 @@ try{
   }
   assert.deepEqual(errors,[]);
   await writeFile(`${out}/validation.json`,JSON.stringify({measurements,errors},null,2));
-  console.log('PASS 9:16 desktop preview, short windows, phone layout, search, detail, dialogs and reset');
+  console.log('PASS loading sheet visibility, 9:16 preview, phone layout, search, detail, dialogs and reset');
 }finally{
   await browser.close();
   await new Promise(resolve=>server.close(resolve));

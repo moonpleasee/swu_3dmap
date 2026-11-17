@@ -252,3 +252,9 @@ GitHub API确认仓库Public，匿名访问README、LICENSE、NOTICE、反馈模
 preview-display-only与check-packed-build均通过，300栋完整数据还原一致，各页面校园数据仅请求一次，社区写入API维持关闭。
 
 长度修正后，电脑宽屏预览改为9∶16并双向居中，最大430×764.44px，较矮窗口等比缩小。内部路由面板、地图视口和弹窗按画布高度计算。preview-responsive增加1280×600窗口，并检查画布比例、底部详情衔接和弹窗边界，六组尺寸通过，截图已查看。
+
+## 2026-11-17 首次加载遮挡修复
+
+降低加载遮罩层级，并将地图放入独立层叠上下文，探索面板保持在上方。展示模式初始HTML隐藏地点创建按钮。preview-responsive阻塞campus.json下载，在390×844和1280×800检查遮罩与探索面板重叠区域的实际命中元素，确认面板可见；loading-phone.png及loading-desktop.png已查看，位于work/mobile-layout-2026-11-17。数据恢复后继续检查六组尺寸下的搜索、详情、弹窗、返回与复位，无页面或控制台错误。此次为Edge模拟视口测试，真实手机尚未复测。
+
+生产构建、preview-display-only与check-packed-build通过，300栋建筑数据保持一致，校园数据请求一次，本地4311返回的入口与最新dist一致。
