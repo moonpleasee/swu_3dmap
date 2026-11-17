@@ -21,14 +21,19 @@ try{
   await page.goto(`http://127.0.0.1:${server.address().port}/`);
   await page.waitForFunction(()=>window.__campusDebug,null,{timeout:120000});
   await page.locator('#loading').waitFor({state:'detached',timeout:120000});
-  for(const [width,height,name] of [[390,844,'phone'],[1280,800,'desktop'],[1440,900,'wide'],[900,700,'compact'],[360,640,'small-phone']]){
+  for(const [width,height,name] of [[390,844,'phone'],[1280,800,'desktop'],[1440,900,'wide'],[900,700,'compact'],[1280,600,'short-desktop'],[360,640,'small-phone']]){
     await page.setViewportSize({width,height});
     const shell=await page.locator('.app-shell').boundingBox();
-    assert.equal(Math.round(shell.width),Math.min(width,430));
+    const previewHeight=width>760?Math.min(height,430*16/9):height;
+    const previewWidth=width>760?previewHeight*9/16:Math.min(width,430);
+    assert(Math.abs(shell.width-previewWidth)<1);
+    assert(Math.abs(shell.height-previewHeight)<1);
     assert(Math.abs(shell.x-(width-shell.width)/2)<1);
+    assert(Math.abs(shell.y-(height-shell.height)/2)<1);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width);
     assert.equal(await page.locator('#mobile-collapse').isVisible(),true);
     assert.equal(await page.locator('#explorer').evaluate(el=>el.classList.contains('collapsed')),true);
+    await page.locator('#search').blur();
     await page.waitForTimeout(1500);
     if(name==='phone'||name==='desktop')await page.screenshot({path:`${out}/${name}.png`});
     await page.locator('#mobile-collapse').click();
@@ -39,7 +44,9 @@ try{
     const contentWidth=await page.locator('.app-shell').evaluate(el=>el.clientWidth);
     assert(Math.abs(detail.x-shell.x)<2);
     assert(Math.abs(detail.width-contentWidth)<1);
-    assert(Math.abs(detail.height-height*.69)<2);
+    assert(Math.abs(detail.height-shell.height*.69)<2);
+    const map=await page.locator('#scene').boundingBox();
+    assert(map.y+map.height<=detail.y+12);
     assert.equal(await page.getByText('暂不开放',{exact:true}).isVisible(),true);
     await page.locator('#sources-open').click();
     const dialog=await page.locator('#sources-dialog').boundingBox();
@@ -57,7 +64,7 @@ try{
   }
   assert.deepEqual(errors,[]);
   await writeFile(`${out}/validation.json`,JSON.stringify({measurements,errors},null,2));
-  console.log('PASS shared phone layout at 390, 1280, 1440, 900 and 360px; search, detail, dialogs and reset');
+  console.log('PASS 9:16 desktop preview, short windows, phone layout, search, detail, dialogs and reset');
 }finally{
   await browser.close();
   await new Promise(resolve=>server.close(resolve));
