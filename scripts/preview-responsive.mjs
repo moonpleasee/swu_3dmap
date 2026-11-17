@@ -62,6 +62,8 @@ try{
     assert(Math.abs(shell.x-(width-shell.width)/2)<1);
     assert(Math.abs(shell.y-(height-shell.height)/2)<1);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width);
+    const fullMap=await page.locator('#scene').boundingBox();
+    assert(Math.abs(fullMap.y+fullMap.height-shell.y-shell.height)<2);
     assert.equal(await page.locator('#mobile-collapse').isVisible(),true);
     assert.equal(await page.locator('#explorer').evaluate(el=>el.classList.contains('collapsed')),true);
     await page.locator('#search').blur();
@@ -91,7 +93,7 @@ try{
     await page.locator('#reset').click();
     assert.equal(await page.locator('#explorer').evaluate(el=>el.classList.contains('collapsed')),true);
     await page.locator('#clear-search').click();
-    measurements.push({viewport:{width,height},shell,detail});
+    measurements.push({viewport:{width,height},shell,map:fullMap,detail});
   }
   assert.deepEqual(errors,[]);
   await writeFile(`${out}/validation.json`,JSON.stringify({measurements,errors},null,2));

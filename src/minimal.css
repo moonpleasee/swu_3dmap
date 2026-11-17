@@ -21,14 +21,14 @@ dialog h2{font-family:inherit;color:#243d52;letter-spacing:-.5px}.dialog-intro,.
 
 /* Shared light-blue interface accents, including map labels and loading states. */
 button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline-color:var(--accent)}
-#scene{background:#f3f8fc}
+#scene{background:#f3f8fc;bottom:0}
 #mobile-collapse,.search-box .icon,.view-tools button,.utility-tools button{color:var(--accent)}
 .view-tools>span{background:var(--line)}
 .view-tools button:hover,.utility-tools button:hover,.header-right .text-button:hover{background:var(--accent-soft);color:var(--accent)}
 .categories .category:hover:not(.active){background:var(--accent-soft)!important;color:var(--accent)!important}
 .landmark-item:hover,.landmark-item.selected{background:var(--accent-soft)!important}
 .place-icon,.nature-icon{color:#6997bb!important}
-.loading{background:linear-gradient(180deg,#f7fbff,#eaf4fc);color:var(--accent)}
+.loading{bottom:0;background:#f3f8fc;color:var(--accent)}
 .loading>span{color:var(--ink-soft)}
 .loader-orbit{border-color:#c9e0f3;border-top-color:var(--accent)}
 .loading>button,.inspect-button{background:var(--accent-soft)!important;color:var(--accent)!important}

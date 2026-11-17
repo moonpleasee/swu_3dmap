@@ -274,3 +274,5 @@ preview-display-only与check-packed-build均通过，300栋完整数据还原一
 同日根据用户最新要求将土地基础色及底座侧面设为白色#FFFFFF，绿地图层关闭与单栋查看返回时使用相同白色。生产构建与preview-responsive六组视口通过，无页面或控制台错误，手机全景截图已查看。产物index-BP1ikdA_.js。
 
 用户反馈白色效果不明显后，核对4311入口与dist一致，定位地表的ACES色调映射压缩亮度并叠加有色光照。地表与底座侧面材质设置toneMapped:false，使用原有Standard材质光照与投影。地表网格内绿地的曝光响应也随之调整。生产构建与preview-responsive六组视口通过，无控制台错误。手机全景截图已查看，白色土地显著变亮；产物index-BAPIH5IE.js。
+
+进一步按用户要求将土地侧面设为纯白MeshBasicMaterial，侧面不受光照着色且不接收投影，边界线同步白色。日间背景统一为探索面板后方原底色#F3F8FC，地图与加载画布延伸到底部。preview-responsive增加全景地图触达画布底部的断言，六组尺寸通过，preview-display-only通过。截图已查看；手机截图在原分界线上下采样背景颜色一致（面板阴影容差6色阶），无新增控制台错误。产物index-ChwewVzi.js、index-b3b2dRr1.css。
