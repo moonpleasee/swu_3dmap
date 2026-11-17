@@ -164,7 +164,7 @@ export class CampusScene {
   }
   buildGround(){
     const perimeter=boundaryPoints(this.data.boundary,this.terrain,-.01);
-    const base=new THREE.Mesh(skirtGeometry(perimeter,this.terrain.bottom),mat('#b6c39f',{side:THREE.DoubleSide}));
+    const base=new THREE.Mesh(skirtGeometry(perimeter,this.terrain.bottom),mat('#d6c5a8',{side:THREE.DoubleSide}));
     base.receiveShadow=true;this.scene.add(base);
     const geometry=terrainGeometry(this.data.boundary,[],(x,z)=>this.terrain.sample(x,z)-.01,this.mobileQuality?.9:.65,this.terrain);
     // The terrain is a complete visual skin over the raised campus base. Roads
@@ -310,7 +310,7 @@ export class CampusScene {
       Object.values(this.layers).forEach(g=>g.visible=false);this.labelHost.hidden=true;this.boundaryLine.visible=false;
     }else{
       for(const [k,v] of Object.entries(this.savedLayerVisibility||{}))this.layers[k].visible=v;
-      this.terrainMaterial.vertexColors=this.layers.nature.visible;this.terrainMaterial.color.set(this.layers.nature.visible?'#ffffff':'#c6d1b1');this.terrainMaterial.needsUpdate=true;
+      this.terrainMaterial.vertexColors=this.layers.nature.visible;this.terrainMaterial.color.set(this.layers.nature.visible?'#ffffff':'#eadfc9');this.terrainMaterial.needsUpdate=true;
       this.labelHost.hidden=this.labelsVisible===false;this.boundaryLine.visible=true;
       this.selection.visible=this.layers.buildings.visible;
     }
@@ -425,7 +425,7 @@ export class CampusScene {
   setLayer(key,enabled){
     if(this.inspectionMode&&key!=='labels'){this.savedLayerVisibility[key]=enabled;return;}
     if(key==='labels'){this.labelsVisible=enabled;this.labelHost.hidden=!enabled||!!this.inspectionMode;}
-    else {this.layers[key].visible=enabled;if(key==='buildings')this.selection.visible=enabled;if(key==='nature'){this.terrainMaterial.vertexColors=enabled;this.terrainMaterial.color.set(enabled?'#ffffff':'#c6d1b1');this.terrainMaterial.needsUpdate=true;}}
+    else {this.layers[key].visible=enabled;if(key==='buildings')this.selection.visible=enabled;if(key==='nature'){this.terrainMaterial.vertexColors=enabled;this.terrainMaterial.color.set(enabled?'#ffffff':'#eadfc9');this.terrainMaterial.needsUpdate=true;}}
   }
   setTime(mode){
     this.isNight=mode==='night';

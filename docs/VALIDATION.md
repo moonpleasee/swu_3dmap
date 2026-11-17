@@ -258,3 +258,7 @@ preview-display-only与check-packed-build均通过，300栋完整数据还原一
 降低加载遮罩层级，并将地图放入独立层叠上下文，探索面板保持在上方。展示模式初始HTML隐藏地点创建按钮。preview-responsive阻塞campus.json下载，在390×844和1280×800检查遮罩与探索面板重叠区域的实际命中元素，确认面板可见；loading-phone.png及loading-desktop.png已查看，位于work/mobile-layout-2026-11-17。数据恢复后继续检查六组尺寸下的搜索、详情、弹窗、返回与复位，无页面或控制台错误。此次为Edge模拟视口测试，真实手机尚未复测。
 
 生产构建、preview-display-only与check-packed-build通过，300栋建筑数据保持一致，校园数据请求一次，本地4311返回的入口与最新dist一致。
+
+## 2026-11-17 浅暖米色地面
+
+土地基础色调整为#EADFC9，底座侧面#D6C5A8，绿地图层关闭及单栋查看返回时使用相同基础色。生产构建、preview-responsive六组尺寸交互及check-packed-build通过，无新增页面或控制台错误，300栋建筑数据一致。已查看work/mobile-layout-2026-11-17/phone.png全景截图，地面呈浅暖米色。新增JS产物为index-BvrJWD-u.js。真实手机尚未复测。

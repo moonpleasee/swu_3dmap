@@ -119,7 +119,7 @@ export function colorTerrain(geometry,terrain){
     normals[i*3]=n.x;normals[i*3+1]=n.y;normals[i*3+2]=n.z;
   }
   g.setAttribute('normal',new THREE.BufferAttribute(normals,3));
-  const base=new THREE.Color('#c6d1b1'),green=new THREE.Color('#9fb787');
+  const base=new THREE.Color('#eadfc9'),green=new THREE.Color('#9fb787');
   for(let i=0;i<p.count;i+=3){
     const x=(p.getX(i)+p.getX(i+1)+p.getX(i+2))/3,z=(p.getZ(i)+p.getZ(i+1)+p.getZ(i+2))/3;
     const covered=terrain.greens.some(f=>x>=f.bounds.x0&&x<=f.bounds.x1&&z>=f.bounds.z0&&z<=f.bounds.z1&&contains([x,z],f.polygon)&&!f.holes.some(h=>contains([x,z],h)));
