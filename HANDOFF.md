@@ -2,7 +2,7 @@
 
 ## 当前界面方向
 
-2026-11-17最新背景为日间#F3F8FC，取自探索面板后方原底色，黄昏#CFDEF3、夜间#182B45。地图与加载画布延伸至页面底部，消除原bottom:110px留下的底色色块。场景背景与外围背景平面同步；平面使用MeshBasicMaterial且不接收投影。生产构建、preview-responsive六组视口及preview-display-only通过，全景截图已查看，产物index-ChwewVzi.js、index-b3b2dRr1.css。
+2026-11-17最新日间背景根据用户要求改为淡绿#F1F7EF，场景、外围背景平面、页面底色、两阶段加载背景与浏览器主题色同步；黄昏#CFDEF3、夜间#182B45。地图与加载画布延伸至页面底部，消除原bottom:110px留下的底色色块。背景平面使用MeshBasicMaterial且不接收投影。生产构建及preview-responsive六组视口通过，全景截图已查看，原分界线上下像素采样符合淡绿底色（面板阴影容差6色阶）。产物index-DTzrVA0J.js、index-DiPQ2zF5.css。
 
 2026-11-17界面统一浅蓝色系，主强调色#326D9F、浅色底#E6F2FC、开关#8FC0E6、深蓝灰文字#243D52，覆盖搜索、分类、按钮、地图楼名标签、详情、资料链接、弹窗及两阶段加载提示。仅修改index.html、src/minimal.css、src/community-ui.css。生产构建、preview-responsive六组尺寸与preview-display-only通过；六类界面可见文字/背景/边框扫描未发现残留绿色，无控制台错误，截图在work/light-blue-ui-2026-11-17。
 
