@@ -272,3 +272,5 @@ preview-display-only与check-packed-build均通过，300栋完整数据还原一
 三维场景背景补齐为浅蓝#DCEEFF，背景平面采用MeshBasicMaterial并关闭色调映射，避免灯光将浅蓝染成灰色；背景平面不接收投影。黄昏和夜间分别使用#CFDEF3与#182B45。生产构建及preview-responsive六组尺寸通过，无页面或控制台错误。手机全景截图已查看，位于work/mobile-layout-2026-11-17/phone.png。产物index-DYLkJiQm.js。
 
 同日根据用户最新要求将土地基础色及底座侧面设为白色#FFFFFF，绿地图层关闭与单栋查看返回时使用相同白色。生产构建与preview-responsive六组视口通过，无页面或控制台错误，手机全景截图已查看。产物index-BP1ikdA_.js。
+
+用户反馈白色效果不明显后，核对4311入口与dist一致，定位地表的ACES色调映射压缩亮度并叠加有色光照。地表与底座侧面材质设置toneMapped:false，使用原有Standard材质光照与投影。地表网格内绿地的曝光响应也随之调整。生产构建与preview-responsive六组视口通过，无控制台错误。手机全景截图已查看，白色土地显著变亮；产物index-BAPIH5IE.js。

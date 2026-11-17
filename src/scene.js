@@ -164,14 +164,14 @@ export class CampusScene {
   }
   buildGround(){
     const perimeter=boundaryPoints(this.data.boundary,this.terrain,-.01);
-    const base=new THREE.Mesh(skirtGeometry(perimeter,this.terrain.bottom),mat('#ffffff',{side:THREE.DoubleSide}));
+    const base=new THREE.Mesh(skirtGeometry(perimeter,this.terrain.bottom),mat('#ffffff',{side:THREE.DoubleSide,toneMapped:false}));
     base.receiveShadow=true;this.scene.add(base);
     const geometry=terrainGeometry(this.data.boundary,[],(x,z)=>this.terrain.sample(x,z)-.01,this.mobileQuality?.9:.65,this.terrain);
     // The terrain is a complete visual skin over the raised campus base. Roads
     // remain a separate, slightly lifted surface; cutting their outline out
     // of the terrain would expose the base wall whenever the road layer is
     // hidden or a clipped junction does not cover every pixel.
-    const top=new THREE.Mesh(colorTerrain(geometry,this.terrain),mat('#ffffff',{vertexColors:true,transparent:false,opacity:1,depthWrite:true,side:THREE.DoubleSide}));
+    const top=new THREE.Mesh(colorTerrain(geometry,this.terrain),mat('#ffffff',{vertexColors:true,transparent:false,opacity:1,depthWrite:true,side:THREE.DoubleSide,toneMapped:false}));
     top.receiveShadow=true;this.scene.add(top);
     this.layers.contours.add(new THREE.LineSegments(contourGeometry(geometry,this.terrain.raster.datumMeters+.1),new THREE.LineBasicMaterial({color:'#67774f',transparent:true,opacity:.48})));geometry.dispose();
     this.terrainMaterial=top.material;
