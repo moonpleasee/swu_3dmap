@@ -1,83 +1,66 @@
-import { chromium } from 'playwright';
+import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
-import { mkdir, writeFile } from 'node:fs/promises';
+import {mkdir,mkdtemp,rm,writeFile} from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import {createApp} from '../server/app.mjs';
 
-const out = 'work/responsive-2026-10-27';
-await mkdir(out, { recursive: true });
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
-const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
-const page = await context.newPage();
-const errors = [];
-page.on('pageerror', error => errors.push(error.message));
-const boxes = () => page.evaluate(() => Object.fromEntries(['.app-shell', '#scene', '#explorer', '#detail'].map(selector => {
-  const element = document.querySelector(selector);
-  const { x, y, width, height } = element.getBoundingClientRect();
-  return [selector, { x, y, width, height, visible: getComputedStyle(element).display !== 'none' }];
-})));
-
-try {
-  await page.goto('http://127.0.0.1:4311/', { waitUntil: 'domcontentloaded', timeout: 120000 });
-  await page.waitForFunction(() => window.__campusDebug, null, { timeout: 120000 });
-  await page.locator('#loading').waitFor({ state: 'detached', timeout: 120000 });
-  const phone = await boxes();
-  assert.equal(Math.round(phone['.app-shell'].width), 390);
-  assert.equal(await page.locator('#mobile-collapse').isVisible(), true);
-  assert.equal(await page.locator('.bottom-controls .time-switch').isVisible(), false);
-  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 390);
-  await page.screenshot({ path: `${out}/phone.png` });
-
-  await page.setViewportSize({ width: 1280, height: 800 });
-  await page.waitForFunction(() => {
-    const scene = document.querySelector('#scene').getBoundingClientRect();
-    const explorer = document.querySelector('#explorer').getBoundingClientRect();
-    return scene.x >= explorer.right && scene.width > 700 && !document.querySelector('#explorer').classList.contains('collapsed');
-  });
-  const desktop = await boxes();
-  assert.equal(Math.round(desktop['.app-shell'].width), 1280);
-  assert(desktop['#explorer'].x < desktop['#scene'].x);
-  assert(desktop['#scene'].width > 700);
-  assert.equal(await page.locator('#mobile-collapse').isVisible(), false);
-  assert.equal(await page.locator('.landmark-list').isVisible(), true);
-  assert.equal(await page.locator('.bottom-controls .time-switch').isVisible(), true);
-  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 1280);
-  await page.screenshot({ path: `${out}/desktop.png` });
-
-  await page.locator('.landmark-item').first().click();
-  await page.locator('#detail').waitFor({ state: 'visible' });
-  const detail = await boxes();
-  assert(detail['#detail'].x > detail['#explorer'].x + detail['#explorer'].width);
-  assert(detail['#detail'].height > 500);
-  assert(detail['#scene'].width > 400);
-  await page.screenshot({ path: `${out}/desktop-detail.png` });
-  await page.locator('#detail-close').click();
-  assert.equal(await page.locator('#detail').isVisible(), false);
-  assert.equal(await page.locator('.landmark-list').isVisible(), true);
-  await page.locator('#reset').click();
-  assert.equal(await page.locator('#explorer').evaluate(element => element.classList.contains('collapsed')), false);
-  assert.equal(await page.locator('.landmark-list').isVisible(), true);
-
-  await page.setViewportSize({ width: 900, height: 700 });
-  const compact = await boxes();
-  assert(compact['#scene'].width > 500);
-  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 900);
-  await page.screenshot({ path: `${out}/compact-desktop.png` });
-
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.waitForFunction(() => document.querySelector('#mobile-collapse').getBoundingClientRect().width > 0);
-  assert.equal(await page.locator('#mobile-collapse').isVisible(), true);
-  await page.locator('#mobile-collapse').click();
-  await page.locator('.landmark-item').first().click();
-  await page.locator('#detail').waitFor({ state: 'visible' });
-  const phoneDetail = await boxes();
-  assert(phoneDetail['#detail'].height > 540);
-  assert(phoneDetail['#detail'].width >= 388 && phoneDetail['#detail'].width <= 390);
-  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 390);
-  await page.screenshot({ path: `${out}/phone-detail.png` });
-  assert.deepEqual(errors, []);
-
-  const report = { phone, desktop, desktopDetail: detail, compact, phoneDetail, errors };
-  await writeFile(`${out}/validation.json`, JSON.stringify(report, null, 2));
-  console.log('PASS responsive phone, desktop, detail and compact desktop');
-} finally {
+const out='work/mobile-layout-2026-11-17';
+await mkdir(out,{recursive:true});
+const dir=await mkdtemp(path.join(os.tmpdir(),'swu-phone-layout-'));
+const {app,db}=await createApp({dir,communityEnabled:false});
+const server=app.listen(0,'127.0.0.1');
+await new Promise(resolve=>server.once('listening',resolve));
+const browser=await chromium.launch({channel:'msedge',headless:true});
+const errors=[];
+const measurements=[];
+try{
+  const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
+  page.on('pageerror',error=>errors.push(error.message));
+  page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
+  await page.goto(`http://127.0.0.1:${server.address().port}/`);
+  await page.waitForFunction(()=>window.__campusDebug,null,{timeout:120000});
+  await page.locator('#loading').waitFor({state:'detached',timeout:120000});
+  for(const [width,height,name] of [[390,844,'phone'],[1280,800,'desktop'],[1440,900,'wide'],[900,700,'compact'],[360,640,'small-phone']]){
+    await page.setViewportSize({width,height});
+    const shell=await page.locator('.app-shell').boundingBox();
+    assert.equal(Math.round(shell.width),Math.min(width,430));
+    assert(Math.abs(shell.x-(width-shell.width)/2)<1);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width);
+    assert.equal(await page.locator('#mobile-collapse').isVisible(),true);
+    assert.equal(await page.locator('#explorer').evaluate(el=>el.classList.contains('collapsed')),true);
+    await page.waitForTimeout(1500);
+    if(name==='phone'||name==='desktop')await page.screenshot({path:`${out}/${name}.png`});
+    await page.locator('#mobile-collapse').click();
+    await page.locator('#search').fill('中心图书馆');
+    await page.locator('.landmark-item[data-place="350242168"]').click();
+    await page.locator('#detail').waitFor({state:'visible'});
+    const detail=await page.locator('#detail').boundingBox();
+    const contentWidth=await page.locator('.app-shell').evaluate(el=>el.clientWidth);
+    assert(Math.abs(detail.x-shell.x)<2);
+    assert(Math.abs(detail.width-contentWidth)<1);
+    assert(Math.abs(detail.height-height*.69)<2);
+    assert.equal(await page.getByText('暂不开放',{exact:true}).isVisible(),true);
+    await page.locator('#sources-open').click();
+    const dialog=await page.locator('#sources-dialog').boundingBox();
+    assert(dialog.x>=shell.x-1&&dialog.x+dialog.width<=shell.x+shell.width+1);
+    await page.locator('#sources-dialog [data-close]').click();
+    await page.waitForTimeout(1500);
+    if(name==='desktop')await page.screenshot({path:`${out}/desktop-detail.png`});
+    await page.locator('#detail-close').click();
+    assert.equal(await page.locator('#search').inputValue(),'中心图书馆');
+    assert.equal(await page.locator('.landmark-list').isVisible(),true);
+    await page.locator('#reset').click();
+    assert.equal(await page.locator('#explorer').evaluate(el=>el.classList.contains('collapsed')),true);
+    await page.locator('#clear-search').click();
+    measurements.push({viewport:{width,height},shell,detail});
+  }
+  assert.deepEqual(errors,[]);
+  await writeFile(`${out}/validation.json`,JSON.stringify({measurements,errors},null,2));
+  console.log('PASS shared phone layout at 390, 1280, 1440, 900 and 360px; search, detail, dialogs and reset');
+}finally{
   await browser.close();
+  await new Promise(resolve=>server.close(resolve));
+  db.close();
+  await rm(dir,{recursive:true,force:true});
 }

@@ -43,7 +43,7 @@ try{
     assert.equal(await page.evaluate(()=>window.__campusDebug.buildingCount),source.campus.buildings.length);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width);
     assert.equal(campusRequests.length,1,`campus.json fetched ${campusRequests.length} times at ${width}px`);
-    if(width===390)await page.locator('#mobile-collapse').click();
+    await page.locator('#mobile-collapse').click();
     await page.locator('.landmark-item').first().click();
     await page.locator('#detail').waitFor({state:'visible'});
     assert(await page.locator('#detail h2').textContent());
