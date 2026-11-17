@@ -107,7 +107,7 @@ export class CampusScene {
     const roadBlocked=[...data.buildings,...data.surfaces.filter(f=>f.kind==='water')];
     this.roadPolygons=buildRoadPolygons(data.roads,roadBlocked);
     bootStep('roadPolygons');
-    this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#edece3');
+    this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#dceeff');
     this.camera=new THREE.PerspectiveCamera(37,1,.15,2200);
     this.renderer=new THREE.WebGLRenderer({antialias:!this.mobileQuality,alpha:false,preserveDrawingBuffer:!this.mobileQuality});
     this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.mobileQuality?1.35:1.7));
@@ -176,8 +176,8 @@ export class CampusScene {
     this.layers.contours.add(new THREE.LineSegments(contourGeometry(geometry,this.terrain.raster.datumMeters+.1),new THREE.LineBasicMaterial({color:'#67774f',transparent:true,opacity:.48})));geometry.dispose();
     this.terrainMaterial=top.material;
     this.campusBase=[base,top];
-    const ground=new THREE.Mesh(new THREE.PlaneGeometry(3000,3000),mat('#edece3'));
-    ground.rotation.x=-Math.PI/2;ground.position.y=-2.65;ground.receiveShadow=true;this.scene.add(ground);this.ground=ground;
+    const ground=new THREE.Mesh(new THREE.PlaneGeometry(3000,3000),new THREE.MeshBasicMaterial({color:'#dceeff',toneMapped:false}));
+    ground.rotation.x=-Math.PI/2;ground.position.y=-2.65;this.scene.add(ground);this.ground=ground;
     this.boundaryLine=new THREE.Line(new THREE.BufferGeometry().setFromPoints(boundaryPoints(this.data.boundary,this.terrain,.01)),new THREE.LineBasicMaterial({color:'#f9f7e9'}));
     this.scene.add(this.boundaryLine);
   }
@@ -429,7 +429,7 @@ export class CampusScene {
   }
   setTime(mode){
     this.isNight=mode==='night';
-    const themes={day:{bg:'#edece3',sky:'#f9fbff',ground:'#7c8e69',sun:'#fff2d8',sunPower:3.15,hemi:2.65,exposure:1.12,pos:[-100,190,100]},dusk:{bg:'#e8d9cb',sky:'#fce5cf',ground:'#766d63',sun:'#ffc08a',sunPower:3.5,hemi:1.7,exposure:1.1,pos:[-180,80,70]},night:{bg:'#1c2d35',sky:'#7598b8',ground:'#263c37',sun:'#9ebcda',sunPower:1.2,hemi:1.1,exposure:.98,pos:[-100,190,100]}};
+    const themes={day:{bg:'#dceeff',sky:'#f9fbff',ground:'#7c8e69',sun:'#fff2d8',sunPower:3.15,hemi:2.65,exposure:1.12,pos:[-100,190,100]},dusk:{bg:'#cfdef3',sky:'#fce5cf',ground:'#766d63',sun:'#ffc08a',sunPower:3.5,hemi:1.7,exposure:1.1,pos:[-180,80,70]},night:{bg:'#182b45',sky:'#7598b8',ground:'#263c37',sun:'#9ebcda',sunPower:1.2,hemi:1.1,exposure:.98,pos:[-100,190,100]}};
     const t=themes[mode];this.scene.background.set(t.bg);this.ground.material.color.set(t.bg);this.hemi.color.set(t.sky);this.hemi.groundColor.set(t.ground);this.hemi.intensity=t.hemi;
     this.sun.color.set(t.sun);this.sun.intensity=t.sunPower;this.sun.position.set(...t.pos);this.renderer.toneMappingExposure=t.exposure;
     for(const material of this.glassMaterials)material.emissiveIntensity=this.isNight?1.3:mode==='dusk'?.2:0;

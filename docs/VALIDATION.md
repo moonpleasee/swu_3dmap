@@ -268,3 +268,5 @@ preview-display-only与check-packed-build均通过，300栋完整数据还原一
 界面按钮、输入框、选中与悬停状态、文字、地图楼名标签、弹窗、加载动画及浏览器主题色统一为浅蓝配色。主色#326D9F，浅底#E6F2FC。生产构建、preview-responsive六组视口和preview-display-only通过。对全景、探索目录、图层、关于、建筑详情和展开资料六种状态扫描可见DOM的文字/背景/边框，残留绿色为0，控制台错误为0；截图及报告位于work/light-blue-ui-2026-11-17，已查看探索、加载、详情、图层及关于画面。产物index-7cQp2SjH.css与index-jtmeJxec.js。
 
 检查发现已有图层按钮被探索面板遮挡，色彩检查用程序触发图层弹窗，实际按钮点击路径待修。真实手机尚未复测。
+
+三维场景背景补齐为浅蓝#DCEEFF，背景平面采用MeshBasicMaterial并关闭色调映射，避免灯光将浅蓝染成灰色；背景平面不接收投影。黄昏和夜间分别使用#CFDEF3与#182B45。生产构建及preview-responsive六组尺寸通过，无页面或控制台错误。手机全景截图已查看，位于work/mobile-layout-2026-11-17/phone.png。产物index-DYLkJiQm.js。
